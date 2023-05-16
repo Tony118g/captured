@@ -15,3 +15,14 @@ a {
 a:hover {
     text-decoration: none;
 }
+
+a:hover i {
+    color: #DCBBB6;
+    transition: color ease-in-out 0.2s;
+}
+
+i {
+    padding: 10px;
+    vertical-align: middle;
+    color: #5A5A5A;
+}
