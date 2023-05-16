@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Container, Form, Button } from "react-bootstrap";
 import styles from "../../styles/LogInSignUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
 const SignUpForm = () => {
+    const [signUpData, setSignUpData] = useState({
+        username: '',
+        password1: '',
+        password2: '',
+    })
+    const { username, password1, password2 } = signUpData;
+
+    const handleChange = (event) => {
+        setSignUpData({
+            ...signUpData,
+            [event.target.name]: event.target.value,
+        });
+    };
+
     return (
         <div>
             <Container
@@ -19,16 +33,20 @@ const SignUpForm = () => {
                             type="text"
                             placeholder="Username"
                             name="username"
+                            value={username}
+                            onChange={handleChange}
                         />
                     </Form.Group>
 
-                    <Form.Group controlId="password">
+                    <Form.Group controlId="password1">
                         <Form.Label className="d-none">Password</Form.Label>
                         <Form.Control
                             className={styles.Input}
                             type="password"
                             placeholder="Password"
-                            name="password"
+                            name="password1"
+                            value={password1}
+                            onChange={handleChange}
                         />
                     </Form.Group>
 
@@ -39,6 +57,8 @@ const SignUpForm = () => {
                             type="password"
                             placeholder="Confirm password"
                             name="password2"
+                            value={password2}
+                            onChange={handleChange}
                         />
                     </Form.Group>
 
