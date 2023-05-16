@@ -1,0 +1,17 @@
+.App {
+    font-family: "PT Sans", sans-serif;
+    min-height: 100vh;
+}
+
+* {
+    box-sizing: border-box;
+  }
+
+a {
+    color: black !important;
+    font-weight: 100;
+  }
+  
+a:hover {
+    text-decoration: none;
+}
