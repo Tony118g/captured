@@ -1,16 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Container, Form, Button } from "react-bootstrap";
+import styles from "../../styles/LogInSignUpForm.module.css";
+import btnStyles from "../../styles/Button.module.css";
 
 const SignUpForm = () => {
     return (
         <div>
-            <Container>
-                <h1>Sign up</h1>
-                <Form>
+            <Container
+                className={`${styles.Container} p-4 text-center `}
+            >
+                <h1 className={styles.Heading}>Sign up</h1>
+                <Form className="mb-4">
                     <Form.Group controlId="username">
-                        <Form.Label>Username</Form.Label>
+                        <Form.Label className="d-none">Username</Form.Label>
                         <Form.Control
+                            className={styles.Input}
                             type="text"
                             placeholder="Username"
                             name="username"
@@ -18,8 +23,9 @@ const SignUpForm = () => {
                     </Form.Group>
 
                     <Form.Group controlId="password">
-                        <Form.Label>Password</Form.Label>
+                        <Form.Label className="d-none">Password</Form.Label>
                         <Form.Control
+                            className={styles.Input}
                             type="password"
                             placeholder="Password"
                             name="password"
@@ -27,20 +33,22 @@ const SignUpForm = () => {
                     </Form.Group>
 
                     <Form.Group controlId="password2">
-                        <Form.Label>Confirm password</Form.Label>
+                        <Form.Label className="d-none">Confirm password</Form.Label>
                         <Form.Control
+                            className={styles.Input}
                             type="password"
                             placeholder="Confirm password"
                             name="password2"
                         />
                     </Form.Group>
 
-                    <Button variant="primary" type="submit">
+                    <Button
+                        className={`${btnStyles.Button} ${btnStyles.Bright}`}
+                        type="submit"
+                    >
                         sign up
                     </Button>
                 </Form>
-            </Container>
-            <Container>
                 <Link to="/login">
                     Already have an account? <span>Log in here</span>
                 </Link>
