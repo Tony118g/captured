@@ -1,0 +1,13 @@
+.NavBar {
+    background-color: #DDDCCC;
+    box-shadow:  1px 1px 5px #5A5A5A;
+}
+
+a {
+    font-size: 1.2rem;
+    padding-bottom: 0 !important;
+}
+
+a:hover:not(.Logo) {
+    border-bottom: 1px solid #5A5A5A;
+}
