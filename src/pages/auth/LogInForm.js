@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { Container, Form, Button } from "react-bootstrap";
+import { Container, Form, Button, Alert } from "react-bootstrap";
 import styles from "../../styles/LogInSignUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import axios from "axios";
 
 const LogInForm = () => {
-
     const [logInData, setLogInData] = useState({
         username: '',
         password: '',
     })
 
     const { username, password } = logInData;
+
+    const [errors, setErrors] = useState({});
 
     const history = useHistory();
 
@@ -29,6 +30,7 @@ const LogInForm = () => {
             await axios.post("/dj-rest-auth/login/", logInData);
             history.push("/");
         } catch (err) {
+            setErrors(err.response?.data);
         }
     };
 
@@ -49,6 +51,12 @@ const LogInForm = () => {
                         />
                     </Form.Group>
 
+                    {errors.username?.map((message, idx) => (
+                        <Alert key={idx} variant="warning">
+                            {message}
+                        </Alert>
+                    ))}
+
                     <Form.Group controlId="password">
                         <Form.Label className="d-none">Password</Form.Label>
                         <Form.Control
@@ -61,15 +69,27 @@ const LogInForm = () => {
                         />
                     </Form.Group>
 
+                    {errors.password?.map((message, idx) => (
+                        <Alert variant="warning" key={idx}>
+                            {message}
+                        </Alert>
+                    ))}
+
                     <Button
                         className={`${btnStyles.Button} ${btnStyles.Bright}`}
                         type="submit"
                     >
                         Log In
                     </Button>
+
+                    {errors.non_field_errors?.map((message, idx) => (
+                        <Alert variant="warning" key={idx} className="mt-3">
+                            {message}
+                        </Alert>
+                    ))}
                 </Form>
                 <Link to="/signup">
-                Don't have an account? <span>Sign up now!</span>
+                    Don't have an account? <span>Sign up now!</span>
                 </Link>
             </Container>
         </div>
