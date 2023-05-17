@@ -27,7 +27,13 @@ const NavBar = () => {
         </>
     );
 
-    const loggedInNavLinks = <>{currentUser?.username}</>
+    const loggedInNavLinks = (
+        <>
+            <NavLink className={styles.NavLink} to="/">
+                <i className="fas fa-sign-out-alt"></i>Log out
+            </NavLink>
+        </>
+    );
 
     return (
         <Navbar className={styles.NavBar} expand="md" fixed="top">
