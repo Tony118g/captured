@@ -1,10 +1,24 @@
-import React from "react";
-import { Link} from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Container, Form, Button } from "react-bootstrap";
 import styles from "../../styles/LogInSignUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
 const LogInForm = () => {
+
+    const [logInData, setLogInData] = useState({
+        username: '',
+        password: '',
+    })
+
+    const { username, password } = logInData;
+
+    const handleChange = (event) => {
+        setLogInData({
+            ...logInData,
+            [event.target.name]: event.target.value,
+        });
+    };
 
     return (
         <div>
@@ -18,6 +32,8 @@ const LogInForm = () => {
                             type="text"
                             placeholder="Username"
                             name="username"
+                            value={username}
+                            onChange={handleChange}
                         />
                     </Form.Group>
 
@@ -28,6 +44,8 @@ const LogInForm = () => {
                             type="password"
                             placeholder="Password"
                             name="password"
+                            value={password}
+                            onChange={handleChange}
                         />
                     </Form.Group>
 
