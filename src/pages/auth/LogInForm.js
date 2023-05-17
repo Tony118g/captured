@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Container, Form, Button } from "react-bootstrap";
 import styles from "../../styles/LogInSignUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
+import axios from "axios";
 
 const LogInForm = () => {
 
@@ -13,6 +14,8 @@ const LogInForm = () => {
 
     const { username, password } = logInData;
 
+    const history = useHistory();
+
     const handleChange = (event) => {
         setLogInData({
             ...logInData,
@@ -20,11 +23,20 @@ const LogInForm = () => {
         });
     };
 
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        try {
+            await axios.post("/dj-rest-auth/login/", logInData);
+            history.push("/");
+        } catch (err) {
+        }
+    };
+
     return (
         <div>
             <Container className={`${styles.Container} p-4 text-center `}>
                 <h1 className={styles.Heading}>Log In</h1>
-                <Form className="mb-4">
+                <Form onSubmit={handleSubmit} className="mb-4">
                     <Form.Group controlId="username">
                         <Form.Label className="d-none">Username</Form.Label>
                         <Form.Control
