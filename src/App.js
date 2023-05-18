@@ -7,6 +7,7 @@ import SignUpForm from "./pages/auth/SignUpForm";
 import LogInForm from "./pages/auth/LogInForm";
 import PhotoCreateForm from "./pages/photos/PhotoCreateForm";
 import PhotoPage from "./pages/photos/PhotoPage";
+import PhotosPage from "./pages/photos/PhotosPage";
 
 function App() {
     return (
@@ -14,7 +15,7 @@ function App() {
             <NavBar />
             <Container className={styles.Main}>
                 <Switch>
-                    <Route exact path="/" render={() => <h1>Home page</h1>} />
+                    <Route exact path="/" render={() => <PhotosPage />} />
                     <Route
                         exact
                         path="/about"
