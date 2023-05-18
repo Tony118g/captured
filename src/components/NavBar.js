@@ -76,6 +76,13 @@ const NavBar = () => {
                         <img src={logo} alt="Captured logo" height="60" />
                     </Navbar.Brand>
                 </NavLink>
+                <NavLink
+                    className={styles.NavLink}
+                    activeClassName={styles.Active}
+                    to="/photos/create"
+                >
+                    <i className="far fa-plus-square"></i>Post a photo
+                </NavLink>
                 <Navbar.Toggle
                     ref={ref}
                     onClick={() => setExpanded(!expanded)}
