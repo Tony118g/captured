@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -11,8 +11,11 @@ import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 import Asset from "../../components/Asset";
 import { Image } from "react-bootstrap";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { axiosReq } from "../../api/axiosDefaults";
 
 function PhotoCreateForm() {
+    
     const [photoData, setPhotoData] = useState({
         title: "",
         camera_used: "",
@@ -22,6 +25,9 @@ function PhotoCreateForm() {
     });
 
     const { title, camera_used, lense_used, description, image } = photoData;
+
+    const imageInput = useRef(null);
+    const history = useHistory();
 
     const handleChange = (event) => {
         setPhotoData({
@@ -37,6 +43,24 @@ function PhotoCreateForm() {
                 ...photoData,
                 image: URL.createObjectURL(event.target.files[0]),
             });
+        }
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const formData = new FormData();
+
+        formData.append("title", title);
+        formData.append("camera_used", camera_used);
+        formData.append("lense_used", lense_used);
+        formData.append("description", description);
+        formData.append("image", imageInput.current.files[0]);
+
+        try {
+            const { data } = await axiosReq.post("/photos/", formData);
+            history.push(`/photos/${data.id}`);
+        } catch (err) {
+            console.log(err);
         }
     };
 
@@ -84,7 +108,7 @@ function PhotoCreateForm() {
                 />
             </Form.Group>
 
-            <Button className={`${btnStyles.Button} mr-3`} onClick={() => {}}>
+            <Button className={`${btnStyles.Button} mr-3`} onClick={() => history.goBack()}>
                 cancel
             </Button>
             <Button className={btnStyles.Button} type="submit">
@@ -94,7 +118,7 @@ function PhotoCreateForm() {
     );
 
     return (
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <Row>
                 <Col
                     md={5}
@@ -142,6 +166,7 @@ function PhotoCreateForm() {
                                 id="photo-upload"
                                 accept="image/*"
                                 onChange={handleChangeImage}
+                                ref={imageInput}
                             />
                         </Form.Group>
                         <div className="d-md-none">{textFields}</div>
