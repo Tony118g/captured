@@ -9,6 +9,7 @@ import Container from "react-bootstrap/Container";
 import styles from "../../styles/PhotoCreateEditForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
+import Asset from "../../components/Asset";
 
 function PhotoCreateForm() {
     const textFields = (
@@ -72,6 +73,7 @@ function PhotoCreateForm() {
                                 htmlFor="image-upload"
                             >
                                 <i className="fa-solid fa-cloud-arrow-up"></i>
+                                <Asset message="Click or tap to upload a photo"/>
                             </Form.Label>
                         </Form.Group>
                         <div className="d-md-none">{textFields}</div>
