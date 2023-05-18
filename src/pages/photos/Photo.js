@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Media } from "react-bootstrap";
+import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
@@ -47,9 +47,46 @@ const Photo = (props) => {
                 {title && (
                     <Card.Title className="text-center">{title}</Card.Title>
                 )}
-                {camera_used && <Card.Text>Camera used: {camera_used}</Card.Text>}
+                {camera_used && (
+                    <Card.Text>Camera used: {camera_used}</Card.Text>
+                )}
                 {lense_used && <Card.Text>Lense used: {lense_used}</Card.Text>}
                 {description && <Card.Text>{description}</Card.Text>}
+
+                <div>
+                    {is_owner ? (
+                        <OverlayTrigger
+                            placement="top"
+                            overlay={
+                                <Tooltip>You can't like your own post!</Tooltip>
+                            }
+                        >
+                            <i className="far fa-heart" />
+                        </OverlayTrigger>
+                    ) : like_id ? (
+                        <span>
+                            <i className={`fas fa-heart`} />
+                        </span>
+                    ) : currentUser ? (
+                        <span>
+                            <i
+                                className={`far fa-heart`}
+                            />
+                        </span>
+                    ) : (
+                        <OverlayTrigger
+                            placement="top"
+                            overlay={<Tooltip>Log in to like posts!</Tooltip>}
+                        >
+                            <i className="far fa-heart" />
+                        </OverlayTrigger>
+                    )}
+                    {likes_count}
+                    <Link to={`/photos/${id}`}>
+                        <i className="far fa-comments" />
+                    </Link>
+                    {comments_count}
+                </div>
             </Card.Body>
         </Card>
     );
