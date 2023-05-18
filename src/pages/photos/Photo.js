@@ -44,6 +44,23 @@ const Photo = (props) => {
         }
       };
 
+      const handleUnlike = async () => {
+        try {
+          await axiosRes.delete(`/likes/${like_id}/`);
+          setPhotos((prevPhotos) => ({
+            ...prevPhotos,
+            results: prevPhotos.results.map((photo) => {
+              return photo.id === id
+                ? { ...photo, likes_count: photo.likes_count - 1, like_id: null }
+                : photo;
+            }),
+          }));
+        } catch (err) {
+          console.log(err);
+        }
+      };
+    
+
     return (
         <Card>
             <Card.Body className={styles.Title}>
@@ -82,7 +99,7 @@ const Photo = (props) => {
                             <i className="far fa-heart" />
                         </OverlayTrigger>
                     ) : like_id ? (
-                        <span onClick={""}>
+                        <span onClick={handleUnlike}>
                             <i className={`fas fa-heart ${styles.Heart}`} />
                         </span>
                     ) : currentUser ? (
