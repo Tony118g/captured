@@ -10,6 +10,7 @@ import styles from "../../styles/PhotoCreateEditForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 import Asset from "../../components/Asset";
+import { Image } from "react-bootstrap";
 
 function PhotoCreateForm() {
     const [photoData, setPhotoData] = useState({
@@ -17,15 +18,26 @@ function PhotoCreateForm() {
         camera_used: "",
         lense_used: "",
         description: "",
+        image: "",
     });
 
-    const { title, camera_used, lense_used, description } = photoData;
+    const { title, camera_used, lense_used, description, image } = photoData;
 
     const handleChange = (event) => {
         setPhotoData({
             ...photoData,
             [event.target.name]: event.target.value,
         });
+    };
+
+    const handleChangeImage = (event) => {
+        if (event.target.files.length) {
+            URL.revokeObjectURL(image);
+            setPhotoData({
+                ...photoData,
+                image: URL.createObjectURL(event.target.files[0]),
+            });
+        }
     };
 
     const textFields = (
@@ -98,13 +110,39 @@ function PhotoCreateForm() {
                         className={` ${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
                     >
                         <Form.Group className="text-center">
-                            <Form.Label
-                                className="d-block justify-content-center"
-                                htmlFor="photo-upload"
-                            >
-                                <i className="fa-solid fa-cloud-arrow-up"></i>
-                                <Asset message="Click or tap to upload a photo" />
-                            </Form.Label>
+                            {image ? (
+                                <>
+                                    <figure>
+                                        <Image
+                                            className={appStyles.Image}
+                                            src={image}
+                                            rounded
+                                        />
+                                    </figure>
+                                    <div>
+                                        <Form.Label
+                                            className={`${btnStyles.Button} btn`}
+                                            htmlFor="photo-upload"
+                                        >
+                                            Change the photo
+                                        </Form.Label>
+                                    </div>
+                                </>
+                            ) : (
+                                <Form.Label
+                                    className="d-block justify-content-center"
+                                    htmlFor="photo-upload"
+                                >
+                                    <i className="fa-solid fa-cloud-arrow-up"></i>
+                                    <Asset message="Click or tap to upload a photo" />
+                                </Form.Label>
+                            )}
+
+                            <Form.File
+                                id="photo-upload"
+                                accept="image/*"
+                                onChange={handleChangeImage}
+                            />
                         </Form.Group>
                         <div className="d-md-none">{textFields}</div>
                     </Container>
