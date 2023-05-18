@@ -10,11 +10,12 @@ import styles from "../../styles/PhotoCreateEditForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 import Asset from "../../components/Asset";
-import { Image } from "react-bootstrap";
+import { Image, Alert } from "react-bootstrap";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 
 function PhotoCreateForm() {
+    const [errors, setErrors] = useState({});
     
     const [photoData, setPhotoData] = useState({
         title: "",
@@ -60,7 +61,9 @@ function PhotoCreateForm() {
             const { data } = await axiosReq.post("/photos/", formData);
             history.push(`/photos/${data.id}`);
         } catch (err) {
-            console.log(err);
+            if (err.response?.status !== 401) {
+                setErrors(err.response?.data);
+            }
         }
     };
 
@@ -76,6 +79,11 @@ function PhotoCreateForm() {
                     onChange={handleChange}
                 />
             </Form.Group>
+            {errors?.title?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                    {message}
+                </Alert>
+            ))}
             <Form.Group>
                 <Form.Label>Camera used</Form.Label>
                 <Form.Control
@@ -86,6 +94,11 @@ function PhotoCreateForm() {
                     onChange={handleChange}
                 />
             </Form.Group>
+            {errors?.camera_used?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                    {message}
+                </Alert>
+            ))}
             <Form.Group>
                 <Form.Label>Lense used</Form.Label>
                 <Form.Control
@@ -96,6 +109,11 @@ function PhotoCreateForm() {
                     onChange={handleChange}
                 />
             </Form.Group>
+            {errors?.lense_used?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                    {message}
+                </Alert>
+            ))}
             <Form.Group>
                 <Form.Label>Description</Form.Label>
                 <Form.Control
@@ -107,6 +125,11 @@ function PhotoCreateForm() {
                     onChange={handleChange}
                 />
             </Form.Group>
+            {errors?.description?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                    {message}
+                </Alert>
+            ))}
 
             <Button className={`${btnStyles.Button} mr-3`} onClick={() => history.goBack()}>
                 cancel
@@ -169,6 +192,11 @@ function PhotoCreateForm() {
                                 ref={imageInput}
                             />
                         </Form.Group>
+                        {errors?.image?.map((message, idx) => (
+                            <Alert variant="warning" key={idx}>
+                                {message}
+                            </Alert>
+                        ))}
                         <div className="d-md-none">{textFields}</div>
                     </Container>
                 </Col>
