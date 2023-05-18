@@ -6,6 +6,10 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 
+import styles from "../../styles/PhotoCreateEditForm.module.css";
+import btnStyles from "../../styles/Button.module.css";
+import appStyles from "../../App.module.css";
+
 function PhotoCreateForm() {
     const textFields = (
         <div className="text-center">
@@ -43,10 +47,10 @@ function PhotoCreateForm() {
                 />
             </Form.Group>
 
-            <Button onClick={() => {}}>
+            <Button className={`${btnStyles.Button} mr-3`} onClick={() => {}}>
                 cancel
             </Button>
-            <Button type="submit">
+            <Button className={btnStyles.Button} type="submit">
                 create
             </Button>
         </div>
@@ -56,11 +60,11 @@ function PhotoCreateForm() {
         <Form>
             <Row>
                 <Col md={5} lg={6} className="d-none d-md-block p-0 p-md-2 mt-4">
-                    <Container>{textFields}</Container>
+                    <Container className={appStyles.Content}>{textFields}</Container>
                 </Col>
                 <Col className="py-2 p-0 p-md-2 my-4" md={7} lg={6}>
                     <Container
-                        className={`d-flex flex-column justify-content-center`}
+                        className={` ${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
                     >
                         <Form.Group className="text-center">
                             <Form.Label

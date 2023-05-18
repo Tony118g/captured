@@ -1,0 +1,15 @@
+.Container {
+    min-height: 350px;
+}
+
+.Container i {
+    display: block;
+    font-size: 4rem;
+    color: #B94700;
+}
+
+.Container:hover, .Container:hover i {
+    color: #DCBBB6 !important;
+    cursor: pointer;
+}
+
