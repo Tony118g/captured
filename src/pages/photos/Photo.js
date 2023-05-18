@@ -4,6 +4,7 @@ import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
+import { axiosRes } from "../../api/axiosDefaults";
 
 const Photo = (props) => {
     const {
@@ -26,6 +27,22 @@ const Photo = (props) => {
 
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
+
+    const handleLike = async () => {
+        try {
+          const { data } = await axiosRes.post("/likes/", { photo: id });
+          setPhotos((prevPhotos) => ({
+            ...prevPhotos,
+            results: prevPhotos.results.map((photo) => {
+              return photo.id === id
+                ? { ...photo, likes_count: photo.likes_count + 1, like_id: data.id }
+                : photo;
+            }),
+          }));
+        } catch (err) {
+          console.log(err);
+        }
+      };
 
     return (
         <Card>
@@ -69,7 +86,7 @@ const Photo = (props) => {
                             <i className={`fas fa-heart ${styles.Heart}`} />
                         </span>
                     ) : currentUser ? (
-                        <span onClick={""}>
+                        <span onClick={handleLike}>
                             <i
                                 className={`far fa-heart ${styles.HeartOutline}`}
                             />
