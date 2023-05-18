@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -12,6 +12,22 @@ import appStyles from "../../App.module.css";
 import Asset from "../../components/Asset";
 
 function PhotoCreateForm() {
+    const [photoData, setPhotoData] = useState({
+        title: "",
+        camera_used: "",
+        lense_used: "",
+        description: "",
+    });
+
+    const { title, camera_used, lense_used, description } = photoData;
+
+    const handleChange = (event) => {
+        setPhotoData({
+            ...photoData,
+            [event.target.name]: event.target.value,
+        });
+    };
+
     const textFields = (
         <div className="text-center">
             <Form.Group>
@@ -20,6 +36,8 @@ function PhotoCreateForm() {
                     type="text"
                     name="title"
                     placeholder="Give this photo a title"
+                    value={title}
+                    onChange={handleChange}
                 />
             </Form.Group>
             <Form.Group>
@@ -27,7 +45,9 @@ function PhotoCreateForm() {
                 <Form.Control
                     type="text"
                     placeholder="What camera did you use? (optional)."
-                    name="camera"
+                    name="camera_used"
+                    value={camera_used}
+                    onChange={handleChange}
                 />
             </Form.Group>
             <Form.Group>
@@ -35,7 +55,9 @@ function PhotoCreateForm() {
                 <Form.Control
                     type="text"
                     placeholder="What lense did you use? (optional)."
-                    name="lense"
+                    name="lense_used"
+                    value={lense_used}
+                    onChange={handleChange}
                 />
             </Form.Group>
             <Form.Group>
@@ -45,6 +67,8 @@ function PhotoCreateForm() {
                     rows={4}
                     placeholder="Share more information about this photo (optional)."
                     name="description"
+                    value={description}
+                    onChange={handleChange}
                 />
             </Form.Group>
 
@@ -60,8 +84,14 @@ function PhotoCreateForm() {
     return (
         <Form>
             <Row>
-                <Col md={5} lg={6} className="d-none d-md-block p-0 p-md-2 mt-4">
-                    <Container className={appStyles.Content}>{textFields}</Container>
+                <Col
+                    md={5}
+                    lg={6}
+                    className="d-none d-md-block p-0 p-md-2 mt-4"
+                >
+                    <Container className={appStyles.Content}>
+                        {textFields}
+                    </Container>
                 </Col>
                 <Col className="py-2 p-0 p-md-2 my-4" md={7} lg={6}>
                     <Container
@@ -70,10 +100,10 @@ function PhotoCreateForm() {
                         <Form.Group className="text-center">
                             <Form.Label
                                 className="d-block justify-content-center"
-                                htmlFor="image-upload"
+                                htmlFor="photo-upload"
                             >
                                 <i className="fa-solid fa-cloud-arrow-up"></i>
-                                <Asset message="Click or tap to upload a photo"/>
+                                <Asset message="Click or tap to upload a photo" />
                             </Form.Label>
                         </Form.Group>
                         <div className="d-md-none">{textFields}</div>
