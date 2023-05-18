@@ -1,0 +1,17 @@
+.Title {
+    height: 60px;
+    padding: 5px 20px;
+  }
+  
+.Heart {
+    color: #7e1300;
+}
+  
+.HeartOutline:hover, .Heart:hover {
+    color: #7e1300;
+    text-shadow: 0 0 10px #5f0e00;
+}
+
+.Icons i {
+    font-size: 1.4rem;
+}

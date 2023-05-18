@@ -40,6 +40,11 @@ i {
     color: #5A5A5A;
 }
 
+i:hover {
+  cursor: pointer;
+  transition: color ease-in-out 0.2s;
+}
+
 input[type="file"] {
     display: none;
   }

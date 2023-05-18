@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "../../styles/Photo.module.css";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Link } from "react-router-dom";
@@ -28,7 +29,7 @@ const Photo = (props) => {
 
     return (
         <Card>
-            <Card.Body>
+            <Card.Body className={styles.Title}>
                 <Media className="align-items-center justify-content-between">
                     <Link to={`/profiles/${profile_id}`}>
                         <Avatar src={profile_image} height={55} />
@@ -53,7 +54,7 @@ const Photo = (props) => {
                 {lense_used && <Card.Text>Lense used: {lense_used}</Card.Text>}
                 {description && <Card.Text>{description}</Card.Text>}
 
-                <div>
+                <div className={`float-right mr-3 ${styles.Icons}`}>
                     {is_owner ? (
                         <OverlayTrigger
                             placement="top"
@@ -64,13 +65,13 @@ const Photo = (props) => {
                             <i className="far fa-heart" />
                         </OverlayTrigger>
                     ) : like_id ? (
-                        <span>
-                            <i className={`fas fa-heart`} />
+                        <span onClick={""}>
+                            <i className={`fas fa-heart ${styles.Heart}`} />
                         </span>
                     ) : currentUser ? (
-                        <span>
+                        <span onClick={""}>
                             <i
-                                className={`far fa-heart`}
+                                className={`far fa-heart ${styles.HeartOutline}`}
                             />
                         </span>
                     ) : (
@@ -83,7 +84,7 @@ const Photo = (props) => {
                     )}
                     {likes_count}
                     <Link to={`/photos/${id}`}>
-                        <i className="far fa-comments" />
+                        <i className={`far fa-comments  ${styles.CommentBubble}`} />
                     </Link>
                     {comments_count}
                 </div>

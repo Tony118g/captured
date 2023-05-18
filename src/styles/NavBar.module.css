@@ -8,10 +8,6 @@ a {
     padding-bottom: 0 !important;
 }
 
-a:hover:not(.Logo) {
-    border-bottom: 1px solid #5A5A5A;
-}
-
 .NavLink {
     padding: 0 5px 0 5px;
 }
