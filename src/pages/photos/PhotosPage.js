@@ -41,7 +41,7 @@ function PhotosPage({ message, filter = "" }) {
 
     return (
         <Row className="h-100">
-            <Col className="d-none d-md-block py-2 p-0 p-lg-2" md={4}>
+            <Col className="d-none d-md-block py-2 p-0 p-lg-2 px-4" md={4}>
                 <SideNav />
                 <p>Popular profiles for desktop</p>
             </Col>
