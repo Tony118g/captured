@@ -1,0 +1,10 @@
+.SearchBar input {
+    border-radius: 20px;
+    padding-left: 40px;
+    margin-bottom: 20px;
+  }
+  
+.SearchIcon {
+    position: absolute;
+    padding-left: 10px;
+}
