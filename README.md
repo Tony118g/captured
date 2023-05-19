@@ -5,11 +5,33 @@ This repository is for the frontend section of the project and is associated wit
 
 ## Contents
 
+* [Project Goals](#project-goals)
 * [Deployment and Development](#deployment-and-development)
     * [Deploying the Site](#deployment)
     * [Forking the Repository](#forking-the-repository)
     * [Cloning the Repository](#cloning-the-repository)
     * [Connecting the API](#connecting-the-api)
+
+## Project Goals
+Captured is designed and intended to be a social, educational and promotive platform for photography enthusiasts to share and interact with content related to photography. The primary goals to achieve this are as follows:
+
+* General aspects:
+    * Deliver a simple and intuitive user experience.
+    * Provide minimal yet impactful features chosen specifically to deliver a useful application within the given development timeframe, while laying out the possibility for additional features in the future.
+
+* Social aspect:
+    * Provide the ability for users to share content related to photography.
+    * Provide the ability for users to interact with each other via likes, comments and followers.
+
+* Educational aspect:
+    * Add the ability for users to share informational details about their photographs.
+    * Provide a way for users to view the informational content pertaining to photographs.
+    * Provide functionality for users to be able to add detailed views or ask questions pertaining to photographs via comments.
+
+* Promotive aspect:
+    * Deliver a way for the site admin to advertise photographic tours.
+    * Provide the ability for users to view available tours on the site.
+    * Provide functionality for users to be able to specify whether they intend to attend an advertised tour.
 
 ## Deployment and Development
 * The project was developed using [Gitpod](https://www.gitpod.io/#get-started) to create the code and overall file structure.
