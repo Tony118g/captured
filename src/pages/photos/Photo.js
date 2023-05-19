@@ -35,6 +35,15 @@ const Photo = (props) => {
         history.push(`/photos/${id}/edit`);
     };
 
+    const handleDelete = async () => {
+        try {
+            await axiosRes.delete(`/photos/${id}/`);
+            history.goBack();
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
     const handleLike = async () => {
         try {
             const { data } = await axiosRes.post("/likes/", { photo: id });
@@ -86,7 +95,7 @@ const Photo = (props) => {
                     <div className="d-flex align-items-center">
                         <span>{updated_at}</span>
                         {is_owner && photoPage && (
-                            <DropdownMenu handleEdit={handleEdit} />
+                            <DropdownMenu handleEdit={handleEdit} handleDelete={handleDelete}/>
                         )}
                     </div>
                 </Media>
