@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -10,12 +10,15 @@ import styles from "../../styles/PhotoCreateEditForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 import { Image, Alert } from "react-bootstrap";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import {
+    useHistory,
+    useParams,
+} from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 
 function PhotoEditForm() {
     const [errors, setErrors] = useState({});
-    
+
     const [photoData, setPhotoData] = useState({
         title: "",
         camera_used: "",
@@ -28,6 +31,37 @@ function PhotoEditForm() {
 
     const imageInput = useRef(null);
     const history = useHistory();
+    const { id } = useParams();
+
+    useEffect(() => {
+        const handleMount = async () => {
+            try {
+                const { data } = await axiosReq.get(`/photos/${id}/`);
+                const {
+                    title,
+                    camera_used,
+                    lense_used,
+                    description,
+                    image,
+                    is_owner,
+                } = data;
+
+                is_owner
+                    ? setPhotoData({
+                          title,
+                          camera_used,
+                          lense_used,
+                          description,
+                          image,
+                      })
+                    : history.push("/");
+            } catch (err) {
+                console.log(err);
+            }
+        };
+
+        handleMount();
+    }, [history, id]);
 
     const handleChange = (event) => {
         setPhotoData({
@@ -54,12 +88,16 @@ function PhotoEditForm() {
         formData.append("camera_used", camera_used);
         formData.append("lense_used", lense_used);
         formData.append("description", description);
-        formData.append("image", imageInput.current.files[0]);
+
+        if (imageInput?.current?.files[0]) {
+            formData.append("image", imageInput.current.files[0]);
+        }
 
         try {
-            const { data } = await axiosReq.post("/photos/", formData);
-            history.push(`/photos/${data.id}`);
+            await axiosReq.put(`/photos/${id}/`, formData);
+            history.push(`/photos/${id}`);
         } catch (err) {
+            console.log(err);
             if (err.response?.status !== 401) {
                 setErrors(err.response?.data);
             }
@@ -130,11 +168,14 @@ function PhotoEditForm() {
                 </Alert>
             ))}
 
-            <Button className={`${btnStyles.Button} mr-3`} onClick={() => history.goBack()}>
+            <Button
+                className={`${btnStyles.Button} mr-3`}
+                onClick={() => history.goBack()}
+            >
                 cancel
             </Button>
             <Button className={btnStyles.Button} type="submit">
-                create
+                edit
             </Button>
         </div>
     );
@@ -156,23 +197,22 @@ function PhotoEditForm() {
                         className={` ${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
                     >
                         <Form.Group className="text-center">
-                            
-                                    <figure>
-                                        <Image
-                                            className={appStyles.Image}
-                                            src={image}
-                                            rounded
-                                        />
-                                    </figure>
-                                    <div>
-                                        <Form.Label
-                                            className={`${btnStyles.Button} btn`}
-                                            htmlFor="photo-upload"
-                                        >
-                                            Change the photo
-                                        </Form.Label>
-                                    </div>
-                                
+                            <figure>
+                                <Image
+                                    className={appStyles.Image}
+                                    src={image}
+                                    rounded
+                                />
+                            </figure>
+                            <div>
+                                <Form.Label
+                                    className={`${btnStyles.Button} btn`}
+                                    htmlFor="photo-upload"
+                                >
+                                    Change the photo
+                                </Form.Label>
+                            </div>
+
                             <Form.File
                                 id="photo-upload"
                                 accept="image/*"
