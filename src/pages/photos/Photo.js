@@ -5,6 +5,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
+import { DropdownMenu } from "../../components/PostDropdownMenu";
 
 const Photo = (props) => {
     const {
@@ -71,7 +72,7 @@ const Photo = (props) => {
                     </Link>
                     <div className="d-flex align-items-center">
                         <span>{updated_at}</span>
-                        {is_owner && photoPage && "..."}
+                        {is_owner && photoPage && <DropdownMenu />}
                     </div>
                 </Media>
             </Card.Body>
