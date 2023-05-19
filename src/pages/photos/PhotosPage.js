@@ -8,6 +8,7 @@ import Photo from "./Photo";
 import Asset from "../../components/Asset";
 import appStyles from "../../App.module.css";
 import { Container, Form } from "react-bootstrap";
+import SideNav from "../../components/SideNav";
 
 function PhotosPage({ message, filter = "" }) {
     const [photos, setPhotos] = useState({ results: [] });
@@ -18,7 +19,9 @@ function PhotosPage({ message, filter = "" }) {
     useEffect(() => {
         const fetchPhotos = async () => {
             try {
-                const { data } = await axiosReq.get(`/photos/?${filter}search=${query}`);
+                const { data } = await axiosReq.get(
+                    `/photos/?${filter}search=${query}`
+                );
                 setPhotos(data);
                 setHasLoaded(true);
             } catch (err) {
@@ -39,11 +42,11 @@ function PhotosPage({ message, filter = "" }) {
     return (
         <Row className="h-100">
             <Col className="d-none d-md-block py-2 p-0 p-lg-2" md={4}>
-                <p>Post a photo, Feed, Liked photos, Tours</p>
+                <SideNav />
                 <p>Popular profiles for desktop</p>
             </Col>
             <Col md={8} className="p-0 p-lg-2">
-                <p>Post a photo, Feed, Liked photos, Tours for mobile </p>
+                <SideNav mobile />
                 <p>Popular profiles for mobile</p>
                 <i className={`fas fa-search ${styles.SearchIcon}`} />
                 <Form
