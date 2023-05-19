@@ -61,15 +61,19 @@ function PhotosPage({ message, filter = "" }) {
 
                 {hasLoaded ? (
                     <>
-                        {photos.results.length
-                            ? photos.results.map((photo) => (
-                                  <Photo
-                                      key={photo.id}
-                                      {...photo}
-                                      setPhotos={setPhotos}
-                                  />
-                              ))
-                            : console.log("show no results message")}
+                        {photos.results.length ? (
+                            photos.results.map((photo) => (
+                                <Photo
+                                    key={photo.id}
+                                    {...photo}
+                                    setPhotos={setPhotos}
+                                />
+                            ))
+                        ) : (
+                            <Container className={appStyles.Content}>
+                                <Asset message={message} />
+                            </Container>
+                        )}
                     </>
                 ) : (
                     <Container className={appStyles.Content}>

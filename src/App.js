@@ -15,7 +15,7 @@ function App() {
             <NavBar />
             <Container className={styles.Main}>
                 <Switch>
-                    <Route exact path="/" render={() => <PhotosPage />} />
+                    <Route exact path="/" render={() => <PhotosPage message="No results found for your search : /"/>} />
                     <Route
                         exact
                         path="/about"
