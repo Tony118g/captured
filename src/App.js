@@ -8,14 +8,34 @@ import LogInForm from "./pages/auth/LogInForm";
 import PhotoCreateForm from "./pages/photos/PhotoCreateForm";
 import PhotoPage from "./pages/photos/PhotoPage";
 import PhotosPage from "./pages/photos/PhotosPage";
+import { useCurrentUser } from "./contexts/CurrentUserContext";
 
 function App() {
+    const currentUser = useCurrentUser();
+    const profile_id = currentUser?.profile_id || "";
+
     return (
         <div className={styles.App}>
             <NavBar />
             <Container className={styles.Main}>
                 <Switch>
-                    <Route exact path="/" render={() => <PhotosPage message="No results found for your search : /"/>} />
+                    <Route
+                        exact
+                        path="/"
+                        render={() => (
+                            <PhotosPage message="No results found for your search : /" />
+                        )}
+                    />
+                    <Route
+                        exact
+                        path="/liked"
+                        render={() => (
+                            <PhotosPage
+                                message="No results found. Adjust your search or like a post."
+                                filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
+                            />
+                        )}
+                    />
                     <Route
                         exact
                         path="/about"
@@ -23,8 +43,16 @@ function App() {
                     />
                     <Route exact path="/signup" render={() => <SignUpForm />} />
                     <Route exact path="/login" render={() => <LogInForm />} />
-                    <Route exact path="/photos/create" render={() => <PhotoCreateForm />} />
-                    <Route exact path="/photos/:id" render={() => <PhotoPage />} />
+                    <Route
+                        exact
+                        path="/photos/create"
+                        render={() => <PhotoCreateForm />}
+                    />
+                    <Route
+                        exact
+                        path="/photos/:id"
+                        render={() => <PhotoPage />}
+                    />
                     <Route render={() => <p>Page not found!</p>} />
                 </Switch>
             </Container>
