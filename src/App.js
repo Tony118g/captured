@@ -9,6 +9,7 @@ import PhotoCreateForm from "./pages/photos/PhotoCreateForm";
 import PhotoPage from "./pages/photos/PhotoPage";
 import PhotosPage from "./pages/photos/PhotosPage";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
+import PhotoEditForm from "./pages/photos/PhotoEditForm";
 
 function App() {
     const currentUser = useCurrentUser();
@@ -52,6 +53,11 @@ function App() {
                         exact
                         path="/photos/:id"
                         render={() => <PhotoPage />}
+                    />
+                    <Route
+                        exact
+                        path="/photos/:id/edit"
+                        render={() => <PhotoEditForm />}
                     />
                     <Route render={() => <p>Page not found!</p>} />
                 </Switch>

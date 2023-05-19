@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 import { DropdownMenu } from "../../components/PostDropdownMenu";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const Photo = (props) => {
     const {
@@ -28,39 +29,51 @@ const Photo = (props) => {
 
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
+    const history = useHistory();
+
+    const handleEdit = () => {
+        history.push(`/photos/${id}/edit`);
+    };
 
     const handleLike = async () => {
         try {
-          const { data } = await axiosRes.post("/likes/", { photo: id });
-          setPhotos((prevPhotos) => ({
-            ...prevPhotos,
-            results: prevPhotos.results.map((photo) => {
-              return photo.id === id
-                ? { ...photo, likes_count: photo.likes_count + 1, like_id: data.id }
-                : photo;
-            }),
-          }));
+            const { data } = await axiosRes.post("/likes/", { photo: id });
+            setPhotos((prevPhotos) => ({
+                ...prevPhotos,
+                results: prevPhotos.results.map((photo) => {
+                    return photo.id === id
+                        ? {
+                              ...photo,
+                              likes_count: photo.likes_count + 1,
+                              like_id: data.id,
+                          }
+                        : photo;
+                }),
+            }));
         } catch (err) {
-          console.log(err);
+            console.log(err);
         }
-      };
+    };
 
-      const handleUnlike = async () => {
+    const handleUnlike = async () => {
         try {
-          await axiosRes.delete(`/likes/${like_id}/`);
-          setPhotos((prevPhotos) => ({
-            ...prevPhotos,
-            results: prevPhotos.results.map((photo) => {
-              return photo.id === id
-                ? { ...photo, likes_count: photo.likes_count - 1, like_id: null }
-                : photo;
-            }),
-          }));
+            await axiosRes.delete(`/likes/${like_id}/`);
+            setPhotos((prevPhotos) => ({
+                ...prevPhotos,
+                results: prevPhotos.results.map((photo) => {
+                    return photo.id === id
+                        ? {
+                              ...photo,
+                              likes_count: photo.likes_count - 1,
+                              like_id: null,
+                          }
+                        : photo;
+                }),
+            }));
         } catch (err) {
-          console.log(err);
+            console.log(err);
         }
-      };
-    
+    };
 
     return (
         <Card>
@@ -72,7 +85,9 @@ const Photo = (props) => {
                     </Link>
                     <div className="d-flex align-items-center">
                         <span>{updated_at}</span>
-                        {is_owner && photoPage && <DropdownMenu />}
+                        {is_owner && photoPage && (
+                            <DropdownMenu handleEdit={handleEdit} />
+                        )}
                     </div>
                 </Media>
             </Card.Body>
@@ -119,7 +134,9 @@ const Photo = (props) => {
                     )}
                     {likes_count}
                     <Link to={`/photos/${id}`}>
-                        <i className={`far fa-comments  ${styles.CommentBubble}`} />
+                        <i
+                            className={`far fa-comments  ${styles.CommentBubble}`}
+                        />
                     </Link>
                     {comments_count}
                 </div>
