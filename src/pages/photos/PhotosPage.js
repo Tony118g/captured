@@ -9,6 +9,8 @@ import Asset from "../../components/Asset";
 import appStyles from "../../App.module.css";
 import { Container, Form } from "react-bootstrap";
 import SideNav from "../../components/SideNav";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { fetchMoreData } from "../../utils/utils";
 
 function PhotosPage({ message, filter = "" }) {
     const [photos, setPhotos] = useState({ results: [] });
@@ -65,13 +67,21 @@ function PhotosPage({ message, filter = "" }) {
                 {hasLoaded ? (
                     <>
                         {photos.results.length ? (
-                            photos.results.map((photo) => (
-                                <Photo
-                                    key={photo.id}
-                                    {...photo}
-                                    setPhotos={setPhotos}
-                                />
-                            ))
+                            <InfiniteScroll 
+                            children={
+                                photos.results.map((photo) => (
+                                    <Photo
+                                        key={photo.id}
+                                        {...photo}
+                                        setPhotos={setPhotos}
+                                    />
+                                ))
+                            }
+                            dataLength={photos.results.length}
+                            loader={<Asset spinner />}
+                            hasMore={!!photos.next}
+                            next={() => fetchMoreData(photos, setPhotos)}
+                            />
                         ) : (
                             <Container className={appStyles.Content}>
                                 <Asset message={message} />
