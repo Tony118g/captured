@@ -4,6 +4,9 @@ import Row from "react-bootstrap/Row";
 import { useLocation } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import Photo from "./Photo";
+import Asset from "../../components/Asset";
+import appStyles from "../../App.module.css";
+import { Container } from "react-bootstrap";
 
 function PhotosPage({ message, filter = "" }) {
     const [photos, setPhotos] = useState({ results: [] });
@@ -53,7 +56,9 @@ function PhotosPage({ message, filter = "" }) {
                     )}
                     </>
                 ) : (
-                    console.log("show loading spinner")
+                    <Container className={appStyles.Content}>
+                        <Asset spinner />
+                    </Container>
                 )}
             </Col>
         </Row>
