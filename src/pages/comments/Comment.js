@@ -5,12 +5,43 @@ import { Media } from "react-bootstrap";
 import styles from "../../styles/Comment.module.css";
 import { EditDeleteDropdown } from "../../components/EditDeleteDropdown";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { axiosRes } from "../../api/axiosDefaults";
 
 const Comment = (props) => {
-    const { profile_id, profile_image, owner, updated_at, content } = props;
+    const {
+        profile_id,
+        profile_image,
+        owner,
+        updated_at,
+        content,
+        id,
+        setPhoto,
+        setComments,
+    } = props;
 
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
+
+    const handleDelete = async () => {
+        try {
+            await axiosRes.delete(`/comments/${id}/`);
+            setPhoto((prevPhoto) => ({
+                results: [
+                    {
+                        ...prevPhoto.results[0],
+                        comments_count: prevPhoto.results[0].comments_count - 1,
+                    },
+                ],
+            }));
+
+            setComments((prevComments) => ({
+                ...prevComments,
+                results: prevComments.results.filter(
+                    (comment) => comment.id !== id
+                ),
+            }));
+        } catch (err) {}
+    };
 
     return (
         <div>
@@ -25,7 +56,10 @@ const Comment = (props) => {
                     <p className="mb-0 mt-2">{content}</p>
                 </Media.Body>
                 {is_owner && (
-                    <EditDeleteDropdown handleEdit={() => {}} handleDelete={() => {}}/>
+                    <EditDeleteDropdown
+                        handleEdit={() => {}}
+                        handleDelete={handleDelete}
+                    />
                 )}
             </Media>
         </div>

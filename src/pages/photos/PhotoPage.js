@@ -61,8 +61,13 @@ function PhotoPage() {
                         "Comments"
                     ) : null}
                     {comments.results.length ? (
-                        comments.results.map(comment => (
-                            <Comment key={comment.id} {...comment} />
+                        comments.results.map((comment) => (
+                            <Comment
+                                key={comment.id}
+                                {...comment}
+                                setPhoto={setPhoto}
+                                setComments={setComments}
+                            />
                         ))
                     ) : currentUser ? (
                         <span>There are no comments, add one yourself!</span>
