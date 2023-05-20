@@ -51,7 +51,7 @@ export const EditDeleteDropdown = ({ handleEdit, handleDelete }) => {
                     <Modal.Title>Confirm deletion</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    Are you sure you want to delete this photo?
+                    Are you sure you want to delete this? This action cannot be undone.
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
