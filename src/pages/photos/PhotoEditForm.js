@@ -169,7 +169,7 @@ function PhotoEditForm() {
             ))}
 
             <Button
-                className={`${btnStyles.Button} mr-3`}
+                className={`${btnStyles.CancelBtn} mr-3`}
                 onClick={() => history.goBack()}
             >
                 cancel

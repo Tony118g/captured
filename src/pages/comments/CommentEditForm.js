@@ -52,7 +52,7 @@ function CommentEditForm(props) {
       </Form.Group>
       <div className="text-right">
         <button
-          className={`${btnStyles.Button} mr-3`}
+          className={`${btnStyles.CancelBtn} mr-3`}
           onClick={() => setShowEditForm(false)}
           type="button"
         >

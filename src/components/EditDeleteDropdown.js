@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import styles from "../styles/EditDeleteDropdown.module.css";
+import btnStyles from "../styles/Button.module.css";
 import { Button, Modal } from "react-bootstrap";
 
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (
@@ -54,7 +55,7 @@ export const EditDeleteDropdown = ({ handleEdit, handleDelete }) => {
                     Are you sure you want to delete this? This action cannot be undone.
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
+                    <Button className={btnStyles.CancelBtn} onClick={handleClose}>
                         cancel
                     </Button>
                     <Button variant="danger" onClick={handleDelete}>

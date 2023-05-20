@@ -131,7 +131,7 @@ function PhotoCreateForm() {
                 </Alert>
             ))}
 
-            <Button className={`${btnStyles.Button} mr-3`} onClick={() => history.goBack()}>
+            <Button className={`${btnStyles.CancelBtn} mr-3`} onClick={() => history.goBack()}>
                 cancel
             </Button>
             <Button className={btnStyles.Button} type="submit">
