@@ -10,6 +10,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import Photo from "./Photo";
+import Comment from "../comments/Comment";
 
 function PhotoPage() {
     const { id } = useParams();
@@ -61,7 +62,7 @@ function PhotoPage() {
                     ) : null}
                     {comments.results.length ? (
                         comments.results.map(comment => (
-                            <p key={comment.id}>{comment.owner}: {comment.content}</p>
+                            <Comment key={comment.id} {...comment} />
                         ))
                     ) : currentUser ? (
                         <span>There are no comments, add one yourself!</span>
