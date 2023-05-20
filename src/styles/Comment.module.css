@@ -1,0 +1,12 @@
+.Owner {
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #B94700;
+    margin-right: 8px;
+  }
+  
+.Date {
+    border-left: 1px solid black;
+    padding-left: 5px;
+    color: #A5A5A5;
+  }
