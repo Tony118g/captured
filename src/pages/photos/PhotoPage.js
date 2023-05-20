@@ -44,7 +44,7 @@ function PhotoPage() {
             <Col md={8} className="p-0 p-lg-2">
                 <p>Popular profiles for mobile</p>
                 <Photo {...photo.results[0]} setPhotos={setPhoto} photoPage />
-                <Container className={appStyles.Content}>
+                <Container className={`${appStyles.Content} my-2`}>
                     {currentUser ? (
                         <CommentCreateForm
                             profile_id={currentUser.profile_id}

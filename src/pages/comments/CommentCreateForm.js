@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { Container, Form, InputGroup } from "react-bootstrap";
+import { Form, InputGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
+import styles from "../../styles/CommentCreateEditForm.module.css";
+import btnStyles from "../../styles/Button.module.css";
 import Avatar from "../../components/Avatar";
 
 function CreateCommentForm(props) {
@@ -38,29 +40,31 @@ function CreateCommentForm(props) {
     };
 
     return (
-        <Container>
-            <Form onSubmit={handleSubmit}>
-                <Form.Group>
-                    <InputGroup>
-                        <Link to={`/profiles/${profile_id}`}>
-                            <Avatar src={profileImage} />
-                        </Link>
-                    </InputGroup>
-
+        <Form onSubmit={handleSubmit}>
+            <Form.Group className="mb-0">
+                <InputGroup>
+                    <Link to={`/profiles/${profile_id}`}>
+                        <Avatar src={profileImage} />
+                    </Link>
                     <Form.Control
+                        className={styles.Form}
                         placeholder="your comment..."
                         as="textarea"
                         value={content}
                         onChange={handleChange}
                         rows={2}
                     />
+                </InputGroup>
 
-                    <button disabled={!content.trim()} type="submit">
-                        comment
-                    </button>
-                </Form.Group>
-            </Form>
-        </Container>
+                <button
+                    className={`${btnStyles.Button} btn d-block ml-auto mt-2`}
+                    disabled={!content.trim()}
+                    type="submit"
+                >
+                    comment
+                </button>
+            </Form.Group>
+        </Form>
     );
 }
 
