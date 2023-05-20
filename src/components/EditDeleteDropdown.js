@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
-import styles from "../styles/PostDropdownMenu.module.css";
+import styles from "../styles/EditDeleteDropdown.module.css";
 import { Button, Modal } from "react-bootstrap";
 
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (
@@ -14,7 +14,7 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
     />
 ));
 
-export const PostDropdownMenu = ({ handleEdit, handleDelete }) => {
+export const EditDeleteDropdown = ({ handleEdit, handleDelete }) => {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);

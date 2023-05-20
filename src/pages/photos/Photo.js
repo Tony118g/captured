@@ -5,7 +5,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
-import { PostDropdownMenu } from "../../components/PostDropdownMenu";
+import { EditDeleteDropdown } from "../../components/EditDeleteDropdown";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const Photo = (props) => {
@@ -95,7 +95,7 @@ const Photo = (props) => {
                     <div className="d-flex align-items-center">
                         <span>{updated_at}</span>
                         {is_owner && photoPage && (
-                            <PostDropdownMenu handleEdit={handleEdit} handleDelete={handleDelete}/>
+                            <EditDeleteDropdown handleEdit={handleEdit} handleDelete={handleDelete}/>
                         )}
                     </div>
                 </Media>
