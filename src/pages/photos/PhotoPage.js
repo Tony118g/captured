@@ -5,6 +5,8 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
 import appStyles from "../../App.module.css";
+import CommentCreateForm from "../comments/CommentCreateForm";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import Photo from "./Photo";
@@ -12,6 +14,10 @@ import Photo from "./Photo";
 function PhotoPage() {
     const { id } = useParams();
     const [photo, setPhoto] = useState({ results: [] });
+
+    const currentUser = useCurrentUser();
+    const profile_image = currentUser?.profile_image;
+    const [comments, setComments] = useState({ results: [] });
 
     useEffect(() => {
         const handleMount = async () => {
@@ -38,7 +44,19 @@ function PhotoPage() {
             <Col md={8} className="p-0 p-lg-2">
                 <p>Popular profiles for mobile</p>
                 <Photo {...photo.results[0]} setPhotos={setPhoto} photoPage />
-                <Container className={appStyles.Content}>Comments</Container>
+                <Container className={appStyles.Content}>
+                    {currentUser ? (
+                        <CommentCreateForm
+                            profile_id={currentUser.profile_id}
+                            profileImage={profile_image}
+                            photo={id}
+                            setPhoto={setPhoto}
+                            setComments={setComments}
+                        />
+                    ) : comments.results.length ? (
+                        "Comments"
+                    ) : null}
+                </Container>
             </Col>
         </Row>
     );
