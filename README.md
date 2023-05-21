@@ -8,6 +8,7 @@ This repository is for the frontend section of the project and is associated wit
 * [Project Goals](#project-goals)
 * [User Experience](#user-experience)
     * [Epics](#epics)
+    * [User Stories](#user-stories)
 * [Deployment and Development](#deployment-and-development)
     * [Deploying the Site](#deployment)
     * [Forking the Repository](#forking-the-repository)
@@ -49,6 +50,74 @@ During the planning process, I created 9 epics which were then broken down furth
 7. [Tour Post Management](https://github.com/Tony118g/captured/issues/7)
 8. [Tour Post Interaction](https://github.com/Tony118g/captured/issues/8)
 9. [General Site Interaction](https://github.com/Tony118g/captured/issues/9)
+
+### User Stories
+The project epics were further broken down into user stories. These stories were created using MoSCoW (must have, should have, could have, and won't have) prioritization with each story being assigned a label in accordance with its level of priority.
+
+Story points were also assigned to each story using labels. These points were assigned using my best estimation of the time and difficulty of completing each user story based on my experience and ability.
+
+Each user story has it's own acceptance criteria and tasks associated with it. This helped ensure all requirements for each story were known as they were developed and helped keep track of development progress.
+
+All user stories for this project can be found in the [project kanban board](https://github.com/users/Tony118g/projects/10)
+
+Below is a summary of the user stories for this version of the project's release listed by epic.
+
+* Epic - authentication
+    * As a user I can register an account so that I can access all features of the site.
+    * As a user I can login and logout of my account so that I can use the site and keep my account secure.
+    * As a user I can easily find out my logged in/out status so that I can decide what to do next.
+    * As a site owner I want to refresh access tokens so that users do not have to repeatedly login during a single session.
+
+* Epic - navigation
+    * As a user I can access the navigation bar on all pages so that I can easily navigate through the site.
+    * As a user I can infinitely scroll through site content so that I do not have to refresh the page or navigate to a new page to view more content.
+
+* Epic - profile management
+    * As a user I can edit my profile details so that I can keep my profile information up to date.
+    * As a user I can change my password so that I can keep my account secure.
+    * As a user I can add an avatar to my profile so that my profile can be more personalized.
+    * As a user I can delete my profile so that I can control whether or not I am a member of the site.
+
+* Epic - profile interaction
+    * As a user I can view user profiles so that I can find out more information about the relevant user.
+    * As a user I can view statistical information about profiles so that I can easily find out more information about their site presence.
+    * As a user I can view a list of the most popular profiles so that I can see which profiles have the most intriguing content.
+    * As a user I can follow and unfollow other users so that I can control which user's posted photos I see in my feed.
+    * As a user I can see all photos posted by a certain profile in one place so that I can easily view all photos relevant to them.
+    * As a user I can search for specific profiles so that I can easily find a profile I am looking for.
+    * As a user I can view all of a certain user's followers so that I find out who follows them.
+    * As a user I can view all profiles that a certain user follows so that I can find out who they follow.
+
+* Epic - photo post management
+    * As a user I can post a photo with details so that I can share my photographs on the site.
+    * As a user I can edit a photo that I have posted so that I can ensure the content is correct and up to date.
+    * As a user I can delete a photo that I have posted so that I can remove content that I no longer want to share on the site.
+
+* Epic - photo post interaction
+    * As a user I can view all photos that have been posted on the site so that I can browse through various, non-specific content.
+    * As a user I can view photos posted by users that I follow so that I can view content specific to my taste and follow their activity.
+    * As a user I can like and unlike other user's posted photos so that I can easily show/remove appreciative feedback.
+    * As a user I can search for specific photos that have been posted so that I can easily find content I am looking for.
+    * As a user I can comment on a posted photo so that I can provide my feedback.
+    * As a user I can edit my own comments so that I can ensure the correct content is being shared.
+    * As a user I can delete my own comment so that I can remove it from the site if I no longer want to share it.
+    * As a user I can view all comments with their details so that I can see details of who has commented and what they have said.
+
+* Epic - tour post management
+    * As a site admin I can create and post a tour with details so that I can advertise photographic tours on the site.
+    * As a site admin I can edit a tour so that I can ensure the content is correct and up to date.
+    * As a site admin I can delete a tour so that I can remove content that I no longer want to share on the site.
+
+* Epic - tour post interaction
+    * As a user I can view all tours that have been posted on the site so that I can browse through tours that might interest me.
+    * As a user I can search for specific tours that have been posted so that I can easily find tours that I am looking for.
+    * As a user I can indicate that I am going to attend a tour so that I can let others know that I am attending.
+    * As a user I can view all users that are attending a tour so that I can find out who is going on the tour.
+
+* Epic - general site interaction
+    * As a site owner I want to restrict certain features to registered users so that it encourages people to register to the site and ensures correct functionality.
+    * As a site owner I want to restrict certain features to the site admin so that I can ensure unauthorized users cannot tamper with features that are not relevant to them.
+    * As a user I can see various feedback messages so that I know the status of the action I am trying to perform.
 
 ## Deployment and Development
 * The project was developed using [Gitpod](https://www.gitpod.io/#get-started) to create the code and overall file structure.
