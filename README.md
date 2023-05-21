@@ -6,6 +6,8 @@ This repository is for the frontend section of the project and is associated wit
 ## Contents
 
 * [Project Goals](#project-goals)
+* [User Experience](#user-experience)
+    * [Epics](#epics)
 * [Deployment and Development](#deployment-and-development)
     * [Deploying the Site](#deployment)
     * [Forking the Repository](#forking-the-repository)
@@ -32,6 +34,21 @@ Captured is designed and intended to be a social, educational and promotive plat
     * Deliver a way for the site admin to advertise photographic tours.
     * Provide the ability for users to view available tours on the site.
     * Provide functionality for users to be able to specify whether they intend to attend an advertised tour.
+
+## User Experience
+
+### Epics
+During the planning process, I created 9 epics which were then broken down further into a total of 39 user stories. These can be found in the [project kanban board](https://github.com/users/Tony118g/projects/10) or they can be viewed individually via the links below.
+
+1. [Authentication](https://github.com/Tony118g/captured/issues/1)
+2. [Navigation](https://github.com/Tony118g/captured/issues/2)
+3. [Profile Management](https://github.com/Tony118g/captured/issues/3)
+4. [Profile Interaction](https://github.com/Tony118g/captured/issues/4)
+5. [Photo Post Management](https://github.com/Tony118g/captured/issues/5)
+6. [Photo Post Interaction](https://github.com/Tony118g/captured/issues/6)
+7. [Tour Post Management](https://github.com/Tony118g/captured/issues/7)
+8. [Tour Post Interaction](https://github.com/Tony118g/captured/issues/8)
+9. [General Site Interaction](https://github.com/Tony118g/captured/issues/9)
 
 ## Deployment and Development
 * The project was developed using [Gitpod](https://www.gitpod.io/#get-started) to create the code and overall file structure.
