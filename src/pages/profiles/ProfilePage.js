@@ -3,6 +3,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import Asset from "../../components/Asset";
+import styles from "../../styles/ProfilePage.module.css";
 import appStyles from "../../App.module.css";
 import PopularProfiles from "./PopularProfiles";
 import SideNav from "../../components/SideNav";
@@ -44,6 +45,7 @@ function ProfilePage() {
             <Row noGutters className="px-3 text-center">
                 <Col lg={3} className="text-lg-left">
                     <Image
+                        className={styles.ProfileImage}
                         roundedCircle
                         src={profile?.image}
                     />
@@ -51,15 +53,15 @@ function ProfilePage() {
                 <Col lg={6}>
                     <h3 className="m-2">Profile username</h3>
                     <Row className="justify-content-center no-gutters">
-                        <Col xs={3} className="my-2">
+                        <Col xs={3} className="m-2">
                             <div>{profile?.photos_count}</div>
-                            <div>posted photos</div>
+                            <div>photos</div>
                         </Col>
-                        <Col xs={3} className="my-2">
+                        <Col xs={3} className="m-2">
                             <div>{profile?.followers_count}</div>
                             <div>followers</div>
                         </Col>
-                        <Col xs={3} className="my-2">
+                        <Col xs={3} className="m-2">
                             <div>{profile?.following_count}</div>
                             <div>following</div>
                         </Col>

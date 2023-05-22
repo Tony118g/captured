@@ -1,0 +1,19 @@
+.ProfileImage {
+    object-fit: cover;
+    height: 140px;
+    width: 140px;
+    margin-left: -20px;
+  }
+
+@media screen and (max-width: 991px) {
+    .ProfileImage {
+        margin-left: 0px !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .ProfileImage {
+      width: 230px;
+      height: 230px;
+    }
+  }
