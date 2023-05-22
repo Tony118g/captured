@@ -44,12 +44,12 @@ const PopularProfiles = ({ mobile }) => {
                     <p>Popular profiles</p>
                     {mobile ? (
                         <div className="d-flex justify-content-around">
-                            {popularProfiles.results.map((profile) => (
+                            {popularProfiles.results.slice(0,4).map((profile) => (
                         <p key={profile.id}>{profile.owner}</p>
                     ))}
                         </div>
                     ) : (
-                        popularProfiles.results.map((profile) => (
+                        popularProfiles.results.slice(0,10).map((profile) => (
                             <p key={profile.id}>{profile.owner}</p>
                         ))
                     )}
