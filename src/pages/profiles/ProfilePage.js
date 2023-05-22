@@ -51,7 +51,7 @@ function ProfilePage() {
                     />
                 </Col>
                 <Col lg={6}>
-                    <h3 className="m-2">Profile username</h3>
+                    <h3 className="m-2">{profile?.owner}</h3>
                     <Row className="justify-content-center no-gutters">
                         <Col xs={3} className="m-2">
                             <div>{profile?.photos_count}</div>
