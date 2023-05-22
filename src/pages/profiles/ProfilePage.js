@@ -14,9 +14,13 @@ import {
 } from "../../contexts/ProfileDataContext";
 import { axiosReq } from "../../api/axiosDefaults";
 import { Image } from "react-bootstrap";
+import InfiniteScroll from "react-infinite-scroll-component";
+import Photo from "../photos/Photo";
+import { fetchMoreData } from "../../utils/utils";
 
 function ProfilePage() {
     const [hasLoaded, setHasLoaded] = useState(false);
+    const [profilePhotos, setProfilePhotos] = useState({ results: [] });
     const { id } = useParams();
     const setProfileData = useSetProfileData();
     const { pageProfile } = useProfileData();
@@ -25,13 +29,17 @@ function ProfilePage() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const [{ data: pageProfile }] = await Promise.all([
-                    axiosReq.get(`/profiles/${id}/`),
-                ]);
+                const [{ data: pageProfile }, { data: profilePhotos }] =
+                    await Promise.all([
+                        axiosReq.get(`/profiles/${id}/`),
+                        axiosReq.get(`/photos/?owner__profile=${id}`),
+                    ]);
                 setProfileData((prevState) => ({
                     ...prevState,
                     pageProfile: { results: [pageProfile] },
                 }));
+
+                setProfilePhotos(profilePhotos);
                 setHasLoaded(true);
             } catch (err) {
                 console.log(err);
@@ -70,7 +78,9 @@ function ProfilePage() {
                 <Col lg={3} className="text-lg-right">
                     <p>Follow button</p>
                 </Col>
-                {profile?.description && <Col className="p-3">{profile.description}</Col>}
+                {profile?.description && (
+                    <Col className="p-3">{profile.description}</Col>
+                )}
             </Row>
         </>
     );
@@ -80,6 +90,25 @@ function ProfilePage() {
             <hr />
             <p className="text-center">Profile owner's posted photos</p>
             <hr />
+            {profilePhotos.results.length ? (
+                <InfiniteScroll
+                    children={profilePhotos.results.map((photo) => (
+                        <Photo
+                            key={photo.id}
+                            {...photo}
+                            setPhotos={setProfilePhotos}
+                        />
+                    ))}
+                    dataLength={profilePhotos.results.length}
+                    loader={<Asset spinner />}
+                    hasMore={!!profilePhotos.next}
+                    next={() => fetchMoreData(profilePhotos, setProfilePhotos)}
+                />
+            ) : (
+                <Asset
+                    message={`No results found, ${profile?.owner} does not have any posted photos.`}
+                />
+            )}
         </>
     );
 
