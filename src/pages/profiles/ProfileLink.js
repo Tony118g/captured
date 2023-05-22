@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "../../styles/ProfileLink.module.css";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 
@@ -19,10 +20,10 @@ const ProfileLink = (props) => {
                     }`}
                 >
                     <Avatar src={image} height={imageSize} />
-                    <span className="mx-2">
-                        <strong>{owner}</strong>
-                    </span>
                 </Link>
+            </div>
+            <div className={`mx-2 ${styles.WordBreak}`}>
+                <strong className={styles.Username}>{owner}</strong>
             </div>
         </div>
     );
