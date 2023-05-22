@@ -70,7 +70,7 @@ function ProfilePage() {
                 <Col lg={3} className="text-lg-right">
                     <p>Follow button</p>
                 </Col>
-                <Col className="p-3">Profile content</Col>
+                {profile?.description && <Col className="p-3">{profile.description}</Col>}
             </Row>
         </>
     );
