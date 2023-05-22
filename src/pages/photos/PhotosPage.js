@@ -11,6 +11,7 @@ import { Container, Form } from "react-bootstrap";
 import SideNav from "../../components/SideNav";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
+import PopularProfiles from "../profiles/PopularProfiles";
 
 function PhotosPage({ message, filter = "" }) {
     const [photos, setPhotos] = useState({ results: [] });
@@ -45,7 +46,7 @@ function PhotosPage({ message, filter = "" }) {
         <Row className="h-100">
             <Col className="d-none d-md-block py-2 p-0 p-lg-2 px-4" md={4}>
                 <SideNav />
-                <p>Popular profiles for desktop</p>
+                <PopularProfiles />
             </Col>
             <Col md={8} className="p-0 p-lg-2">
                 <SideNav mobile />
