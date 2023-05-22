@@ -6,7 +6,8 @@
 
 .Main {
     padding-top: 81px;
-    max-width: 800px;
+    width: calc(100vw - 20px);
+    max-width: 1000px;
 }
 
 .Content {
