@@ -50,7 +50,7 @@ function PhotosPage({ message, filter = "" }) {
             </Col>
             <Col md={8} className="p-0 p-lg-2">
                 <SideNav mobile />
-                <p>Popular profiles for mobile</p>
+                <PopularProfiles mobile />
                 <i className={`fas fa-search ${styles.SearchIcon}`} />
                 <Form
                     className={styles.SearchBar}
