@@ -13,10 +13,11 @@ import {
     useSetProfileData,
 } from "../../contexts/ProfileDataContext";
 import { axiosReq } from "../../api/axiosDefaults";
-import { Image } from "react-bootstrap";
+import { Button, Image } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Photo from "../photos/Photo";
 import { fetchMoreData } from "../../utils/utils";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function ProfilePage() {
     const [hasLoaded, setHasLoaded] = useState(false);
@@ -25,6 +26,8 @@ function ProfilePage() {
     const setProfileData = useSetProfileData();
     const { pageProfile } = useProfileData();
     const [profile] = pageProfile.results;
+    const currentUser = useCurrentUser();
+    const is_owner = currentUser?.username === profile?.owner;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -76,7 +79,21 @@ function ProfilePage() {
                     </Row>
                 </Col>
                 <Col lg={3} className="text-lg-right">
-                    <p>Follow button</p>
+                    {currentUser &&
+                        !is_owner &&
+                        (profile?.following_id ? (
+                            <Button
+                                onClick={() => {}}
+                            >
+                                unfollow
+                            </Button>
+                        ) : (
+                            <Button
+                                onClick={() => {}}
+                            >
+                                follow
+                            </Button>
+                        ))}
                 </Col>
                 {profile?.description && (
                     <Col className="p-3">{profile.description}</Col>
