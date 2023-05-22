@@ -108,7 +108,7 @@ function ProfilePage() {
     const mainProfilePostedPhotos = (
         <>
             <hr />
-            <p className="text-center">Profile owner's posted photos</p>
+            <p className="text-center">{profile?.owner}'s photos</p>
             <hr />
             {profilePhotos.results.length ? (
                 <InfiniteScroll
