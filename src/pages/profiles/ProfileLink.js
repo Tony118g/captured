@@ -1,11 +1,16 @@
 import React from "react";
 import styles from "../../styles/ProfileLink.module.css";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
+import { Button } from "react-bootstrap";
 
 const ProfileLink = (props) => {
     const { profile, mobile, imageSize = 50 } = props;
-    const { id, image, owner } = profile;
+    const { id, following_id, image, owner } = profile;
+
+    const currentUser = useCurrentUser();
+    const is_owner = currentUser?.username === owner;
 
     return (
         <div
@@ -25,6 +30,16 @@ const ProfileLink = (props) => {
             </div>
             <div className={`mx-2 ${styles.WordBreak}`}>
                 <strong className={styles.Username}>{owner}</strong>
+            </div>
+            <div className={`text-right ${!mobile && "ml-auto"}`}>
+                {!mobile &&
+                    currentUser &&
+                    !is_owner &&
+                    (following_id ? (
+                        <Button onClick={() => {}}>unfollow</Button>
+                    ) : (
+                        <Button onClick={() => {}}>follow</Button>
+                    ))}
             </div>
         </div>
     );
