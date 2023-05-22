@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../../styles/ProfileLink.module.css";
+import btnStyles from "../../styles/Button.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
@@ -36,9 +37,19 @@ const ProfileLink = (props) => {
                     currentUser &&
                     !is_owner &&
                     (following_id ? (
-                        <Button onClick={() => {}}>unfollow</Button>
+                        <Button
+                            className={`${btnStyles.UnfollowBtn} p-1`}
+                            onClick={() => {}}
+                        >
+                            unfollow
+                        </Button>
                     ) : (
-                        <Button onClick={() => {}}>follow</Button>
+                        <Button
+                            className={`${btnStyles.Button} p-1`}
+                            onClick={() => {}}
+                        >
+                            follow
+                        </Button>
                     ))}
             </div>
         </div>

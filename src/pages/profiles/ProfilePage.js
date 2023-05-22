@@ -5,6 +5,7 @@ import Container from "react-bootstrap/Container";
 import Asset from "../../components/Asset";
 import styles from "../../styles/ProfilePage.module.css";
 import appStyles from "../../App.module.css";
+import btnStyles from "../../styles/Button.module.css";
 import PopularProfiles from "./PopularProfiles";
 import SideNav from "../../components/SideNav";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
@@ -83,12 +84,14 @@ function ProfilePage() {
                         !is_owner &&
                         (profile?.following_id ? (
                             <Button
+                                className={`${btnStyles.UnfollowBtn} p-1`}
                                 onClick={() => {}}
                             >
                                 unfollow
                             </Button>
                         ) : (
                             <Button
+                                className={`${btnStyles.Button} p-1`}
                                 onClick={() => {}}
                             >
                                 follow
