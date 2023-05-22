@@ -5,7 +5,7 @@ import Avatar from "../../components/Avatar";
 
 const ProfileLink = (props) => {
     const { profile, mobile, imageSize = 50 } = props;
-    const { image, owner } = profile;
+    const { id, image, owner } = profile;
 
     return (
         <div
@@ -15,6 +15,7 @@ const ProfileLink = (props) => {
         >
             <div>
                 <Link
+                    to={`/profiles/${id}`}
                     className={`"align-items-center" ${
                         mobile && "flex-column"
                     }`}
