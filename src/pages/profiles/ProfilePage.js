@@ -24,7 +24,7 @@ function ProfilePage() {
     const [hasLoaded, setHasLoaded] = useState(false);
     const [profilePhotos, setProfilePhotos] = useState({ results: [] });
     const { id } = useParams();
-    const setProfileData = useSetProfileData();
+    const { setProfileData, handleFollow } = useSetProfileData();
     const { pageProfile } = useProfileData();
     const [profile] = pageProfile.results;
     const currentUser = useCurrentUser();
@@ -92,7 +92,7 @@ function ProfilePage() {
                         ) : (
                             <Button
                                 className={`${btnStyles.Button} p-1`}
-                                onClick={() => {}}
+                                onClick={() => handleFollow(profile)}
                             >
                                 follow
                             </Button>

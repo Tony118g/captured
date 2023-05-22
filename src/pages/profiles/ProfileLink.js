@@ -5,6 +5,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { Button } from "react-bootstrap";
+import { useSetProfileData } from "../../contexts/ProfileDataContext";
 
 const ProfileLink = (props) => {
     const { profile, mobile, imageSize = 50 } = props;
@@ -12,6 +13,8 @@ const ProfileLink = (props) => {
 
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
+
+    const {handleFollow} = useSetProfileData();
 
     return (
         <div
@@ -46,7 +49,7 @@ const ProfileLink = (props) => {
                     ) : (
                         <Button
                             className={`${btnStyles.Button} p-1`}
-                            onClick={() => {}}
+                            onClick={() => handleFollow(profile)}
                         >
                             follow
                         </Button>
