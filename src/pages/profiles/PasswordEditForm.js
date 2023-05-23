@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 
+import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -24,6 +25,8 @@ const PasswordEditForm = () => {
     });
     const { new_password1, new_password2 } = userData;
 
+    const [errors, setErrors] = useState({});
+
     const handleChange = (event) => {
         setUserData({
             ...userData,
@@ -44,6 +47,7 @@ const PasswordEditForm = () => {
             history.goBack();
         } catch (err) {
             console.log(err);
+            setErrors(err.response?.data);
         }
     };
 
@@ -62,6 +66,11 @@ const PasswordEditForm = () => {
                                 name="new_password1"
                             />
                         </Form.Group>
+                        {errors?.new_password1?.map((message, idx) => (
+                            <Alert key={idx} variant="warning">
+                                {message}
+                            </Alert>
+                        ))}
                         <Form.Group>
                             <Form.Label>Confirm password</Form.Label>
                             <Form.Control
@@ -72,16 +81,18 @@ const PasswordEditForm = () => {
                                 name="new_password2"
                             />
                         </Form.Group>
+                        {errors?.new_password2?.map((message, idx) => (
+                            <Alert key={idx} variant="warning">
+                                {message}
+                            </Alert>
+                        ))}
                         <Button
                             className={`${btnStyles.CancelBtn} mr-3`}
                             onClick={() => history.goBack()}
                         >
                             cancel
                         </Button>
-                        <Button
-                            type="submit"
-                            className={`${btnStyles.Button}`}
-                        >
+                        <Button type="submit" className={`${btnStyles.Button}`}>
                             save
                         </Button>
                     </Form>
