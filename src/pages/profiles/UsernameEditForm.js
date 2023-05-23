@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 
+import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
@@ -18,6 +19,7 @@ import appStyles from "../../App.module.css";
 
 const UsernameEditForm = () => {
     const [username, setUsername] = useState("");
+    const [errors, setErrors] = useState({});
 
     const history = useHistory();
     const { id } = useParams();
@@ -46,6 +48,7 @@ const UsernameEditForm = () => {
             history.goBack();
         } catch (err) {
             console.log(err);
+            setErrors(err.response?.data);
         }
     };
 
@@ -65,16 +68,18 @@ const UsernameEditForm = () => {
                                 }
                             />
                         </Form.Group>
+                        {errors?.username?.map((message, idx) => (
+                            <Alert key={idx} variant="warning">
+                                {message}
+                            </Alert>
+                        ))}
                         <Button
                             className={`${btnStyles.CancelBtn} mr-3`}
                             onClick={() => history.goBack()}
                         >
                             cancel
                         </Button>
-                        <Button
-                            className={`${btnStyles.Button}`}
-                            type="submit"
-                        >
+                        <Button className={`${btnStyles.Button}`} type="submit">
                             save
                         </Button>
                     </Form>
