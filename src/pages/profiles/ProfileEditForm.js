@@ -7,6 +7,7 @@ import Image from "react-bootstrap/Image";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
+import Alert from "react-bootstrap/Alert";
 
 import { axiosReq } from "../../api/axiosDefaults";
 import {
@@ -30,6 +31,8 @@ const ProfileEditForm = () => {
         image: "",
     });
     const { name, description, image } = profileData;
+
+    const [errors, setErrors] = useState({});
 
     useEffect(() => {
         const handleMount = async () => {
@@ -76,6 +79,7 @@ const ProfileEditForm = () => {
             history.goBack();
         } catch (err) {
             console.log(err);
+            setErrors(err.response?.data);
         }
     };
 
@@ -91,6 +95,12 @@ const ProfileEditForm = () => {
                     rows={5}
                 />
             </Form.Group>
+
+            {errors?.decription?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                    {message}
+                </Alert>
+            ))}
             <Button
                 className={`${btnStyles.CancelBtn} mr-3`}
                 onClick={() => history.goBack()}
@@ -123,6 +133,11 @@ const ProfileEditForm = () => {
                                     <Image src={image} fluid />
                                 </figure>
                             )}
+                            {errors?.image?.map((message, idx) => (
+                                <Alert variant="warning" key={idx}>
+                                    {message}
+                                </Alert>
+                            ))}
                             <div>
                                 <Form.Label
                                     className={`${btnStyles.Button}`}
