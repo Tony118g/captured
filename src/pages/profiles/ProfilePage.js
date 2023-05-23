@@ -19,12 +19,14 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Photo from "../photos/Photo";
 import { fetchMoreData } from "../../utils/utils";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { ProfileEditDropdown } from "../../components/EditDeleteDropdown";
 
 function ProfilePage() {
     const [hasLoaded, setHasLoaded] = useState(false);
     const [profilePhotos, setProfilePhotos] = useState({ results: [] });
     const { id } = useParams();
-    const {setProfileData, handleFollow, handleUnfollow} = useSetProfileData();
+    const { setProfileData, handleFollow, handleUnfollow } =
+        useSetProfileData();
     const { pageProfile } = useProfileData();
     const [profile] = pageProfile.results;
     const currentUser = useCurrentUser();
@@ -54,6 +56,7 @@ function ProfilePage() {
 
     const mainProfile = (
         <>
+            {profile?.is_owner && <ProfileEditDropdown id={profile?.id} className="justify-content-right" />}
             <Row noGutters className="px-3 text-center">
                 <Col lg={3} className="text-lg-left">
                     <Image
