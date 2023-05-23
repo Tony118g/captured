@@ -11,6 +11,7 @@
 }
 
 .Content {
+    position: relative;
     background-color: #ffffff;
     padding: 10px;
     border-radius: 4px;
