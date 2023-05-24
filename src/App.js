@@ -16,6 +16,7 @@ import UsernameEditForm from "./pages/profiles/UsernameEditForm";
 import PasswordEditForm from "./pages/profiles/PasswordEditForm";
 import TourCreateForm from "./pages/tours/TourCreateForm";
 import ToursPage from "./pages/tours/ToursPage";
+import TourEditForm from "./pages/tours/TourEditForm";
 
 function App() {
     const currentUser = useCurrentUser();
@@ -84,6 +85,11 @@ function App() {
                         exact
                         path="/tours"
                         render={() => <ToursPage message="No results found for your search : /"/>}
+                    />
+                    <Route
+                        exact
+                        path="/tours/:id/edit"
+                        render={() => <TourEditForm />}
                     />
                     <Route
                         exact

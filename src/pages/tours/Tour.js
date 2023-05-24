@@ -2,6 +2,7 @@ import React from "react";
 import { Card, Media } from "react-bootstrap";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { EditDeleteDropdown } from "../../components/EditDeleteDropdown";
+import { useHistory } from "react-router-dom";
 
 const Tour = (props) => {
     const {
@@ -22,6 +23,11 @@ const Tour = (props) => {
     } = props;
 
     const currentUser = useCurrentUser();
+    const history = useHistory();
+
+    const handleEdit = () => {
+        history.push(`/tours/${id}/edit`);
+    };
 
     return (
         <Card>
@@ -33,7 +39,7 @@ const Tour = (props) => {
 
                     <div className="d-flex align-items-center">
                         <span>Added on: {updated_at}</span>
-                        {currentUser?.is_admin_user && <EditDeleteDropdown />}
+                        {currentUser?.is_admin_user && <EditDeleteDropdown handleEdit={handleEdit}/>}
                     </div>
                 </Media>
                 <Card.Img src={image} alt={title} />
