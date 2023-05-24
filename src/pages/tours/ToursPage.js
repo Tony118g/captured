@@ -6,6 +6,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import Tour from "./Tour";
 import Asset from "../../components/Asset";
 import appStyles from "../../App.module.css";
+import styles from "../../styles/PhotosToursPage.module.css";
 import { Container, Form } from "react-bootstrap";
 import SideNav from "../../components/SideNav";
 import PopularProfiles from "../profiles/PopularProfiles";
@@ -49,8 +50,11 @@ function ToursPage({ message, filter = "" }) {
             <Col md={8} className="p-0 p-lg-2">
                 <SideNav mobile />
                 <PopularProfiles mobile />
-                <i className={`fas fa-search`} />
-                <Form onSubmit={(event) => event.preventDefault()}>
+                <i className={`fas fa-search ${styles.SearchIcon}`} />
+                <Form
+                    className={styles.SearchBar}
+                    onSubmit={(event) => event.preventDefault()}
+                >
                     <Form.Control
                         value={query}
                         onChange={(event) => setQuery(event.target.value)}
