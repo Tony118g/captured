@@ -6,7 +6,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 
-import styles from "../../styles/PhotoCreateEditForm.module.css";
+import styles from "../../styles/TourPhotoCreateEditForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 import { Image, Alert } from "react-bootstrap";

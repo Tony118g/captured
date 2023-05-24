@@ -6,6 +6,9 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Asset from "../../components/Asset";
+import styles from "../../styles/TourPhotoCreateEditForm.module.css";
+import btnStyles from "../../styles/Button.module.css";
+import appStyles from "../../App.module.css";
 
 function TourCreateForm() {
     const textFields = (
@@ -15,24 +18,44 @@ function TourCreateForm() {
                 <Form.Control
                     type="text"
                     name="title"
-                    placeholder="Give this photo a title"
                 />
             </Form.Group>
             <Form.Group>
-                <Form.Label>Country</Form.Label>
-                <Form.Control
-                    type="text"
-                    placeholder="What country is the tour in?"
-                    name="country"
-                />
+                <Row>
+                    <Col xs={12} md={6}>
+                        <Form.Label>Country</Form.Label>
+                        <Form.Control
+                            type="text"
+                            name="country"
+                        />
+                    </Col>
+                    <Col xs={12} md={6}>
+                        <Form.Label>City</Form.Label>
+                        <Form.Control
+                            type="text"
+                            name="city"
+                        />
+                    </Col>
+                </Row>
             </Form.Group>
             <Form.Group>
-                <Form.Label>City</Form.Label>
-                <Form.Control
-                    type="text"
-                    placeholder="What city is the tour in?"
-                    name="city"
-                />
+                <Row>
+                    <Col>
+                        <Form.Label>Guide</Form.Label>
+                        <Form.Control
+                            type="text"
+                            name="guide"
+                        />
+                    </Col>
+                    <Col>
+                        <Form.Label>Price (USD)</Form.Label>
+                        <Form.Control
+                            type="text"
+                            placeholder="0.00"
+                            name="price"
+                        />
+                    </Col>
+                </Row>
             </Form.Group>
             <Form.Group>
                 <Form.Label>Time period</Form.Label>
@@ -40,22 +63,6 @@ function TourCreateForm() {
                     type="text"
                     placeholder="e.g. - may 20th to may 30th"
                     name="time_period"
-                />
-            </Form.Group>
-            <Form.Group>
-                <Form.Label>Guide</Form.Label>
-                <Form.Control
-                    type="text"
-                    placeholder="Name of the guide (optional)."
-                    name="guide"
-                />
-            </Form.Group>
-            <Form.Group>
-                <Form.Label>Price</Form.Label>
-                <Form.Control
-                    type="text"
-                    placeholder="Price of the tour (optional)."
-                    name="price"
                 />
             </Form.Group>
             <Form.Group>
@@ -76,8 +83,12 @@ function TourCreateForm() {
                 />
             </Form.Group>
 
-            <Button onClick={() => {}}>cancel</Button>
-            <Button type="submit">create</Button>
+            <Button className={`${btnStyles.CancelBtn} mr-3`} onClick={() => {}}>
+                cancel
+            </Button>
+            <Button className={btnStyles.Button} type="submit">
+                create
+            </Button>
         </div>
     );
 
@@ -89,11 +100,13 @@ function TourCreateForm() {
                     lg={6}
                     className="d-none d-md-block p-0 p-md-2 mt-4"
                 >
-                    <Container>{textFields}</Container>
+                    <Container className={appStyles.Content}>
+                        {textFields}
+                    </Container>
                 </Col>
                 <Col className="py-2 p-0 p-md-2 my-4" md={7} lg={6}>
                     <Container
-                        className={`d-flex flex-column justify-content-center`}
+                        className={` ${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
                     >
                         <Form.Group className="text-center">
                             <Form.Label
