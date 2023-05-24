@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -10,6 +10,8 @@ import styles from "../../styles/TourPhotoCreateEditForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 import { Image } from "react-bootstrap";
+import { axiosReq } from "../../api/axiosDefaults";
+import { useHistory } from "react-router-dom";
 
 function TourCreateForm() {
     const [tourData, setTourData] = useState({
@@ -36,6 +38,9 @@ function TourCreateForm() {
         image,
     } = tourData;
 
+    const imageInput = useRef(null);
+    const history = useHistory();
+
     const handleChange = (event) => {
         setTourData({
             ...tourData,
@@ -50,6 +55,27 @@ function TourCreateForm() {
                 ...tourData,
                 image: URL.createObjectURL(event.target.files[0]),
             });
+        }
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const formData = new FormData();
+
+        formData.append("title", title);
+        formData.append("country", country);
+        formData.append("city", city);
+        formData.append("guide", guide);
+        formData.append("price", price);
+        formData.append("time_period", time_period);
+        formData.append("booking_means", booking_means);
+        formData.append("image", imageInput.current.files[0]);
+
+        try {
+            const { data } = await axiosReq.post("/tours/", formData);
+            history.push(`/tours/${data.id}`);
+        } catch (err) {
+            console.log(err);
         }
     };
 
@@ -154,7 +180,7 @@ function TourCreateForm() {
     );
 
     return (
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <Row>
                 <Col
                     md={5}
@@ -202,6 +228,7 @@ function TourCreateForm() {
                                 id="image-upload"
                                 accept="image/*"
                                 onChange={handleChangeImage}
+                                ref={imageInput}
                             />
                         </Form.Group>
                         <div className="d-md-none">{textFields}</div>
