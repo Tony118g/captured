@@ -3,6 +3,7 @@ import { Card, Media } from "react-bootstrap";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { EditDeleteDropdown } from "../../components/EditDeleteDropdown";
 import { useHistory } from "react-router-dom";
+import { axiosRes } from "../../api/axiosDefaults";
 
 const Tour = (props) => {
     const {
@@ -29,6 +30,15 @@ const Tour = (props) => {
         history.push(`/tours/${id}/edit`);
     };
 
+    const handleDelete = async () => {
+        try {
+            await axiosRes.delete(`/tours/${id}/`);
+            history.go(0);
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
     return (
         <Card>
             <Card.Body>
@@ -39,7 +49,12 @@ const Tour = (props) => {
 
                     <div className="d-flex align-items-center">
                         <span>Added on: {updated_at}</span>
-                        {currentUser?.is_admin_user && <EditDeleteDropdown handleEdit={handleEdit}/>}
+                        {currentUser?.is_admin_user && (
+                            <EditDeleteDropdown
+                                handleEdit={handleEdit}
+                                handleDelete={handleDelete}
+                            />
+                        )}
                     </div>
                 </Media>
                 <Card.Img src={image} alt={title} />
