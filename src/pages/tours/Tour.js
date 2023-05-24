@@ -1,8 +1,6 @@
 import React from "react";
 import { Card, Media } from "react-bootstrap";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Link } from "react-router-dom";
-import Avatar from "../../components/Avatar";
 
 const Tour = (props) => {
     const {
@@ -51,6 +49,10 @@ const Tour = (props) => {
                 <hr />
                 {time_period && (
                     <Card.Text>Time period: {time_period}</Card.Text>
+                )}
+                <hr />
+                {booking_means && (
+                    <Card.Text>How to join: {booking_means}</Card.Text>
                 )}
                 <hr />
                 {description && <Card.Text>{description}</Card.Text>}
