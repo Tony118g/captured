@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -11,6 +11,35 @@ import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
 function TourCreateForm() {
+    const [tourData, setTourData] = useState({
+        title: "",
+        country: "",
+        city: "",
+        guide: "",
+        price: "",
+        time_period: "",
+        booking_means: "",
+        description: "",
+    });
+
+    const {
+        title,
+        country,
+        city,
+        guide,
+        price,
+        time_period,
+        booking_means,
+        description,
+    } = tourData;
+
+    const handleChange = (event) => {
+        setTourData({
+            ...tourData,
+            [event.target.name]: event.target.value,
+        });
+    };
+
     const textFields = (
         <div className="text-center">
             <Form.Group>
@@ -18,6 +47,8 @@ function TourCreateForm() {
                 <Form.Control
                     type="text"
                     name="title"
+                    value={title}
+                    onChange={handleChange}
                 />
             </Form.Group>
             <Form.Group>
@@ -27,6 +58,8 @@ function TourCreateForm() {
                         <Form.Control
                             type="text"
                             name="country"
+                            value={country}
+                            onChange={handleChange}
                         />
                     </Col>
                     <Col xs={12} md={6}>
@@ -34,6 +67,8 @@ function TourCreateForm() {
                         <Form.Control
                             type="text"
                             name="city"
+                            value={city}
+                            onChange={handleChange}
                         />
                     </Col>
                 </Row>
@@ -45,6 +80,8 @@ function TourCreateForm() {
                         <Form.Control
                             type="text"
                             name="guide"
+                            value={guide}
+                            onChange={handleChange}
                         />
                     </Col>
                     <Col>
@@ -53,6 +90,8 @@ function TourCreateForm() {
                             type="text"
                             placeholder="0.00"
                             name="price"
+                            value={price}
+                            onChange={handleChange}
                         />
                     </Col>
                 </Row>
@@ -63,6 +102,8 @@ function TourCreateForm() {
                     type="text"
                     placeholder="e.g. - may 20th to may 30th"
                     name="time_period"
+                    value={time_period}
+                    onChange={handleChange}
                 />
             </Form.Group>
             <Form.Group>
@@ -71,6 +112,8 @@ function TourCreateForm() {
                     type="text"
                     placeholder="How to book this tour."
                     name="booking_means"
+                    value={booking_means}
+                    onChange={handleChange}
                 />
             </Form.Group>
             <Form.Group>
@@ -80,10 +123,15 @@ function TourCreateForm() {
                     rows={3}
                     placeholder="Share more information about this tour (optional)."
                     name="description"
+                    value={description}
+                    onChange={handleChange}
                 />
             </Form.Group>
 
-            <Button className={`${btnStyles.CancelBtn} mr-3`} onClick={() => {}}>
+            <Button
+                className={`${btnStyles.CancelBtn} mr-3`}
+                onClick={() => {}}
+            >
                 cancel
             </Button>
             <Button className={btnStyles.Button} type="submit">
