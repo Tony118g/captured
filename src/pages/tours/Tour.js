@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, Media } from "react-bootstrap";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { EditDeleteDropdown } from "../../components/EditDeleteDropdown";
 
 const Tour = (props) => {
     const {
@@ -32,7 +33,7 @@ const Tour = (props) => {
 
                     <div className="d-flex align-items-center">
                         <span>Added on: {updated_at}</span>
-                        {currentUser?.is_admin_user && "..."}
+                        {currentUser?.is_admin_user && <EditDeleteDropdown />}
                     </div>
                 </Media>
                 <Card.Img src={image} alt={title} />
