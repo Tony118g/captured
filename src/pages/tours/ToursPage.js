@@ -7,6 +7,8 @@ import Tour from "./Tour";
 import Asset from "../../components/Asset";
 import appStyles from "../../App.module.css";
 import { Container } from "react-bootstrap";
+import SideNav from "../../components/SideNav";
+import PopularProfiles from "../profiles/PopularProfiles";
 
 function ToursPage({ message, filter = "" }) {
     const [tours, setTours] = useState({ results: [] });
@@ -30,12 +32,12 @@ function ToursPage({ message, filter = "" }) {
     return (
         <Row className="h-100">
             <Col className="d-none d-md-block py-2 p-0 p-lg-2" md={4}>
-                <p>Post a photo, Feed, Liked photos, Tours</p>
-                <p>Popular profiles for desktop</p>
+                <SideNav />
+                <PopularProfiles />
             </Col>
             <Col md={8} className="p-0 p-lg-2">
-                <p>Post a photo, Feed, Liked photos, Tours for mobile </p>
-                <p>Popular profiles for mobile</p>
+                <SideNav mobile />
+                <PopularProfiles mobile />
                 {hasLoaded ? (
                     <>
                         {tours.results.length
