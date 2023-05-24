@@ -80,7 +80,9 @@ function ToursPage({ message, filter = "" }) {
                                 next={() => fetchMoreData(tours, setTours)}
                             />
                         ) : (
-                            console.log("show no results message")
+                            <Container className={appStyles.Content}>
+                                <Asset message={message} />
+                            </Container>
                         )}
                     </>
                 ) : (
