@@ -73,8 +73,8 @@ function TourCreateForm() {
         formData.append("image", imageInput.current.files[0]);
 
         try {
-            const { data } = await axiosReq.post("/tours/", formData);
-            history.push(`/tours/${data.id}`);
+            await axiosReq.post("/tours/", formData);
+            history.push(`/tours`);
         } catch (err) {
             if (err.response?.status !== 401) {
                 setErrors(err.response?.data);
