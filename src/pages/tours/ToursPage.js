@@ -6,7 +6,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import Tour from "./Tour";
 import Asset from "../../components/Asset";
 import appStyles from "../../App.module.css";
-import { Container } from "react-bootstrap";
+import { Container, Form } from "react-bootstrap";
 import SideNav from "../../components/SideNav";
 import PopularProfiles from "../profiles/PopularProfiles";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -16,11 +16,14 @@ function ToursPage({ message, filter = "" }) {
     const [tours, setTours] = useState({ results: [] });
     const [hasLoaded, setHasLoaded] = useState(false);
     const { pathname } = useLocation();
+    const [query, setQuery] = useState("");
 
     useEffect(() => {
         const fetchTours = async () => {
             try {
-                const { data } = await axiosReq.get(`/tours/?${filter}`);
+                const { data } = await axiosReq.get(
+                    `/tours/?${filter}search=${query}`
+                );
                 setTours(data);
                 setHasLoaded(true);
             } catch (err) {
@@ -28,8 +31,14 @@ function ToursPage({ message, filter = "" }) {
             }
         };
         setHasLoaded(false);
-        fetchTours();
-    }, [filter, pathname]);
+        const timer = setTimeout(() => {
+            fetchTours();
+        }, 1000);
+
+        return () => {
+            clearTimeout(timer);
+        };
+    }, [filter, query, pathname]);
 
     return (
         <Row className="h-100">
@@ -40,6 +49,16 @@ function ToursPage({ message, filter = "" }) {
             <Col md={8} className="p-0 p-lg-2">
                 <SideNav mobile />
                 <PopularProfiles mobile />
+                <i className={`fas fa-search`} />
+                <Form onSubmit={(event) => event.preventDefault()}>
+                    <Form.Control
+                        value={query}
+                        onChange={(event) => setQuery(event.target.value)}
+                        type="text"
+                        className="mr-sm-2"
+                        placeholder="Search tours"
+                    />
+                </Form>
                 {hasLoaded ? (
                     <>
                         {tours.results.length ? (
