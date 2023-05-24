@@ -9,11 +9,12 @@ import Asset from "../../components/Asset";
 import styles from "../../styles/TourPhotoCreateEditForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
-import { Image } from "react-bootstrap";
+import { Alert, Image } from "react-bootstrap";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useHistory } from "react-router-dom";
 
 function TourCreateForm() {
+    const [errors, setErrors] = useState({});
     const [tourData, setTourData] = useState({
         title: "",
         country: "",
@@ -76,6 +77,9 @@ function TourCreateForm() {
             history.push(`/tours/${data.id}`);
         } catch (err) {
             console.log(err);
+            if (err.response?.status !== 401) {
+                setErrors(err.response?.data);
+            }
         }
     };
 
@@ -90,6 +94,11 @@ function TourCreateForm() {
                     onChange={handleChange}
                 />
             </Form.Group>
+            {errors?.title?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                    {message}
+                </Alert>
+            ))}
             <Form.Group>
                 <Row>
                     <Col xs={12} md={6}>
@@ -100,6 +109,11 @@ function TourCreateForm() {
                             value={country}
                             onChange={handleChange}
                         />
+                        {errors?.country?.map((message, idx) => (
+                            <Alert variant="warning" key={idx}>
+                                {message}
+                            </Alert>
+                        ))}
                     </Col>
                     <Col xs={12} md={6}>
                         <Form.Label>City</Form.Label>
@@ -109,6 +123,11 @@ function TourCreateForm() {
                             value={city}
                             onChange={handleChange}
                         />
+                        {errors?.city?.map((message, idx) => (
+                            <Alert variant="warning" key={idx}>
+                                {message}
+                            </Alert>
+                        ))}
                     </Col>
                 </Row>
             </Form.Group>
@@ -122,6 +141,11 @@ function TourCreateForm() {
                             value={guide}
                             onChange={handleChange}
                         />
+                        {errors?.guide?.map((message, idx) => (
+                            <Alert variant="warning" key={idx}>
+                                {message}
+                            </Alert>
+                        ))}
                     </Col>
                     <Col>
                         <Form.Label>Price (USD)</Form.Label>
@@ -132,6 +156,11 @@ function TourCreateForm() {
                             value={price}
                             onChange={handleChange}
                         />
+                        {errors?.price?.map((message, idx) => (
+                            <Alert variant="warning" key={idx}>
+                                {message}
+                            </Alert>
+                        ))}
                     </Col>
                 </Row>
             </Form.Group>
@@ -145,6 +174,11 @@ function TourCreateForm() {
                     onChange={handleChange}
                 />
             </Form.Group>
+            {errors?.time_period?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                    {message}
+                </Alert>
+            ))}
             <Form.Group>
                 <Form.Label>Means of booking</Form.Label>
                 <Form.Control
@@ -155,6 +189,11 @@ function TourCreateForm() {
                     onChange={handleChange}
                 />
             </Form.Group>
+            {errors?.booking_means?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                    {message}
+                </Alert>
+            ))}
             <Form.Group>
                 <Form.Label>Description</Form.Label>
                 <Form.Control
@@ -166,6 +205,11 @@ function TourCreateForm() {
                     onChange={handleChange}
                 />
             </Form.Group>
+            {errors?.description?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                    {message}
+                </Alert>
+            ))}
 
             <Button
                 className={`${btnStyles.CancelBtn} mr-3`}
@@ -231,6 +275,11 @@ function TourCreateForm() {
                                 ref={imageInput}
                             />
                         </Form.Group>
+                        {errors?.image?.map((message, idx) => (
+                            <Alert variant="warning" key={idx}>
+                                {message}
+                            </Alert>
+                        ))}
                         <div className="d-md-none">{textFields}</div>
                     </Container>
                 </Col>
