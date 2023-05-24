@@ -76,7 +76,6 @@ function TourCreateForm() {
             const { data } = await axiosReq.post("/tours/", formData);
             history.push(`/tours/${data.id}`);
         } catch (err) {
-            console.log(err);
             if (err.response?.status !== 401) {
                 setErrors(err.response?.data);
             }
@@ -213,7 +212,7 @@ function TourCreateForm() {
 
             <Button
                 className={`${btnStyles.CancelBtn} mr-3`}
-                onClick={() => {}}
+                onClick={() => history.goBack()}
             >
                 cancel
             </Button>
