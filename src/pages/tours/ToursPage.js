@@ -4,6 +4,9 @@ import Row from "react-bootstrap/Row";
 import { useLocation } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import Tour from "./Tour";
+import Asset from "../../components/Asset";
+import appStyles from "../../App.module.css";
+import { Container } from "react-bootstrap";
 
 function ToursPage({ message, filter = "" }) {
     const [tours, setTours] = useState({ results: [] });
@@ -46,7 +49,9 @@ function ToursPage({ message, filter = "" }) {
                             : console.log("show no results message")}
                     </>
                 ) : (
-                    console.log("show loading spinner")
+                    <Container className={appStyles.Content}>
+                        <Asset spinner />
+                    </Container>
                 )}
             </Col>
         </Row>
