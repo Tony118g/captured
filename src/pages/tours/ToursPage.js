@@ -9,6 +9,8 @@ import appStyles from "../../App.module.css";
 import { Container } from "react-bootstrap";
 import SideNav from "../../components/SideNav";
 import PopularProfiles from "../profiles/PopularProfiles";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { fetchMoreData } from "../../utils/utils";
 
 function ToursPage({ message, filter = "" }) {
     const [tours, setTours] = useState({ results: [] });
@@ -40,15 +42,23 @@ function ToursPage({ message, filter = "" }) {
                 <PopularProfiles mobile />
                 {hasLoaded ? (
                     <>
-                        {tours.results.length
-                            ? tours.results.map((tour) => (
-                                  <Tour
-                                      key={tour.id}
-                                      {...tour}
-                                      setTours={setTours}
-                                  />
-                              ))
-                            : console.log("show no results message")}
+                        {tours.results.length ? (
+                            <InfiniteScroll
+                                children={tours.results.map((tour) => (
+                                    <Tour
+                                        key={tour.id}
+                                        {...tour}
+                                        setPhotos={setTours}
+                                    />
+                                ))}
+                                dataLength={tours.results.length}
+                                loader={<Asset spinner />}
+                                hasMore={!!tours.next}
+                                next={() => fetchMoreData(tours, setTours)}
+                            />
+                        ) : (
+                            console.log("show no results message")
+                        )}
                     </>
                 ) : (
                     <Container className={appStyles.Content}>
