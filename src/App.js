@@ -14,6 +14,7 @@ import ProfilePage from "./pages/profiles/ProfilePage";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import UsernameEditForm from "./pages/profiles/UsernameEditForm";
 import PasswordEditForm from "./pages/profiles/PasswordEditForm";
+import TourCreateForm from "./pages/tours/TourCreateForm";
 
 function App() {
     const currentUser = useCurrentUser();
@@ -72,6 +73,11 @@ function App() {
                         exact
                         path="/photos/:id/edit"
                         render={() => <PhotoEditForm />}
+                    />
+                    <Route
+                        exact
+                        path="/tours/create"
+                        render={() => <TourCreateForm />}
                     />
                     <Route
                         exact
