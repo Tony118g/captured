@@ -70,7 +70,9 @@ function TourCreateForm() {
         formData.append("price", price);
         formData.append("time_period", time_period);
         formData.append("booking_means", booking_means);
-        formData.append("image", imageInput.current.files[0]);
+        if (image.length) {
+            formData.append("image", imageInput.current.files[0]);
+        }
 
         try {
             await axiosReq.post("/tours/", formData);
@@ -263,7 +265,7 @@ function TourCreateForm() {
                                     htmlFor="image-upload"
                                 >
                                     <i className="fa-solid fa-cloud-arrow-up"></i>
-                                    <Asset message="Click or tap to upload a photo" />
+                                    <Asset message="Click or tap to upload a photo (optional)." />
                                 </Form.Label>
                             )}
 
