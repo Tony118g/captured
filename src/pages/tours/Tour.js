@@ -57,7 +57,7 @@ const Tour = (props) => {
                         )}
                     </div>
                 </Media>
-                <Card.Img src={image} alt={title} />
+                {image && <Card.Img src={image} alt={title} />}
             </Card.Body>
             <Card.Body className="justify-content-between">
                 <div className="d-flex justify-content-around">
