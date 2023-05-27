@@ -12,7 +12,8 @@ const Tour = (props) => {
         description,
         country,
         city,
-        time_period,
+        start_date,
+        end_date,
         guide,
         price,
         booking_means,
@@ -69,9 +70,9 @@ const Tour = (props) => {
                     {guide && <Card.Text>Guide: {guide}</Card.Text>}
                 </div>
                 <hr />
-                {time_period && (
-                    <Card.Text>Time period: {time_period}</Card.Text>
-                )}
+                {start_date === end_date ? (
+                    <Card.Text>One day tour on {start_date}</Card.Text>
+                ) : (<Card.Text>From {start_date} to {end_date}</Card.Text>)}
                 <hr />
                 {booking_means && (
                     <Card.Text>How to join: {booking_means}</Card.Text>
