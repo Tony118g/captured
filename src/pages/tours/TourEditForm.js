@@ -24,7 +24,8 @@ function TourEditForm() {
         city: "",
         guide: "",
         price: "",
-        time_period: "",
+        start_date: "",
+        end_date: "",
         booking_means: "",
         description: "",
         image: "",
@@ -36,7 +37,8 @@ function TourEditForm() {
         city,
         guide,
         price,
-        time_period,
+        start_date,
+        end_date,
         booking_means,
         description,
         image,
@@ -48,6 +50,11 @@ function TourEditForm() {
     const history = useHistory();
     const { id } = useParams();
 
+    const tomorrow = () => {
+        let today = new Date();
+        today.setDate(today.getDate() + 1);
+    };
+
     useEffect(() => {
         const handleMount = async () => {
             try {
@@ -58,7 +65,8 @@ function TourEditForm() {
                     city,
                     guide,
                     price,
-                    time_period,
+                    start_date,
+                    end_date,
                     booking_means,
                     description,
                     image,
@@ -71,7 +79,8 @@ function TourEditForm() {
                           city,
                           guide,
                           price,
-                          time_period,
+                          start_date,
+                          end_date,
                           booking_means,
                           description,
                           image,
@@ -111,7 +120,8 @@ function TourEditForm() {
         formData.append("city", city);
         formData.append("guide", guide);
         formData.append("price", price);
-        formData.append("time_period", time_period);
+        formData.append("start_date", start_date);
+        formData.append("end_date", end_date);
         formData.append("booking_means", booking_means);
         if (imageInput?.current?.files[0]) {
             formData.append("image", imageInput.current.files[0]);
@@ -209,14 +219,40 @@ function TourEditForm() {
                 </Row>
             </Form.Group>
             <Form.Group>
-                <Form.Label>Time period</Form.Label>
-                <Form.Control
-                    type="text"
-                    placeholder="e.g. - may 20th to may 30th"
-                    name="time_period"
-                    value={time_period}
-                    onChange={handleChange}
-                />
+                <Row>
+                    <Col>
+                        <Form.Label>Start Date</Form.Label>
+                        <Form.Control
+                            type="date"
+                            value={start_date}
+                            min={tomorrow()}
+                            max={end_date}
+                            name="start_date"
+                            onChange={handleChange}
+                        />
+                        {errors?.start_date?.map((message, idx) => (
+                            <Alert variant="warning" key={idx}>
+                                {message}
+                            </Alert>
+                        ))}
+                    </Col>
+                    <Col>
+                        <Form.Label>End Date</Form.Label>
+                        <Form.Control
+                            disabled={start_date === ""}
+                            type="date"
+                            value={end_date}
+                            min={start_date}
+                            name="end_date"
+                            onChange={handleChange}
+                        />
+                        {errors?.end_date?.map((message, idx) => (
+                            <Alert variant="warning" key={idx}>
+                                {message}
+                            </Alert>
+                        ))}
+                    </Col>
+                </Row>
             </Form.Group>
             {errors?.time_period?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>
@@ -268,7 +304,7 @@ function TourEditForm() {
     );
 
     return (
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} noValidate>
             <Row>
                 <Col
                     md={5}
