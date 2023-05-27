@@ -26,6 +26,11 @@ const Tour = (props) => {
 
     const currentUser = useCurrentUser();
     const history = useHistory();
+    const dateFields = {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+    };
 
     const handleEdit = () => {
         history.push(`/tours/${id}/edit`);
@@ -71,8 +76,24 @@ const Tour = (props) => {
                 </div>
                 <hr />
                 {start_date === end_date ? (
-                    <Card.Text>One day tour on {start_date}</Card.Text>
-                ) : (<Card.Text>From {start_date} to {end_date}</Card.Text>)}
+                    <Card.Text>
+                        One day tour on{" "}
+                        {new Date(start_date).toLocaleString(
+                            "en-GB",
+                            dateFields
+                        )}
+                    </Card.Text>
+                ) : (
+                    <Card.Text>
+                        From{" "}
+                        {new Date(start_date).toLocaleString(
+                            "en-GB",
+                            dateFields
+                        )}{" "}
+                        to{" "}
+                        {new Date(end_date).toLocaleString("en-GB", dateFields)}
+                    </Card.Text>
+                )}
                 <hr />
                 {booking_means && (
                     <Card.Text>How to join: {booking_means}</Card.Text>
