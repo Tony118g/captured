@@ -2,7 +2,7 @@ import React from "react";
 import appStyles from "../../App.module.css";
 import { Container } from "react-bootstrap";
 import Asset from "../../components/Asset";
-import ProfileLink from "./ProfileLink";
+import PopularProfileLink from "./PopularProfileLink";
 import { useProfileData } from "../../contexts/ProfileDataContext";
 
 const PopularProfiles = ({ mobile }) => {
@@ -20,12 +20,12 @@ const PopularProfiles = ({ mobile }) => {
                     {mobile ? (
                         <div className="d-flex justify-content-around">
                             {popularProfiles.results.slice(0,4).map((profile) => (
-                        <ProfileLink key={profile.id} profile={profile} mobile/>
+                        <PopularProfileLink key={profile.id} profile={profile} mobile/>
                     ))}
                         </div>
                     ) : (
                         popularProfiles.results.slice(0,10).map((profile) => (
-                            <ProfileLink key={profile.id} profile={profile}/>
+                            <PopularProfileLink key={profile.id} profile={profile}/>
                         ))
                     )}
                     

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../styles/ProfileLink.module.css";
+import styles from "../../styles/PopularProfileLink.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Link } from "react-router-dom";
@@ -7,7 +7,7 @@ import Avatar from "../../components/Avatar";
 import { Button } from "react-bootstrap";
 import { useSetProfileData } from "../../contexts/ProfileDataContext";
 
-const ProfileLink = (props) => {
+const PopularProfileLink = (props) => {
     const { profile, mobile, imageSize = 50 } = props;
     const { id, following_id, image, owner } = profile;
 
@@ -59,4 +59,4 @@ const ProfileLink = (props) => {
     );
 };
 
-export default ProfileLink;
+export default PopularProfileLink;
