@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Media } from "react-bootstrap";
+import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { EditDeleteDropdown } from "../../components/EditDeleteDropdown";
 import { useHistory } from "react-router-dom";
@@ -21,6 +21,7 @@ const Tour = (props) => {
         updated_at,
         attendance_id,
         attendance_count,
+        has_passed,
         setTours,
     } = props;
 
@@ -100,6 +101,34 @@ const Tour = (props) => {
                 )}
                 <hr />
                 {description && <Card.Text>{description}</Card.Text>}
+
+                <div>
+                    {has_passed ? (
+                        <></>
+                    ) : attendance_id ? (
+                        <span>Unmark as attending</span>
+                    ) : currentUser ? (
+                        <span>Mark as attending</span>
+                    ) : (
+                        <OverlayTrigger
+                            placement="top"
+                            overlay={
+                                <Tooltip>Log in to mark as attending!</Tooltip>
+                            }
+                        >
+                            <span>Mark as attending</span>
+                        </OverlayTrigger>
+                    )}
+                    {has_passed ? (
+                        <span>
+                            Attended: {attendance_count}
+                        </span>
+                    ) : (
+                        <span>
+                            Attending: {attendance_count}
+                        </span>
+                    )}
+                </div>
             </Card.Body>
         </Card>
     );
