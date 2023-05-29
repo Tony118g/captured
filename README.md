@@ -9,6 +9,7 @@ This repository is for the frontend section of the project and is associated wit
 * [User Experience](#user-experience)
     * [Epics](#epics)
     * [User Stories](#user-stories)
+* [Technologies Used](#technologies-used)
 * [Deployment and Development](#deployment-and-development)
     * [Deploying the Site](#deployment)
     * [Forking the Repository](#forking-the-repository)
@@ -118,6 +119,51 @@ Below is a summary of the user stories for this version of the project's release
     * As a site owner I want to restrict certain features to registered users so that it encourages people to register to the site and ensures correct functionality.
     * As a site owner I want to restrict certain features to the site admin so that I can ensure unauthorized users cannot tamper with features that are not relevant to them.
     * As a user I can see various feedback messages so that I know the status of the action I am trying to perform.
+
+## Technologies Used
+
+### Languages
+* [HTML5](https://html.spec.whatwg.org/)
+    * Used to create structure and content for the site.
+* [CSS](https://www.w3.org/Style/CSS/Overview.en.html)
+    * Used to add custom styles to the HTML.
+* [JavaScript](https://www.javascript.com/)
+    * Used to enhance functionality and interactivity.
+
+### Frameworks, Libraries and Dependencies
+* [Axios](https://axios-http.com/docs/intro)
+    * Used to make HTTP requests to the REST API.
+* [JWT](https://jwt.io/)
+    * Used to decode JSON Web tokens.
+* [Popper](https://popper.js.org/)
+    * used to ensure the edit/delete dropdown menus position remains fixed on all browsers.
+* [React JS](https://legacy.reactjs.org/docs/getting-started.html)
+    * Used for building the user interface.
+* [React Bootstrap 4.6](https://react-bootstrap-v4.netlify.app/)
+    * Used to add styling and interactive functionality to components.
+* [React Infinite Scroll](https://www.npmjs.com/package/react-infinite-scroll-component)
+    * used to load content automatically as the user scrolls without having to navigate to another page.
+* [React-router-dom](https://www.npmjs.com/package/react-router-dom)
+    * Used for 'client side routing' to be implemented in the site.
+
+### Tools and Programmes
+
+* [Gitpod](https://www.gitpod.io/#get-started)
+    * Used to create code/content and file structure for the respository.
+* [GitHub](https://github.com/)
+    * Used to store the repository.
+* [Balsamiq](https://balsamiq.com/wireframes/)
+    * Used to create the wireframes during the planning stage of the project.
+* [Cloudinary](https://cloudinary.com/)
+    * Used to store the project's static files and media.
+* [Coolers](https://coolors.co/?home )
+    * Used to create the color scheme. 
+* [Favicon Generator](https://www.favicongenerator.com/)
+    * Used to create the favicon for the site.
+* [Font Awesome](https://fontawesome.com/)
+    * Used to add icons to the site.
+* [Google Fonts](https://fonts.google.com/)
+    * Used to add custom fonts to the site. 
 
 ## Deployment and Development
 * The project was developed using [Gitpod](https://www.gitpod.io/#get-started) to create the code and overall file structure.
