@@ -4,6 +4,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { EditDeleteDropdown } from "../../components/EditDeleteDropdown";
 import { useHistory } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
+import btnStyles from "../../styles/Button.module.css";
 
 const Tour = (props) => {
     const {
@@ -106,9 +107,9 @@ const Tour = (props) => {
                     {has_passed ? (
                         <></>
                     ) : attendance_id ? (
-                        <span>Unmark as attending</span>
+                        <span className={btnStyles.UnattendBtn}>Unmark as attending</span>
                     ) : currentUser ? (
-                        <span>Mark as attending</span>
+                        <span className={btnStyles.Button}>Mark as attending</span>
                     ) : (
                         <OverlayTrigger
                             placement="top"
@@ -120,11 +121,11 @@ const Tour = (props) => {
                         </OverlayTrigger>
                     )}
                     {has_passed ? (
-                        <span>
+                        <span className="float-right">
                             Attended: {attendance_count}
                         </span>
                     ) : (
-                        <span>
+                        <span className="float-right">
                             Attending: {attendance_count}
                         </span>
                     )}

@@ -9,7 +9,7 @@
     min-width: 75px;
   }
 
-.CancelBtn, .UnfollowBtn {
+.CancelBtn, .UnfollowBtn, .UnattendBtn {
     background-color: #5A5A5A;
     color: #fff;
     font-size: 0.9rem;
@@ -20,8 +20,9 @@
     min-width: 75px;
   }
 
-.Button:hover, .CancelBtn:hover, .UnfollowBtn:hover {
+.Button:hover, .CancelBtn:hover, .UnfollowBtn:hover, .UnattendBtn:hover {
     background-color: #DCBBB6 !important;
     border-color: transparent;
     color: black;
+    cursor: pointer;
   }
