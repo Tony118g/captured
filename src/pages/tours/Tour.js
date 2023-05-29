@@ -5,6 +5,7 @@ import { EditDeleteDropdown } from "../../components/EditDeleteDropdown";
 import { useHistory } from "react-router-dom";
 import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 import btnStyles from "../../styles/Button.module.css";
+import AttendeeProfileLink from "../profiles/AttendeeProfileLink";
 
 const Tour = (props) => {
     const {
@@ -210,8 +211,10 @@ const Tour = (props) => {
                         <p>Users that have marked attendance:</p>
                         {attendances.results.length ? (
                             attendances.results.map((attendance) => (
-                                <p>{attendance.owner}</p>
-                                
+                                <AttendeeProfileLink
+                                    key={attendance.id}
+                                    {...attendance}
+                                />
                             ))
                         ) : (
                             <span>
