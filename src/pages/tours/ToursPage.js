@@ -71,7 +71,7 @@ function ToursPage({ message, filter = "" }) {
                                     <Tour
                                         key={tour.id}
                                         {...tour}
-                                        setPhotos={setTours}
+                                        setTours={setTours}
                                     />
                                 ))}
                                 dataLength={tours.results.length}

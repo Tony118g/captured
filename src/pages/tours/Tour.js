@@ -47,6 +47,22 @@ const Tour = (props) => {
         }
     };
 
+    const handleAttend = async () => {
+        try {
+          const { data } = await axiosRes.post("/attendances/", { tour: id });
+          setTours((prevTours) => ({
+            ...prevTours,
+            results: prevTours.results.map((tour) => {
+              return tour.id === id
+                ? { ...tour, attendance_count: tour.attendance_count + 1, attendance_id: data.id }
+                : tour;
+            }),
+          }));
+        } catch (err) {
+          console.log(err);
+        }
+      };
+
     return (
         <Card>
             <Card.Body>
@@ -109,7 +125,7 @@ const Tour = (props) => {
                     ) : attendance_id ? (
                         <span className={btnStyles.UnattendBtn}>Unmark as attending</span>
                     ) : currentUser ? (
-                        <span className={btnStyles.Button}>Mark as attending</span>
+                        <span onClick={handleAttend} className={btnStyles.Button}>Mark as attending</span>
                     ) : (
                         <OverlayTrigger
                             placement="top"
