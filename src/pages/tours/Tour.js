@@ -49,19 +49,43 @@ const Tour = (props) => {
 
     const handleAttend = async () => {
         try {
-          const { data } = await axiosRes.post("/attendances/", { tour: id });
-          setTours((prevTours) => ({
-            ...prevTours,
-            results: prevTours.results.map((tour) => {
-              return tour.id === id
-                ? { ...tour, attendance_count: tour.attendance_count + 1, attendance_id: data.id }
-                : tour;
-            }),
-          }));
+            const { data } = await axiosRes.post("/attendances/", { tour: id });
+            setTours((prevTours) => ({
+                ...prevTours,
+                results: prevTours.results.map((tour) => {
+                    return tour.id === id
+                        ? {
+                              ...tour,
+                              attendance_count: tour.attendance_count + 1,
+                              attendance_id: data.id,
+                          }
+                        : tour;
+                }),
+            }));
         } catch (err) {
-          console.log(err);
+            console.log(err);
         }
-      };
+    };
+
+    const handleUnattend = async () => {
+        try {
+            await axiosRes.delete(`/attendances/${attendance_id}/`);
+            setTours((prevTours) => ({
+                ...prevTours,
+                results: prevTours.results.map((tour) => {
+                    return tour.id === id
+                        ? {
+                              ...tour,
+                              attendance_count: tour.attendance_count - 1,
+                              attendance_id: null,
+                          }
+                        : tour;
+                }),
+            }));
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
     return (
         <Card>
@@ -123,9 +147,19 @@ const Tour = (props) => {
                     {has_passed ? (
                         <></>
                     ) : attendance_id ? (
-                        <span className={btnStyles.UnattendBtn}>Unmark as attending</span>
+                        <span
+                            onClick={handleUnattend}
+                            className={btnStyles.UnattendBtn}
+                        >
+                            Unmark as attending
+                        </span>
                     ) : currentUser ? (
-                        <span onClick={handleAttend} className={btnStyles.Button}>Mark as attending</span>
+                        <span
+                            onClick={handleAttend}
+                            className={btnStyles.Button}
+                        >
+                            Mark as attending
+                        </span>
                     ) : (
                         <OverlayTrigger
                             placement="top"
