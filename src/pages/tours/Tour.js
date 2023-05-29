@@ -1,9 +1,9 @@
-import React from "react";
-import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Card, Media, Modal, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { EditDeleteDropdown } from "../../components/EditDeleteDropdown";
 import { useHistory } from "react-router-dom";
-import { axiosRes } from "../../api/axiosDefaults";
+import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 import btnStyles from "../../styles/Button.module.css";
 
 const Tour = (props) => {
@@ -27,12 +27,33 @@ const Tour = (props) => {
     } = props;
 
     const currentUser = useCurrentUser();
+    const [attendances, setAttendances] = useState({ results: [] });
     const history = useHistory();
     const dateFields = {
         day: "2-digit",
         month: "short",
         year: "numeric",
     };
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    useEffect(() => {
+        const handleMount = async () => {
+            try {
+                const [{ data: attendances }] = await Promise.all([
+                    axiosReq.get(`/attendances/?tour=${id}`),
+                ]);
+                setAttendances(attendances);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+
+        handleMount();
+    }, [id, attendance_count]);
 
     const handleEdit = () => {
         history.push(`/tours/${id}/edit`);
@@ -171,15 +192,34 @@ const Tour = (props) => {
                         </OverlayTrigger>
                     )}
                     {has_passed ? (
-                        <span className="float-right">
+                        <span className="float-right" onClick={handleShow}>
                             Attended: {attendance_count}
                         </span>
                     ) : (
-                        <span className="float-right">
+                        <span className="float-right" onClick={handleShow}>
                             Attending: {attendance_count}
                         </span>
                     )}
                 </div>
+
+                <Modal scrollable show={show} onHide={handleClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>{title}</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <p>Users that have marked attendance:</p>
+                        {attendances.results.length ? (
+                            attendances.results.map((attendance) => (
+                                <p>{attendance.owner}</p>
+                                
+                            ))
+                        ) : (
+                            <span>
+                                No users have marked attendance for this event.
+                            </span>
+                        )}
+                    </Modal.Body>
+                </Modal>
             </Card.Body>
         </Card>
     );
