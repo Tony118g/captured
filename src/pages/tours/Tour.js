@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import {
     Button,
     Card,
+    Col,
     Media,
     Modal,
     OverlayTrigger,
+    Row,
     Tooltip,
 } from "react-bootstrap";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
@@ -12,6 +14,7 @@ import { EditDeleteDropdown } from "../../components/EditDeleteDropdown";
 import { useHistory } from "react-router-dom";
 import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 import btnStyles from "../../styles/Button.module.css";
+import appStyles from "../../App.module.css";
 import AttendeeProfileLink from "../profiles/AttendeeProfileLink";
 
 const Tour = (props) => {
@@ -117,7 +120,7 @@ const Tour = (props) => {
 
     return (
         <Card className="mt-2">
-            <Card.Body>
+            <Card.Body className={`${appStyles.CardTop}`}>
                 <Media className="align-items-center justify-content-between">
                     {title && (
                         <Card.Title className="text-center">{title}</Card.Title>
@@ -135,42 +138,98 @@ const Tour = (props) => {
                 </Media>
                 {image && <Card.Img src={image} alt={title} />}
             </Card.Body>
-            <Card.Body className="justify-content-between">
-                <div className="d-flex justify-content-around">
-                    {country && <Card.Text>Country: {country}</Card.Text>}
-                    {city && <Card.Text>City: {city}</Card.Text>}
-                </div>
-                <div className="d-flex justify-content-around">
-                    {price && <Card.Text>Price: {price}</Card.Text>}
-                    {guide && <Card.Text>Guide: {guide}</Card.Text>}
-                </div>
+            <Card.Body>
+                <Row className="p-1">
+                    <Col>
+                        {country && (
+                            <Card.Text>
+                                Country:{" "}
+                                <span className={appStyles.InfoText}>
+                                    {country}
+                                </span>
+                            </Card.Text>
+                        )}
+                    </Col>
+                    <Col>
+                        {city && (
+                            <Card.Text>
+                                City:{" "}
+                                <span className={appStyles.InfoText}>
+                                    {city}
+                                </span>
+                            </Card.Text>
+                        )}
+                    </Col>
+                </Row>
+                <Row className="p-1">
+                    <Col>
+                        {price && (
+                            <Card.Text>
+                                Guide:{" "}
+                                <span className={appStyles.InfoText}>
+                                    {guide}
+                                </span>
+                            </Card.Text>
+                        )}
+                    </Col>
+                    <Col>
+                        {guide && (
+                            <Card.Text>
+                                Price: $
+                                <span className={appStyles.InfoText}>
+                                    {price}
+                                </span>
+                            </Card.Text>
+                        )}
+                    </Col>
+                </Row>
                 <hr />
                 {start_date === end_date ? (
-                    <Card.Text>
+                    <Card.Text className="p-1">
                         One day tour on{" "}
-                        {new Date(start_date).toLocaleString(
-                            "en-GB",
-                            dateFields
-                        )}
+                        <span className={appStyles.InfoText}>
+                            {new Date(start_date).toLocaleString(
+                                "en-GB",
+                                dateFields
+                            )}
+                        </span>
                     </Card.Text>
                 ) : (
-                    <Card.Text>
+                    <Card.Text className="p-1">
                         From{" "}
-                        {new Date(start_date).toLocaleString(
-                            "en-GB",
-                            dateFields
-                        )}{" "}
+                        <span className={appStyles.InfoText}>
+                            {new Date(start_date).toLocaleString(
+                                "en-GB",
+                                dateFields
+                            )}
+                        </span>{" "}
                         to{" "}
-                        {new Date(end_date).toLocaleString("en-GB", dateFields)}
+                        <span className={appStyles.InfoText}>
+                            {" "}
+                            {new Date(end_date).toLocaleString(
+                                "en-GB",
+                                dateFields
+                            )}
+                        </span>
                     </Card.Text>
                 )}
                 <hr />
                 {booking_means && (
-                    <Card.Text>How to join: {booking_means}</Card.Text>
+                    <Card.Text className="p-1">
+                        How to join:{" "}
+                        <span className={appStyles.InfoText}>
+                            {booking_means}
+                        </span>
+                    </Card.Text>
+                )}
+
+                {description && (
+                    <>
+                        <hr />
+                        <Card.Text className="p-1">{description}</Card.Text>
+                    </>
                 )}
                 <hr />
-                {description && <Card.Text>{description}</Card.Text>}
-
                 <div>
                     {attendance_id ? (
                         <Button

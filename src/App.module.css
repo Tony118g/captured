@@ -61,3 +61,14 @@ input[type="file"] {
   position: fixed;
   width: 300px;
 }
+
+.CardTop {
+  background-color: #DDDCCC;
+  box-shadow:  1px 1px 5px #5A5A5A;
+  padding: 10px 10px 0px 10px;
+}
+
+.InfoText{
+  color: #B94700;
+  letter-spacing: 1px;
+}
