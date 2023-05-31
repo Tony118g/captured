@@ -5,6 +5,7 @@ import { axiosRes } from "../../api/axiosDefaults";
 
 import styles from "../../styles/CommentCreateEditForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
+import { Button } from "react-bootstrap";
 
 function CommentEditForm(props) {
   const { id, content, setShowEditForm, setComments } = props;
@@ -51,20 +52,20 @@ function CommentEditForm(props) {
         />
       </Form.Group>
       <div className="text-right">
-        <button
+        <Button
           className={`${btnStyles.CancelBtn} mr-3`}
           onClick={() => setShowEditForm(false)}
           type="button"
         >
           cancel
-        </button>
-        <button
+        </Button>
+        <Button
           className={btnStyles.Button}
           disabled={!content.trim()}
           type="submit"
         >
           save
-        </button>
+        </Button>
       </div>
     </Form>
   );

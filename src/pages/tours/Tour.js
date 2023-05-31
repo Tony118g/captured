@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Card, Media, Modal, OverlayTrigger, Tooltip } from "react-bootstrap";
+import {
+    Button,
+    Card,
+    Media,
+    Modal,
+    OverlayTrigger,
+    Tooltip,
+} from "react-bootstrap";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { EditDeleteDropdown } from "../../components/EditDeleteDropdown";
 import { useHistory } from "react-router-dom";
@@ -166,19 +173,19 @@ const Tour = (props) => {
 
                 <div>
                     {attendance_id ? (
-                        <button
+                        <Button
                             onClick={handleUnattend}
                             className={btnStyles.UnattendBtn}
                         >
                             Unmark as {attendanceWordTense}
-                        </button>
+                        </Button>
                     ) : currentUser ? (
-                        <button
+                        <Button
                             onClick={handleAttend}
                             className={btnStyles.Button}
                         >
                             Mark as {attendanceWordTense}
-                        </button>
+                        </Button>
                     ) : (
                         <OverlayTrigger
                             placement="top"
@@ -187,18 +194,20 @@ const Tour = (props) => {
                             }
                         >
                             <span>
-                                <button
-                                    disabled
+                                <Button
                                     className={`${btnStyles.Button}`}
                                 >
                                     Mark as {attendanceWordTense}
-                                </button>
+                                </Button>
                             </span>
                         </OverlayTrigger>
                     )}
-                    <span className="float-right" onClick={handleShow}>
+                    <Button
+                        className={`float-right`}
+                        onClick={handleShow}
+                    >
                         {attendanceWordTense}: {attendance_count}
-                    </span>
+                    </Button>
                 </div>
 
                 <Modal scrollable show={show} onHide={handleClose}>

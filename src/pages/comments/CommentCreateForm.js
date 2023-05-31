@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, InputGroup } from "react-bootstrap";
+import { Button, Form, InputGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import styles from "../../styles/CommentCreateEditForm.module.css";
@@ -56,13 +56,13 @@ function CreateCommentForm(props) {
                     />
                 </InputGroup>
 
-                <button
+                <Button
                     className={`${btnStyles.Button} btn d-block ml-auto mt-2`}
                     disabled={!content.trim()}
                     type="submit"
                 >
                     comment
-                </button>
+                </Button>
             </Form.Group>
         </Form>
     );
