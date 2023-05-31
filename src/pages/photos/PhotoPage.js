@@ -15,7 +15,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
-import SideNav from "../../components/SideNav";
+import SecondaryNav from "../../components/SecondaryNav";
 
 function PhotoPage() {
     const { id } = useParams();
@@ -48,12 +48,12 @@ function PhotoPage() {
         <Row className="h-100">
             <Col className="d-none d-lg-block py-2 p-0 p-lg-2" lg={4}>
                 <div className={appStyles.FixedContainer}>
-                    <SideNav />
+                    <SecondaryNav />
                     <PopularProfiles />
                 </div>
             </Col>
             <Col md={10} lg={8} className="p-0 p-lg-2 mx-auto">
-                <SideNav mobile />
+                <SecondaryNav mobile />
                 <PopularProfiles mobile />
                 <Photo {...photo.results[0]} setPhotos={setPhoto} photoPage />
                 <Container className={`${appStyles.Content} my-2`}>

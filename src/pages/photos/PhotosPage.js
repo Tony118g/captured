@@ -8,7 +8,7 @@ import Photo from "./Photo";
 import Asset from "../../components/Asset";
 import appStyles from "../../App.module.css";
 import { Container, Form } from "react-bootstrap";
-import SideNav from "../../components/SideNav";
+import SecondaryNav from "../../components/SecondaryNav";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
@@ -48,12 +48,12 @@ function PhotosPage({ message, filter = "" }) {
         <Row>
             <Col className="d-none d-lg-block py-2 p-0 p-lg-2 px-4" lg={4}>
                 <div className={appStyles.FixedContainer}>
-                    <SideNav />
+                    <SecondaryNav />
                     <PopularProfiles />
                 </div>
             </Col>
             <Col md={10} lg={8} className="p-0 p-lg-2 mx-auto">
-                <SideNav mobile />
+                <SecondaryNav mobile />
                 <PopularProfiles mobile />
                 <i className={`fas fa-search ${styles.SearchIcon}`} />
                 <Form

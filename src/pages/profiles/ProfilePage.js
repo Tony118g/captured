@@ -7,7 +7,7 @@ import styles from "../../styles/ProfilePage.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import PopularProfiles from "./PopularProfiles";
-import SideNav from "../../components/SideNav";
+import SecondaryNav from "../../components/SecondaryNav";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import {
     useProfileData,
@@ -144,12 +144,12 @@ function ProfilePage() {
         <Row>
             <Col lg={4} className="d-none d-lg-block py-2 p-lg-2">
                 <div className={appStyles.FixedContainer}>
-                    <SideNav />
+                    <SecondaryNav />
                     <PopularProfiles />
                 </div>
             </Col>
             <Col className="py-2 p-0 p-lg-2 m-auto" md={10} lg={8}>
-                <SideNav mobile />
+                <SecondaryNav mobile />
                 <PopularProfiles mobile />
                 <Container fluid className={`${appStyles.Content} mt-2`}>
                     {hasLoaded ? (

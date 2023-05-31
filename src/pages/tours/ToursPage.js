@@ -8,7 +8,7 @@ import Asset from "../../components/Asset";
 import appStyles from "../../App.module.css";
 import styles from "../../styles/PhotosToursPage.module.css";
 import { Container, Form } from "react-bootstrap";
-import SideNav from "../../components/SideNav";
+import SecondaryNav from "../../components/SecondaryNav";
 import PopularProfiles from "../profiles/PopularProfiles";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
@@ -47,12 +47,12 @@ function ToursPage({ message, filter = "" }) {
         <Row className="h-100">
             <Col className="d-none d-lg-block py-2 p-0 p-lg-2" lg={4}>
                 <div className={appStyles.FixedContainer}>
-                    <SideNav />
+                    <SecondaryNav />
                     <PopularProfiles />
                 </div>
             </Col>
             <Col md={10} lg={8} className="p-0 p-lg-2 m-auto">
-                <SideNav mobile />
+                <SecondaryNav mobile />
                 <PopularProfiles mobile />
                 <i className={`fas fa-search ${styles.SearchIcon}`} />
                 <Form
