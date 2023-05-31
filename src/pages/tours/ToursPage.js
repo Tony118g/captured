@@ -12,12 +12,14 @@ import SideNav from "../../components/SideNav";
 import PopularProfiles from "../profiles/PopularProfiles";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function ToursPage({ message, filter = "" }) {
     const [tours, setTours] = useState({ results: [] });
     const [hasLoaded, setHasLoaded] = useState(false);
     const { pathname } = useLocation();
     const [query, setQuery] = useState("");
+    const currentUser = useCurrentUser();
 
     useEffect(() => {
         const fetchTours = async () => {
@@ -39,7 +41,7 @@ function ToursPage({ message, filter = "" }) {
         return () => {
             clearTimeout(timer);
         };
-    }, [filter, query, pathname]);
+    }, [filter, query, pathname, currentUser]);
 
     return (
         <Row className="h-100">
