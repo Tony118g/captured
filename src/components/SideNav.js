@@ -9,7 +9,7 @@ const SideNav = ({ mobile }) => {
 
     return (
         <Container fluid
-            className={`${appStyles.Content} ${
+            className={`${appStyles.Content} mt-2 ${
                 mobile && "d-lg-none text-center mt-3"
             }`}
         >

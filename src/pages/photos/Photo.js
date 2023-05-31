@@ -85,7 +85,7 @@ const Photo = (props) => {
     };
 
     return (
-        <Card>
+        <Card className="mt-2">
             <Card.Body className={styles.Title}>
                 <Media className="align-items-center justify-content-between">
                     <Link to={`/profiles/${profile_id}`}>

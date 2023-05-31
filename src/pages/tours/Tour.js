@@ -110,7 +110,7 @@ const Tour = (props) => {
     };
 
     return (
-        <Card>
+        <Card className="mt-2">
             <Card.Body>
                 <Media className="align-items-center justify-content-between">
                     {title && (

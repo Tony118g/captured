@@ -151,7 +151,7 @@ function ProfilePage() {
             <Col className="py-2 p-0 p-lg-2 m-auto" md={10} lg={8}>
                 <SideNav mobile />
                 <PopularProfiles mobile />
-                <Container fluid className={appStyles.Content}>
+                <Container fluid className={`${appStyles.Content} mt-2`}>
                     {hasLoaded ? (
                         <>
                             {mainProfile}

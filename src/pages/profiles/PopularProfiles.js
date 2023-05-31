@@ -11,8 +11,8 @@ const PopularProfiles = ({ mobile }) => {
 
     return (
         <Container fluid
-            className={`${appStyles.Content} ${styles.ScrollContainer} ${
-                mobile && "d-md-none text-center mb-3"
+            className={`${appStyles.Content} ${styles.ScrollContainer} mt-2 ${
+                mobile && "d-md-none text-center"
             }`}
         >
             {popularProfiles.results.length ? (

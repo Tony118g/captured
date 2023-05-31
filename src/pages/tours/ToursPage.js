@@ -88,7 +88,7 @@ function ToursPage({ message, filter = "" }) {
                         )}
                     </>
                 ) : (
-                    <Container className={appStyles.Content}>
+                    <Container fluid className={appStyles.Content}>
                         <Asset spinner />
                     </Container>
                 )}

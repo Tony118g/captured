@@ -52,7 +52,7 @@ function PhotoPage() {
                     <PopularProfiles />
                 </div>
             </Col>
-            <Col md={10} lg={8} className="p-0 p-lg-2 m-auto">
+            <Col md={10} lg={8} className="p-0 p-lg-2 mx-auto">
                 <SideNav mobile />
                 <PopularProfiles mobile />
                 <Photo {...photo.results[0]} setPhotos={setPhoto} photoPage />
