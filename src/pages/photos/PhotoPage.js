@@ -47,11 +47,13 @@ function PhotoPage() {
     return (
         <Row className="h-100">
             <Col className="d-none d-md-block py-2 p-0 p-lg-2" md={4}>
-                <SideNav />
-                <PopularProfiles />
+                <div className={appStyles.FixedContainer}>
+                    <SideNav />
+                    <PopularProfiles />
+                </div>
             </Col>
             <Col md={8} className="p-0 p-lg-2">
-                <SideNav mobile/>
+                <SideNav mobile />
                 <PopularProfiles mobile />
                 <Photo {...photo.results[0]} setPhotos={setPhoto} photoPage />
                 <Container className={`${appStyles.Content} my-2`}>

@@ -56,7 +56,12 @@ function ProfilePage() {
 
     const mainProfile = (
         <>
-            {profile?.is_owner && <ProfileEditDropdown id={profile?.id} className="justify-content-right" />}
+            {profile?.is_owner && (
+                <ProfileEditDropdown
+                    id={profile?.id}
+                    className="justify-content-right"
+                />
+            )}
             <Row noGutters className="px-3 text-center">
                 <Col lg={3} className="text-lg-left">
                     <Image
@@ -138,8 +143,10 @@ function ProfilePage() {
     return (
         <Row>
             <Col md={4} className="d-none d-md-block py-2 p-lg-2">
-                <SideNav />
-                <PopularProfiles />
+                <div className={appStyles.FixedContainer}>
+                    <SideNav />
+                    <PopularProfiles />
+                </div>
             </Col>
             <Col className="py-2 p-0 p-lg-2" md={8}>
                 <SideNav mobile />

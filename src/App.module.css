@@ -56,3 +56,8 @@ input[type="file"] {
     max-width: 100%;
     object-fit: contain;
 }
+
+.FixedContainer {
+  position: fixed;
+  width: 300px;
+}

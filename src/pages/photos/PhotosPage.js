@@ -45,8 +45,10 @@ function PhotosPage({ message, filter = "" }) {
     return (
         <Row className="h-100">
             <Col className="d-none d-md-block py-2 p-0 p-lg-2 px-4" md={4}>
-                <SideNav />
-                <PopularProfiles />
+                <div className={appStyles.FixedContainer}>
+                    <SideNav />
+                    <PopularProfiles />
+                </div>
             </Col>
             <Col md={8} className="p-0 p-lg-2">
                 <SideNav mobile />
@@ -68,20 +70,18 @@ function PhotosPage({ message, filter = "" }) {
                 {hasLoaded ? (
                     <>
                         {photos.results.length ? (
-                            <InfiniteScroll 
-                            children={
-                                photos.results.map((photo) => (
+                            <InfiniteScroll
+                                children={photos.results.map((photo) => (
                                     <Photo
                                         key={photo.id}
                                         {...photo}
                                         setPhotos={setPhotos}
                                     />
-                                ))
-                            }
-                            dataLength={photos.results.length}
-                            loader={<Asset spinner />}
-                            hasMore={!!photos.next}
-                            next={() => fetchMoreData(photos, setPhotos)}
+                                ))}
+                                dataLength={photos.results.length}
+                                loader={<Asset spinner />}
+                                hasMore={!!photos.next}
+                                next={() => fetchMoreData(photos, setPhotos)}
                             />
                         ) : (
                             <Container className={appStyles.Content}>
