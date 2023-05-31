@@ -43,13 +43,13 @@ function ToursPage({ message, filter = "" }) {
 
     return (
         <Row className="h-100">
-            <Col className="d-none d-md-block py-2 p-0 p-lg-2" md={4}>
+            <Col className="d-none d-lg-block py-2 p-0 p-lg-2" lg={4}>
                 <div className={appStyles.FixedContainer}>
                     <SideNav />
                     <PopularProfiles />
                 </div>
             </Col>
-            <Col md={8} className="p-0 p-lg-2">
+            <Col md={10} lg={8} className="p-0 p-lg-2 m-auto">
                 <SideNav mobile />
                 <PopularProfiles mobile />
                 <i className={`fas fa-search ${styles.SearchIcon}`} />

@@ -70,7 +70,7 @@ const NavBar = () => {
             expand="md"
             fixed="top"
         >
-            <Container>
+            <Container fluid>
                 <NavLink className={styles.Logo} to="/">
                     <Navbar.Brand>
                         <img src={logo} alt="Captured logo" height="60" />

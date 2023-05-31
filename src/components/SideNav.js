@@ -8,9 +8,9 @@ const SideNav = ({ mobile }) => {
     const currentUser = useCurrentUser();
 
     return (
-        <Container
+        <Container fluid
             className={`${appStyles.Content} ${
-                mobile && "d-md-none text-center mt-3"
+                mobile && "d-lg-none text-center mt-3"
             }`}
         >
             {currentUser?.is_admin_user && (

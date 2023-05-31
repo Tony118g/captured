@@ -10,7 +10,7 @@ const PopularProfiles = ({ mobile }) => {
     const { popularProfiles } = useProfileData();
 
     return (
-        <Container
+        <Container fluid
             className={`${appStyles.Content} ${styles.ScrollContainer} ${
                 mobile && "d-md-none text-center mb-3"
             }`}

@@ -63,14 +63,14 @@ function ProfilePage() {
                 />
             )}
             <Row noGutters className="px-3 text-center">
-                <Col lg={3} className="text-lg-left">
+                <Col md={3} className="text-lg-left">
                     <Image
                         className={styles.ProfileImage}
                         roundedCircle
                         src={profile?.image}
                     />
                 </Col>
-                <Col lg={6}>
+                <Col md={6}>
                     <h3 className="m-2">{profile?.owner}</h3>
                     <Row className="justify-content-center no-gutters">
                         <Col xs={3} className="m-2">
@@ -87,7 +87,7 @@ function ProfilePage() {
                         </Col>
                     </Row>
                 </Col>
-                <Col lg={3} className="text-lg-right">
+                <Col md={3} className="text-lg-right">
                     {currentUser &&
                         !is_owner &&
                         (profile?.following_id ? (
@@ -142,16 +142,16 @@ function ProfilePage() {
 
     return (
         <Row>
-            <Col md={4} className="d-none d-md-block py-2 p-lg-2">
+            <Col lg={4} className="d-none d-lg-block py-2 p-lg-2">
                 <div className={appStyles.FixedContainer}>
                     <SideNav />
                     <PopularProfiles />
                 </div>
             </Col>
-            <Col className="py-2 p-0 p-lg-2" md={8}>
+            <Col className="py-2 p-0 p-lg-2 m-auto" md={10} lg={8}>
                 <SideNav mobile />
                 <PopularProfiles mobile />
-                <Container className={appStyles.Content}>
+                <Container fluid className={appStyles.Content}>
                     {hasLoaded ? (
                         <>
                             {mainProfile}
