@@ -17,41 +17,72 @@ const SecondaryNav = ({ mobile }) => {
                     "d-lg-none text-center mt-3 d-flex justify-content-around"
                 }`}
             >
-                {currentUser?.is_admin_user && (
-                    <Link
-                        to="/tours/create"
-                        className={!mobile && "d-block pt-2"}
-                    >
-                        <i className="fa-regular fa-plus"></i>
-                        <p className={mobile ? styles.SmallText : "d-inline"}>
-                            Add a tour
-                        </p>
-                    </Link>
+                {currentUser && (
+                    <>
+                        {currentUser?.is_admin_user && (
+                            <Link
+                                to="/tours/create"
+                                className={!mobile && "d-block pt-2"}
+                            >
+                                <i className="fa-regular fa-plus"></i>
+                                <p
+                                    className={
+                                        mobile ? styles.SmallText : "d-inline"
+                                    }
+                                >
+                                    Add a tour
+                                </p>
+                            </Link>
+                        )}
+                        <Link
+                            to="/photos/create"
+                            className={!mobile && "d-block pt-2"}
+                        >
+                            <i className="fa-regular fa-plus"></i>
+                            <p
+                                className={
+                                    mobile ? styles.SmallText : "d-inline"
+                                }
+                            >
+                                Post photo
+                            </p>
+                        </Link>
+                        <Link to="/liked" className={!mobile && "d-block pt-2"}>
+                            <i className="fa-solid fa-heart"></i>
+                            <p
+                                className={
+                                    mobile ? styles.SmallText : "d-inline"
+                                }
+                            >
+                                Liked photos
+                            </p>
+                        </Link>
+                        <Link to="/feed" className={!mobile && "d-block pt-2"}>
+                            <i className="fa-solid fa-rss"></i>
+                            <p
+                                className={
+                                    mobile ? styles.SmallText : "d-inline"
+                                }
+                            >
+                                Feed
+                            </p>
+                        </Link>
+                    </>
                 )}
-                <Link to="/photos/create" className={!mobile && "d-block pt-2"}>
-                    <i className="fa-regular fa-plus"></i>
-                    <p className={mobile ? styles.SmallText : "d-inline"}>
-                        Post photo
-                    </p>
-                </Link>
-                <Link to="/liked" className={!mobile && "d-block pt-2"}>
-                    <i className="fa-solid fa-heart"></i>
-                    <p className={mobile ? styles.SmallText : "d-inline"}>
-                        Liked photos
-                    </p>
-                </Link>
-                <Link to="/feed" className={!mobile && "d-block pt-2"}>
-                    <i className="fa-solid fa-rss"></i>
-                    <p className={mobile ? styles.SmallText : "d-inline"}>
-                        Feed
-                    </p>
-                </Link>
                 <Link to="/tours" className={!mobile && "d-block pt-2"}>
                     <i className="fa-solid fa-camera-retro"></i>
                     <p className={mobile ? styles.SmallText : "d-inline"}>
                         Tours
                     </p>
                 </Link>
+                {mobile && (
+                    <Link to="/" className={!mobile && "d-block pt-2"}>
+                        <i className="fa-solid fa-house"></i>
+                        <p className={mobile ? styles.SmallText : "d-inline"}>
+                            Home
+                        </p>
+                    </Link>
+                )}
             </Container>
         </Nav>
     );
