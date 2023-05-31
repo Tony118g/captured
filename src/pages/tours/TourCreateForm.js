@@ -78,6 +78,7 @@ function TourCreateForm() {
         formData.append("start_date", start_date);
         formData.append("end_date", end_date);
         formData.append("booking_means", booking_means);
+        formData.append("description", description);
         if (image.length) {
             formData.append("image", imageInput.current.files[0]);
         }
