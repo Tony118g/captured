@@ -195,7 +195,7 @@ const Tour = (props) => {
                         >
                             <span>
                                 <Button
-                                    className={`${btnStyles.Button}`}
+                                    className={`${btnStyles.Button} ${btnStyles.DisabledBtn}`}
                                 >
                                     Mark as {attendanceWordTense}
                                 </Button>
@@ -203,7 +203,7 @@ const Tour = (props) => {
                         </OverlayTrigger>
                     )}
                     <Button
-                        className={`float-right`}
+                        className={`${btnStyles.Button} float-right text-capitalize`}
                         onClick={handleShow}
                     >
                         {attendanceWordTense}: {attendance_count}

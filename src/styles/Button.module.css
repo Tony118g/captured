@@ -26,3 +26,7 @@
     color: black;
     cursor: pointer;
   }
+
+.DisabledBtn {
+  pointer-events: none;
+}
