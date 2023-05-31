@@ -1,0 +1,9 @@
+.ScrollContainer {
+    height:fit-content;
+    max-height: calc(100vh - 350px);
+    overflow-y: scroll;
+}
+
+.ScrollContainer::-webkit-scrollbar {
+    display: none;
+}
