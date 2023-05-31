@@ -72,3 +72,14 @@ input[type="file"] {
   color: #B94700;
   letter-spacing: 1px;
 }
+
+/* Styles for screens smaller than 992px */
+  
+@media screen and (max-width: 992px) {
+  
+  .Main {
+    margin-bottom: 77px;
+    padding-bottom: 5px;
+  }
+
+}
