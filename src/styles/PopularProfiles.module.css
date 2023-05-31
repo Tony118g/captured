@@ -1,6 +1,6 @@
 .ScrollContainer {
     height:fit-content;
-    max-height: calc(100vh - 350px);
+    max-height: calc(100vh - 400px);
     overflow-y: scroll;
 }
 
