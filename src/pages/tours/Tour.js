@@ -35,11 +35,10 @@ const Tour = (props) => {
         month: "short",
         year: "numeric",
     };
-
     const [show, setShow] = useState(false);
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const attendanceWordTense = has_passed ? "attended" : "attending";
 
     useEffect(() => {
         const handleMount = async () => {
@@ -166,41 +165,40 @@ const Tour = (props) => {
                 {description && <Card.Text>{description}</Card.Text>}
 
                 <div>
-                    {has_passed ? (
-                        <></>
-                    ) : attendance_id ? (
-                        <span
+                    {attendance_id ? (
+                        <button
                             onClick={handleUnattend}
                             className={btnStyles.UnattendBtn}
                         >
-                            Unmark as attending
-                        </span>
+                            Unmark as {attendanceWordTense}
+                        </button>
                     ) : currentUser ? (
-                        <span
+                        <button
                             onClick={handleAttend}
                             className={btnStyles.Button}
                         >
-                            Mark as attending
-                        </span>
+                            Mark as {attendanceWordTense}
+                        </button>
                     ) : (
                         <OverlayTrigger
                             placement="top"
                             overlay={
-                                <Tooltip>Log in to mark as attending!</Tooltip>
+                                <Tooltip>Log in to mark attendance!</Tooltip>
                             }
                         >
-                            <span>Mark as attending</span>
+                            <span>
+                                <button
+                                    disabled
+                                    className={`${btnStyles.Button}`}
+                                >
+                                    Mark as {attendanceWordTense}
+                                </button>
+                            </span>
                         </OverlayTrigger>
                     )}
-                    {has_passed ? (
-                        <span className="float-right" onClick={handleShow}>
-                            Attended: {attendance_count}
-                        </span>
-                    ) : (
-                        <span className="float-right" onClick={handleShow}>
-                            Attending: {attendance_count}
-                        </span>
-                    )}
+                    <span className="float-right" onClick={handleShow}>
+                        {attendanceWordTense}: {attendance_count}
+                    </span>
                 </div>
 
                 <Modal scrollable show={show} onHide={handleClose}>
