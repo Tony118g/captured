@@ -85,7 +85,13 @@ function TourCreateForm() {
 
         try {
             await axiosReq.post("/tours/", formData);
-            history.push(`/tours`);
+            history.push({
+                pathname: "/tours",
+                state: {
+                    showFeedback: true,
+                    message: "Tour has been posted successfully.",
+                },
+            });
         } catch (err) {
             if (err.response?.status !== 401) {
                 setErrors(err.response?.data);

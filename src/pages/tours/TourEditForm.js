@@ -129,7 +129,10 @@ function TourEditForm() {
 
         try {
             await axiosReq.put(`/tours/${id}/`, formData);
-            history.push(`/tours`);
+            history.push({
+                pathname: "/tours",
+                state: {showFeedback: true, message: "The edit was successful."}
+            });
         } catch (err) {
             if (err.response?.status !== 401) {
                 setErrors(err.response?.data);

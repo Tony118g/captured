@@ -13,6 +13,7 @@ import PopularProfiles from "../profiles/PopularProfiles";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import FeedbackAlert from "../../components/FeedbackAlert";
 
 function ToursPage({ message, filter = "" }) {
     const [tours, setTours] = useState({ results: [] });
@@ -20,6 +21,7 @@ function ToursPage({ message, filter = "" }) {
     const { pathname } = useLocation();
     const [query, setQuery] = useState("");
     const currentUser = useCurrentUser();
+    const location = useLocation();
 
     useEffect(() => {
         const fetchTours = async () => {
@@ -67,6 +69,12 @@ function ToursPage({ message, filter = "" }) {
                         placeholder="Search tours"
                     />
                 </Form>
+                {location.state?.showFeedback && (
+                    <FeedbackAlert
+                        variant="info"
+                        message={location.state?.message}
+                    />
+                )}
                 {hasLoaded ? (
                     <>
                         {tours.results.length ? (
