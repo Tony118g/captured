@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../../styles/Photo.module.css";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
@@ -7,6 +7,7 @@ import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 import { EditDeleteDropdown } from "../../components/EditDeleteDropdown";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import FeedbackAlert from "../../components/FeedbackAlert";
 
 const Photo = (props) => {
     const {
@@ -30,6 +31,7 @@ const Photo = (props) => {
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
     const history = useHistory();
+    const [showFeedback, setShowFeedback] = useState(false);
 
     const handleEdit = () => {
         history.push(`/photos/${id}/edit`);
@@ -38,7 +40,10 @@ const Photo = (props) => {
     const handleDelete = async () => {
         try {
             await axiosRes.delete(`/photos/${id}/`);
-            history.goBack();
+            setShowFeedback(true);
+            setTimeout(() => {
+                history.push("/");
+            }, 3000);
         } catch (err) {
             console.log(err);
         }
@@ -85,72 +90,89 @@ const Photo = (props) => {
     };
 
     return (
-        <Card className="mt-2">
-            <Card.Body className={styles.Title}>
-                <Media className="align-items-center justify-content-between">
-                    <Link to={`/profiles/${profile_id}`}>
-                        <Avatar src={profile_image} height={55} />
-                        {owner}
-                    </Link>
-                    <div className="d-flex align-items-center">
-                        <span>{updated_at}</span>
-                        {is_owner && photoPage && (
-                            <EditDeleteDropdown handleEdit={handleEdit} handleDelete={handleDelete}/>
-                        )}
-                    </div>
-                </Media>
-            </Card.Body>
-            <Link to={`/photos/${id}`}>
-                <Card.Img src={image} alt={title} />
-            </Link>
-            <Card.Body>
-                {title && (
-                    <Card.Title className="text-center">{title}</Card.Title>
-                )}
-                {camera_used && (
-                    <Card.Text>Camera used: {camera_used}</Card.Text>
-                )}
-                {lense_used && <Card.Text>Lense used: {lense_used}</Card.Text>}
-                {description && <Card.Text>{description}</Card.Text>}
-
-                <div className={`float-right mr-3 ${styles.Icons}`}>
-                    {is_owner ? (
-                        <OverlayTrigger
-                            placement="top"
-                            overlay={
-                                <Tooltip>You can't like your own post!</Tooltip>
-                            }
-                        >
-                            <i className="far fa-heart" />
-                        </OverlayTrigger>
-                    ) : like_id ? (
-                        <span onClick={handleUnlike}>
-                            <i className={`fas fa-heart ${styles.Heart}`} />
-                        </span>
-                    ) : currentUser ? (
-                        <span onClick={handleLike}>
-                            <i
-                                className={`far fa-heart ${styles.HeartOutline}`}
-                            />
-                        </span>
-                    ) : (
-                        <OverlayTrigger
-                            placement="top"
-                            overlay={<Tooltip>Log in to like posts!</Tooltip>}
-                        >
-                            <i className="far fa-heart" />
-                        </OverlayTrigger>
+        <>
+            {showFeedback && (
+                <FeedbackAlert
+                    variant="info"
+                    message={"This photo has been deleted. Returning to home page..."}
+                />
+            )}
+            <Card className="mt-2">
+                <Card.Body className={styles.Title}>
+                    <Media className="align-items-center justify-content-between">
+                        <Link to={`/profiles/${profile_id}`}>
+                            <Avatar src={profile_image} height={55} />
+                            {owner}
+                        </Link>
+                        <div className="d-flex align-items-center">
+                            <span>{updated_at}</span>
+                            {is_owner && photoPage && (
+                                <EditDeleteDropdown
+                                    handleEdit={handleEdit}
+                                    handleDelete={handleDelete}
+                                />
+                            )}
+                        </div>
+                    </Media>
+                </Card.Body>
+                <Link to={`/photos/${id}`}>
+                    <Card.Img src={image} alt={title} />
+                </Link>
+                <Card.Body>
+                    {title && (
+                        <Card.Title className="text-center">{title}</Card.Title>
                     )}
-                    {likes_count}
-                    <Link to={`/photos/${id}`}>
-                        <i
-                            className={`far fa-comments  ${styles.CommentBubble}`}
-                        />
-                    </Link>
-                    {comments_count}
-                </div>
-            </Card.Body>
-        </Card>
+                    {camera_used && (
+                        <Card.Text>Camera used: {camera_used}</Card.Text>
+                    )}
+                    {lense_used && (
+                        <Card.Text>Lense used: {lense_used}</Card.Text>
+                    )}
+                    {description && <Card.Text>{description}</Card.Text>}
+
+                    <div className={`float-right mr-3 ${styles.Icons}`}>
+                        {is_owner ? (
+                            <OverlayTrigger
+                                placement="top"
+                                overlay={
+                                    <Tooltip>
+                                        You can't like your own post!
+                                    </Tooltip>
+                                }
+                            >
+                                <i className="far fa-heart" />
+                            </OverlayTrigger>
+                        ) : like_id ? (
+                            <span onClick={handleUnlike}>
+                                <i className={`fas fa-heart ${styles.Heart}`} />
+                            </span>
+                        ) : currentUser ? (
+                            <span onClick={handleLike}>
+                                <i
+                                    className={`far fa-heart ${styles.HeartOutline}`}
+                                />
+                            </span>
+                        ) : (
+                            <OverlayTrigger
+                                placement="top"
+                                overlay={
+                                    <Tooltip>Log in to like posts!</Tooltip>
+                                }
+                            >
+                                <i className="far fa-heart" />
+                            </OverlayTrigger>
+                        )}
+                        {likes_count}
+                        <Link to={`/photos/${id}`}>
+                            <i
+                                className={`far fa-comments  ${styles.CommentBubble}`}
+                            />
+                        </Link>
+                        {comments_count}
+                    </div>
+                </Card.Body>
+            </Card>
+        </>
     );
 };
 

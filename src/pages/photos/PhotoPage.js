@@ -7,7 +7,10 @@ import Container from "react-bootstrap/Container";
 import appStyles from "../../App.module.css";
 import CommentCreateForm from "../comments/CommentCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import {
+    useLocation,
+    useParams,
+} from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import Photo from "./Photo";
 import Comment from "../comments/Comment";
@@ -16,8 +19,10 @@ import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
 import SecondaryNav from "../../components/SecondaryNav";
+import FeedbackAlert from "../../components/FeedbackAlert";
 
 function PhotoPage() {
+    const location = useLocation();
     const { id } = useParams();
     const [photo, setPhoto] = useState({ results: [] });
 
@@ -45,52 +50,68 @@ function PhotoPage() {
     }, [id]);
 
     return (
-        <Row className="h-100">
-            <Col className="d-none d-lg-block py-2 p-0 p-lg-2" lg={4}>
-                <div className={appStyles.FixedContainer}>
-                    <SecondaryNav />
-                    <PopularProfiles />
-                </div>
-            </Col>
-            <Col md={10} lg={8} className="p-0 p-lg-2 mx-auto">
-                <SecondaryNav mobile />
-                <PopularProfiles mobile />
-                <Photo {...photo.results[0]} setPhotos={setPhoto} photoPage />
-                <Container className={`${appStyles.Content} my-2`}>
-                    {currentUser ? (
-                        <CommentCreateForm
-                            profile_id={currentUser.profile_id}
-                            profileImage={profile_image}
-                            photo={id}
-                            setPhoto={setPhoto}
-                            setComments={setComments}
+        <>
+            <Row className="h-100">
+                <Col className="d-none d-lg-block py-2 p-0 p-lg-2" lg={4}>
+                    <div className={appStyles.FixedContainer}>
+                        <SecondaryNav />
+                        <PopularProfiles />
+                    </div>
+                </Col>
+                <Col md={10} lg={8} className="p-0 p-lg-2 mx-auto">
+                    <SecondaryNav mobile />
+                    <PopularProfiles mobile />
+                    {location.state?.showFeedback && (
+                        <FeedbackAlert
+                            variant="info"
+                            message={location.state?.message}
                         />
-                    ) : comments.results.length ? (
-                        "Comments"
-                    ) : null}
-                    {comments.results.length ? (
-                        <InfiniteScroll
-                            children={comments.results.map((comment) => (
-                                <Comment
-                                    key={comment.id}
-                                    {...comment}
-                                    setPhoto={setPhoto}
-                                    setComments={setComments}
-                                />
-                            ))}
-                            dataLength={comments.results.length}
-                            loader={<Asset spinner />}
-                            hasMore={!!comments.next}
-                            next={() => fetchMoreData(comments, setComments)}
-                        />
-                    ) : currentUser ? (
-                        <span>There are no comments, add one yourself!</span>
-                    ) : (
-                        <span>There are no comments at the moment.</span>
                     )}
-                </Container>
-            </Col>
-        </Row>
+                    <Photo
+                        {...photo.results[0]}
+                        setPhotos={setPhoto}
+                        photoPage
+                    />
+                    <Container className={`${appStyles.Content} my-2`}>
+                        {currentUser ? (
+                            <CommentCreateForm
+                                profile_id={currentUser.profile_id}
+                                profileImage={profile_image}
+                                photo={id}
+                                setPhoto={setPhoto}
+                                setComments={setComments}
+                            />
+                        ) : comments.results.length ? (
+                            "Comments"
+                        ) : null}
+                        {comments.results.length ? (
+                            <InfiniteScroll
+                                children={comments.results.map((comment) => (
+                                    <Comment
+                                        key={comment.id}
+                                        {...comment}
+                                        setPhoto={setPhoto}
+                                        setComments={setComments}
+                                    />
+                                ))}
+                                dataLength={comments.results.length}
+                                loader={<Asset spinner />}
+                                hasMore={!!comments.next}
+                                next={() =>
+                                    fetchMoreData(comments, setComments)
+                                }
+                            />
+                        ) : currentUser ? (
+                            <span>
+                                There are no comments, add one yourself!
+                            </span>
+                        ) : (
+                            <span>There are no comments at the moment.</span>
+                        )}
+                    </Container>
+                </Col>
+            </Row>
+        </>
     );
 }
 

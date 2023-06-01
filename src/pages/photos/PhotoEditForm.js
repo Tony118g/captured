@@ -95,7 +95,10 @@ function PhotoEditForm() {
 
         try {
             await axiosReq.put(`/photos/${id}/`, formData);
-            history.push(`/photos/${id}`);
+            history.push({
+                pathname: `/photos/${id}`,
+                state: {showFeedback: true, message: "Your post has been successfully updated."}
+            });
         } catch (err) {
             console.log(err);
             if (err.response?.status !== 401) {

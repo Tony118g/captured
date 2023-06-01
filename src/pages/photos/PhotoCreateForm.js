@@ -16,7 +16,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 
 function PhotoCreateForm() {
     const [errors, setErrors] = useState({});
-    
+
     const [photoData, setPhotoData] = useState({
         title: "",
         camera_used: "",
@@ -59,7 +59,13 @@ function PhotoCreateForm() {
 
         try {
             const { data } = await axiosReq.post("/photos/", formData);
-            history.push(`/photos/${data.id}`);
+            history.push({
+                pathname: `/photos/${data.id}`,
+                state: {
+                    showFeedback: true,
+                    message: "Your photo has been successfully posted.",
+                },
+            });
         } catch (err) {
             if (err.response?.status !== 401) {
                 setErrors(err.response?.data);
@@ -131,7 +137,10 @@ function PhotoCreateForm() {
                 </Alert>
             ))}
 
-            <Button className={`${btnStyles.CancelBtn} mr-3`} onClick={() => history.goBack()}>
+            <Button
+                className={`${btnStyles.CancelBtn} mr-3`}
+                onClick={() => history.goBack()}
+            >
                 cancel
             </Button>
             <Button className={btnStyles.Button} type="submit">
