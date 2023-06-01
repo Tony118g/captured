@@ -7,6 +7,7 @@ import { EditDeleteDropdown } from "../../components/EditDeleteDropdown";
 import CommentEditForm from "./CommentEditForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
+import FeedbackAlert from "../../components/FeedbackAlert";
 
 const Comment = (props) => {
     const {
@@ -24,6 +25,7 @@ const Comment = (props) => {
 
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
+    const [showFeedback, setShowFeedback] = useState(false);
 
     const handleDelete = async () => {
         try {
@@ -36,47 +38,50 @@ const Comment = (props) => {
                     },
                 ],
             }));
-
-            setComments((prevComments) => ({
-                ...prevComments,
-                results: prevComments.results.filter(
-                    (comment) => comment.id !== id
-                ),
-            }));
+            setShowFeedback(true);
         } catch (err) {}
     };
 
     return (
-        <div>
-            <hr />
-            <Media>
-                <Link to={`/profiles/${profile_id}`}>
-                    <Avatar src={profile_image} />
-                </Link>
-                <Media.Body className="align-self-center ml-2">
-                    <span className={styles.Owner}>{owner}</span>
-                    <span className={styles.Date}>{updated_at}</span>
-                    {showEditForm ? (
-                        <CommentEditForm
-                            id={id}
-                            profile_id={profile_id}
-                            content={content}
-                            profileImage={profile_image}
-                            setComments={setComments}
-                            setShowEditForm={setShowEditForm}
-                        />
-                    ) : (
-                        <p>{content}</p>
-                    )}
-                </Media.Body>
-                {is_owner && !showEditForm && (
-                    <EditDeleteDropdown
-                        handleEdit={() => setShowEditForm(true)}
-                        handleDelete={handleDelete}
-                    />
-                )}
-            </Media>
-        </div>
+        <>
+            {showFeedback ? (
+                <FeedbackAlert
+                    variant="info"
+                    message={"Comment has been deleted."}
+                />
+            ) : (
+                <div>
+                    <hr />
+                    <Media>
+                        <Link to={`/profiles/${profile_id}`}>
+                            <Avatar src={profile_image} />
+                        </Link>
+                        <Media.Body className="align-self-center ml-2">
+                            <span className={styles.Owner}>{owner}</span>
+                            <span className={styles.Date}>{updated_at}</span>
+                            {showEditForm ? (
+                                <CommentEditForm
+                                    id={id}
+                                    profile_id={profile_id}
+                                    content={content}
+                                    profileImage={profile_image}
+                                    setComments={setComments}
+                                    setShowEditForm={setShowEditForm}
+                                />
+                            ) : (
+                                <p>{content}</p>
+                            )}
+                        </Media.Body>
+                        {is_owner && !showEditForm && (
+                            <EditDeleteDropdown
+                                handleEdit={() => setShowEditForm(true)}
+                                handleDelete={handleDelete}
+                            />
+                        )}
+                    </Media>
+                </div>
+            )}
+        </>
     );
 };
 
