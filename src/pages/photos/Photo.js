@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "../../styles/Photo.module.css";
+import appStyles from "../../App.module.css";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Link } from "react-router-dom";
@@ -94,14 +95,16 @@ const Photo = (props) => {
             {showFeedback && (
                 <FeedbackAlert
                     variant="info"
-                    message={"This photo has been deleted. Returning to home page..."}
+                    message={
+                        "This photo has been deleted. Returning to home page..."
+                    }
                 />
             )}
             <Card className="mt-2">
-                <Card.Body className={styles.Title}>
+                <Card.Body className={`${appStyles.CardTop} ${styles.CardTitle}`}>
                     <Media className="align-items-center justify-content-between">
                         <Link to={`/profiles/${profile_id}`}>
-                            <Avatar src={profile_image} height={55} />
+                            <Avatar src={profile_image} height={45} />
                             {owner}
                         </Link>
                         <div className="d-flex align-items-center">
@@ -120,15 +123,26 @@ const Photo = (props) => {
                 </Link>
                 <Card.Body>
                     {title && (
-                        <Card.Title className="text-center">{title}</Card.Title>
+                        <Card.Title className={`${styles.Title} text-center`}>{title}</Card.Title>
                     )}
                     {camera_used && (
-                        <Card.Text>Camera used: {camera_used}</Card.Text>
+                        <Card.Text className="mb-0">
+                            Camera used:{" "}
+                            <span className={appStyles.InfoText}>
+                                {camera_used}
+                            </span>
+                        </Card.Text>
                     )}
                     {lense_used && (
-                        <Card.Text>Lense used: {lense_used}</Card.Text>
+                        <Card.Text className="mb-0">
+                            Lense used:{" "}
+                            <span className={appStyles.InfoText}>
+                                {lense_used}
+                            </span>
+                        </Card.Text>
                     )}
-                    {description && <Card.Text>{description}</Card.Text>}
+                    <hr className="m-1" />
+                    {description && <Card.Text className="mb-0 py-1">{description}</Card.Text>}
 
                     <div className={`float-right mr-3 ${styles.Icons}`}>
                         {is_owner ? (

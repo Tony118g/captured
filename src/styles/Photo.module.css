@@ -1,7 +1,13 @@
-.Title {
+.CardTitle {
     height: 60px;
     padding: 5px 20px;
   }
+
+.Title {
+    background-color: #DDDCCC;
+    padding: 4px;
+    border-bottom: 1px solid #7e1300;
+}
   
 .Heart {
     color: #7e1300;
