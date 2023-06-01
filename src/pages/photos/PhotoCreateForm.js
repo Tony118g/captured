@@ -69,6 +69,12 @@ function PhotoCreateForm() {
         } catch (err) {
             if (err.response?.status !== 401) {
                 setErrors(err.response?.data);
+                if (!image.length) {
+                    setErrors((prevState) => ({
+                        ...prevState,
+                        image: ["An image is required."],
+                    }));
+                }
             }
         }
     };
