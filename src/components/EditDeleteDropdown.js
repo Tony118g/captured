@@ -22,6 +22,11 @@ export const EditDeleteDropdown = ({ handleEdit, handleDelete }) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const closeThenDelete = () => {
+        setShow(false);
+        handleDelete();
+    };
+
     return (
         <>
             <Dropdown className="ml-auto" drop="left">
@@ -63,7 +68,7 @@ export const EditDeleteDropdown = ({ handleEdit, handleDelete }) => {
                     >
                         cancel
                     </Button>
-                    <Button variant="danger" onClick={handleDelete}>
+                    <Button variant="danger" onClick={closeThenDelete}>
                         delete
                     </Button>
                 </Modal.Footer>
