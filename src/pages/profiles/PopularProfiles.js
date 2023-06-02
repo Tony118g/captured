@@ -10,16 +10,17 @@ const PopularProfiles = ({ mobile }) => {
     const { popularProfiles } = useProfileData();
 
     return (
-        <Container fluid
+        <Container
+            fluid
             className={`${appStyles.Content} ${styles.ScrollContainer} mt-2 ${
-                mobile && "d-md-none text-center"
+                mobile && `${styles.SmallPopProfContainer} text-center`
             }`}
         >
             {popularProfiles.results.length ? (
                 <>
-                    <h5>Popular profiles</h5>
+                    <h5 className={mobile && "mb-1"}>Popular profiles</h5>
                     {mobile ? (
-                        <div className="d-flex justify-content-around">
+                        <div className="d-flex justify-content-around my-0">
                             {popularProfiles.results
                                 .slice(0, 4)
                                 .map((profile) => (

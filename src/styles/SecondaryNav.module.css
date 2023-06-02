@@ -1,12 +1,26 @@
-.SmallText {
-    font-size: 0.7rem;
-    margin: 0;
+.MobileNav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
 }
 
-.MobileNav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: 100;
+.SmallSecondaryNav {
+  display: none !important;
+}
+
+/* Styles for screens smaller than or equal to 768px */
+  
+@media screen and (width <= 768px) {
+
+  .SmallSecondaryNav {
+    display: block !important;
+  }
+      
+  .SmallSecondaryNav p {
+    font-size: 0.7rem;
+    margin: 0;
+  }
+
 }

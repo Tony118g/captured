@@ -14,13 +14,13 @@ const PopularProfileLink = (props) => {
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
 
-    const {handleFollow, handleUnfollow} = useSetProfileData();
+    const { handleFollow, handleUnfollow } = useSetProfileData();
 
     return (
         <div
-            className={`my-3 d-flex align-items-center ${
-                mobile && "flex-column"
-            }`}
+            className={
+                mobile ? "flex-column my-0" : "my-3 d-flex align-items-center"
+            }
         >
             <div>
                 <Link
@@ -29,13 +29,17 @@ const PopularProfileLink = (props) => {
                         mobile && "flex-column"
                     }`}
                 >
-                    <Avatar src={image} height={imageSize} />
+                    <Avatar src={image} height={mobile ? 30 : imageSize} />
                 </Link>
             </div>
             <div className={`mx-2 ${styles.WordBreak}`}>
                 <strong className={styles.Username}>{owner}</strong>
             </div>
-            <div className={`text-right ${!mobile && "ml-auto"}`}>
+            <div
+                className={`text-right ${styles.FollowBtn} ${
+                    !mobile && "ml-auto"
+                }`}
+            >
                 {!mobile &&
                     currentUser &&
                     !is_owner &&

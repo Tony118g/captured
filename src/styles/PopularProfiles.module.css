@@ -1,9 +1,21 @@
 .ScrollContainer {
-    height:fit-content;
-    max-height: calc(100vh - 400px);
-    overflow-y: scroll;
+  height:fit-content;
+  max-height: calc(100vh - 400px);
+  overflow-y: scroll;
 }
 
 .ScrollContainer::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
+
+/* Styles for screens larger than 768px */
+  
+@media screen and (width > 768px) {
+  
+  .SmallPopProfContainer {
+    display: none;
+  }
+
+}
+
+

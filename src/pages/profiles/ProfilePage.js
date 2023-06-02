@@ -5,6 +5,7 @@ import Container from "react-bootstrap/Container";
 import Asset from "../../components/Asset";
 import styles from "../../styles/ProfilePage.module.css";
 import appStyles from "../../App.module.css";
+import secNavStyles from "../../styles/SecondaryNav.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import PopularProfiles from "./PopularProfiles";
 import SecondaryNav from "../../components/SecondaryNav";
@@ -63,14 +64,14 @@ function ProfilePage() {
                 />
             )}
             <Row noGutters className="px-3 text-center">
-                <Col md={3} className="text-lg-left">
+                <Col className={`${appStyles.ContentColumn} text-lg-left`}>
                     <Image
                         className={styles.ProfileImage}
                         roundedCircle
                         src={profile?.image}
                     />
                 </Col>
-                <Col md={6}>
+                <Col className={appStyles.ContentColumn}>
                     <h3 className="m-2">{profile?.owner}</h3>
                     <Row className="justify-content-center no-gutters">
                         <Col xs={3} className="m-2">
@@ -87,7 +88,7 @@ function ProfilePage() {
                         </Col>
                     </Row>
                 </Col>
-                <Col md={3} className="text-lg-right">
+                <Col className={appStyles.ContentColumn}>
                     {currentUser &&
                         !is_owner &&
                         (profile?.following_id ? (
@@ -142,14 +143,16 @@ function ProfilePage() {
 
     return (
         <Row>
-            <Col lg={4} className="d-none d-lg-block py-2 p-lg-2">
+            <Col className="p-2" md={4}>
                 <div className={appStyles.FixedContainer}>
                     <SecondaryNav />
                     <PopularProfiles />
                 </div>
             </Col>
-            <Col className="py-2 p-0 p-lg-2 m-auto" md={10} lg={8}>
-                <SecondaryNav mobile />
+            <Col md={8} className={`${appStyles.ContentColumn} p-2`}>
+                <div className={secNavStyles.SmallSecondaryNav}>
+                    <SecondaryNav mobile />
+                </div>
                 <PopularProfiles mobile />
                 <Container fluid className={`${appStyles.Content} mt-2`}>
                     {hasLoaded ? (

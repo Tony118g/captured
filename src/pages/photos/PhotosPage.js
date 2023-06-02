@@ -7,6 +7,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import Photo from "./Photo";
 import Asset from "../../components/Asset";
 import appStyles from "../../App.module.css";
+import secNavStyles from "../../styles/SecondaryNav.module.css";
 import { Container, Form } from "react-bootstrap";
 import SecondaryNav from "../../components/SecondaryNav";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -46,14 +47,16 @@ function PhotosPage({ message, filter = "" }) {
 
     return (
         <Row>
-            <Col className="d-none d-lg-block py-2 p-0 p-lg-2 px-4" lg={4}>
+            <Col className="p-2" md={4}>
                 <div className={appStyles.FixedContainer}>
                     <SecondaryNav />
                     <PopularProfiles />
                 </div>
             </Col>
-            <Col md={10} lg={8} className="p-0 p-lg-2 mx-auto">
-                <SecondaryNav mobile />
+            <Col md={8} className={`${appStyles.ContentColumn} p-2`}>
+                <div className={secNavStyles.SmallSecondaryNav}>
+                    <SecondaryNav mobile />
+                </div>
                 <PopularProfiles mobile />
                 <i className={`fas fa-search ${styles.SearchIcon}`} />
                 <Form
@@ -86,13 +89,13 @@ function PhotosPage({ message, filter = "" }) {
                                 next={() => fetchMoreData(photos, setPhotos)}
                             />
                         ) : (
-                            <Container className={appStyles.Content}>
+                            <Container fluid className={appStyles.Content}>
                                 <Asset message={message} />
                             </Container>
                         )}
                     </>
                 ) : (
-                    <Container className={appStyles.Content}>
+                    <Container fluid className={appStyles.Content}>
                         <Asset spinner />
                     </Container>
                 )}

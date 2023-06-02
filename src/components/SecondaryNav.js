@@ -13,8 +13,7 @@ const SecondaryNav = ({ mobile }) => {
             <Container
                 fluid
                 className={`${appStyles.Content} mt-2 ${
-                    mobile &&
-                    "d-lg-none text-center mt-3 d-flex justify-content-around"
+                    mobile && "text-center d-flex justify-content-around"
                 }`}
             >
                 {currentUser && (
@@ -25,11 +24,7 @@ const SecondaryNav = ({ mobile }) => {
                                 className={!mobile && "d-block pt-2"}
                             >
                                 <i className="fa-regular fa-plus"></i>
-                                <p
-                                    className={
-                                        mobile ? styles.SmallText : "d-inline"
-                                    }
-                                >
+                                <p className={!mobile && "d-inline"}>
                                     Add a tour
                                 </p>
                             </Link>
@@ -39,48 +34,28 @@ const SecondaryNav = ({ mobile }) => {
                             className={!mobile && "d-block pt-2"}
                         >
                             <i className="fa-regular fa-plus"></i>
-                            <p
-                                className={
-                                    mobile ? styles.SmallText : "d-inline"
-                                }
-                            >
-                                Post photo
-                            </p>
+                            <p className={!mobile && "d-inline"}>Post photo</p>
                         </Link>
                         <Link to="/liked" className={!mobile && "d-block pt-2"}>
                             <i className="fa-solid fa-heart"></i>
-                            <p
-                                className={
-                                    mobile ? styles.SmallText : "d-inline"
-                                }
-                            >
+                            <p className={!mobile && "d-inline"}>
                                 Liked photos
                             </p>
                         </Link>
                         <Link to="/feed" className={!mobile && "d-block pt-2"}>
                             <i className="fa-solid fa-rss"></i>
-                            <p
-                                className={
-                                    mobile ? styles.SmallText : "d-inline"
-                                }
-                            >
-                                Feed
-                            </p>
+                            <p className={!mobile && "d-inline"}>Feed</p>
                         </Link>
                     </>
                 )}
                 <Link to="/tours" className={!mobile && "d-block pt-2"}>
                     <i className="fa-solid fa-camera-retro"></i>
-                    <p className={mobile ? styles.SmallText : "d-inline"}>
-                        Tours
-                    </p>
+                    <p className={!mobile && "d-inline"}>Tours</p>
                 </Link>
                 {mobile && (
                     <Link to="/" className={!mobile && "d-block pt-2"}>
                         <i className="fa-solid fa-house"></i>
-                        <p className={mobile ? styles.SmallText : "d-inline"}>
-                            Home
-                        </p>
+                        <p className={!mobile && "d-inline"}>Home</p>
                     </Link>
                 )}
             </Container>

@@ -1,19 +1,27 @@
 .ProfileImage {
-    object-fit: cover;
-    height: 140px;
-    width: 140px;
-    margin-left: -20px;
-  }
-
-@media screen and (max-width: 991px) {
-    .ProfileImage {
-        margin-left: 0px !important;
-    }
+  object-fit: cover;
+  height: 140px;
+  width: 140px;
 }
 
-@media screen and (max-width: 768px) {
-    .ProfileImage {
-      width: 230px;
-      height: 230px;
-    }
+/* Styles for screens smaller than 991px */
+
+@media screen and (max-width: 991px) {
+
+  .ProfileImage {
+    width: 100px;
+    height: 100px;
   }
+
+}
+
+/* Styles for screens smaller than 768px */
+
+@media screen and (max-width: 768px) {
+
+  .ProfileImage {
+    width: 230px;
+    height: 230px;
+  }
+
+}

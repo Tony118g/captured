@@ -1,44 +1,44 @@
 .App {
-    font-family: "PT Sans", sans-serif;
-    min-height: 100vh;
-    background-color: #DCC9B6;
+  font-family: "PT Sans", sans-serif;
+  min-height: 100vh;
+  background-color: #DCC9B6;
 }
 
 .Main {
-    padding-top: 81px;
-    width: calc(100vw - 20px);
-    max-width: 1000px;
+  padding-top: 81px;
+  width: calc(100vw - 20px);
+  max-width: 1000px;
 }
 
 .Content {
-    position: relative;
-    background-color: #ffffff;
-    padding: 10px;
-    border-radius: 4px;
-  }
+  position: relative;
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 4px;
+}
 
 * {
-    box-sizing: border-box;
-  }
+  box-sizing: border-box;
+}
 
 a {
-    color: black !important;
-    font-weight: 100;
-  }
-  
+  color: black !important;
+  font-weight: 100;
+}
+
 a:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 a:hover i {
-    color: #DCBBB6;
-    transition: color ease-in-out 0.2s;
+  color: #DCBBB6;
+  transition: color ease-in-out 0.2s;
 }
 
 i {
-    padding: 10px;
-    vertical-align: middle;
-    color: #5A5A5A;
+  padding: 10px;
+  vertical-align: middle;
+  color: #5A5A5A;
 }
 
 i:hover {
@@ -47,18 +47,19 @@ i:hover {
 }
 
 input[type="file"] {
-    display: none;
-  }
+  display: none;
+}
 
 .Image {
-    max-height: 40vh;
-    max-width: 100%;
-    object-fit: contain;
+  max-height: 40vh;
+  max-width: 100%;
+  object-fit: contain;
 }
 
 .FixedContainer {
-  position: fixed;
-  width: 300px;
+  position: sticky;
+  top: 89px;
+  width: auto;
 }
 
 .CardTop {
@@ -72,13 +73,22 @@ input[type="file"] {
   letter-spacing: 1px;
 }
 
-/* Styles for screens smaller than 992px */
-  
-@media screen and (max-width: 992px) {
-  
+/* Styles for screens smaller than or equal to 768px */
+
+@media screen and (width <= 768px) {
+
   .Main {
     margin-bottom: 77px;
     padding-bottom: 5px;
+  }
+  
+  .FixedContainer {
+    display: none;
+  }
+
+  .ContentColumn {
+    max-width: 100%;
+    flex: auto;
   }
 
 }

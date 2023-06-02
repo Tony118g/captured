@@ -1,9 +1,37 @@
-
 .WordBreak {
-    word-break: break-all;
-  }
+  word-break: break-all;
+}
 
 .Username {
-    font-family: Lato, "sans-serif";
-    font-weight: 400;
+  font-family: Lato, "sans-serif";
+  font-weight: 400;
+}
+
+.FollowBtn {
+  display: block;
+}
+
+/* Styles for screens smaller than 850px */
+
+@media screen and (width <= 850px) {
+
+  .FollowBtn {
+    display: none;
   }
+
+}
+
+/* Styles for screens smaller than 350px */
+
+@media screen and (width <= 350px) {
+
+  h5 {
+    font-size: 1rem;
+  }
+  
+  .Username {
+    font-size: 0.7rem;
+  }
+
+}
+

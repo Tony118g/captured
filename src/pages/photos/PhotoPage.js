@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-
 import appStyles from "../../App.module.css";
+import secNavStyles from "../../styles/SecondaryNav.module.css";
 import CommentCreateForm from "../comments/CommentCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import {
@@ -51,15 +51,17 @@ function PhotoPage() {
 
     return (
         <>
-            <Row className="h-100">
-                <Col className="d-none d-lg-block py-2 p-0 p-lg-2" lg={4}>
+            <Row>
+                <Col className="p-2" md={4}>
                     <div className={appStyles.FixedContainer}>
                         <SecondaryNav />
                         <PopularProfiles />
                     </div>
                 </Col>
-                <Col md={10} lg={8} className="p-0 p-lg-2 mx-auto">
-                    <SecondaryNav mobile />
+                <Col md={8} className={`${appStyles.ContentColumn} p-2 `}>
+                    <div className={secNavStyles.SmallSecondaryNav}>
+                        <SecondaryNav mobile />
+                    </div>
                     <PopularProfiles mobile />
                     {location.state?.showFeedback && (
                         <FeedbackAlert
