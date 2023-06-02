@@ -63,7 +63,7 @@ function ProfilePage() {
                 />
             )}
             <Row noGutters className="px-3 text-center">
-                <Col className={`${appStyles.ContentColumn} text-lg-left`}>
+                <Col className={`${appStyles.ContentColumn}`}>
                     <Image
                         className={styles.ProfileImage}
                         roundedCircle
@@ -71,8 +71,14 @@ function ProfilePage() {
                     />
                 </Col>
                 <Col className={appStyles.ContentColumn}>
-                    <h3 className="m-2">{profile?.owner}</h3>
-                    <Row className="justify-content-center no-gutters">
+                    <h3
+                        className={`${styles.ProfileNameHeading} m-2 text-center`}
+                    >
+                        {profile?.owner}
+                    </h3>
+                    <Row
+                        className={`${styles.StatsContainer} no-gutters justify-content-center`}
+                    >
                         <Col xs={3} className="m-2">
                             <div>{profile?.photos_count}</div>
                             <div>photos</div>
@@ -87,7 +93,7 @@ function ProfilePage() {
                         </Col>
                     </Row>
                 </Col>
-                <Col className={appStyles.ContentColumn}>
+                <Col className={`${appStyles.ContentColumn} pt-2`}>
                     {currentUser &&
                         !is_owner &&
                         (profile?.following_id ? (
@@ -115,8 +121,6 @@ function ProfilePage() {
 
     const mainProfilePostedPhotos = (
         <>
-            <hr />
-            <p className="text-center">{profile?.owner}'s photos</p>
             <hr />
             {profilePhotos.results.length ? (
                 <InfiniteScroll

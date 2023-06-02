@@ -11,7 +11,7 @@ const Avatar = ({ src, height = 45, text }) => {
                 width={height}
                 alt="avatar"
             />
-            {text}
+            <span className={styles.ProfileName}>{text}</span>
         </span>
     );
 };

@@ -1,8 +1,9 @@
-.WordBreak {
-  word-break: break-all;
+.Username {
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
-.Username {
+.Username strong{
   font-family: Lato, "sans-serif";
   font-weight: 400;
 }
@@ -17,6 +18,16 @@
 
   .FollowBtn {
     display: none;
+  }
+
+}
+
+/* Styles for screens smaller than 768px */
+
+@media screen and (width <= 768px) {
+
+  .Username {
+    max-width: 50px;
   }
 
 }

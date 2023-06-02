@@ -3,3 +3,33 @@
     margin: 0px 8px;
     object-fit: cover;
   }
+
+.ProfileName{
+  vertical-align: middle;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 200px;
+  display: inline-block;
+  margin-bottom: 4px;
+  word-wrap: normal;
+}
+
+/* Styles for screens smaller than 450px */
+  
+@media screen and (width < 450px) {
+  
+  .ProfileName{
+    max-width: 100px;
+  }
+
+}
+
+/* Styles for screens smaller than 350px */
+  
+@media screen and (width < 350px) {
+  
+  .ProfileName{
+    max-width: 80px;
+  }
+
+}

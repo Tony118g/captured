@@ -32,8 +32,8 @@ const PopularProfileLink = (props) => {
                     <Avatar src={image} height={mobile ? 30 : imageSize} />
                 </Link>
             </div>
-            <div className={`mx-2 ${styles.WordBreak}`}>
-                <strong className={styles.Username}>{owner}</strong>
+            <div className={`mx-2 ${styles.Username}`}>
+                <strong>{owner}</strong>
             </div>
             <div
                 className={`text-right ${styles.FollowBtn} ${
