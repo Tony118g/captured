@@ -3,7 +3,8 @@
   overflow: hidden;
 }
 
-.Username strong{
+.Username a{
+  font-size: 1rem;
   font-family: Lato, "sans-serif";
   font-weight: 400;
 }
@@ -40,7 +41,7 @@
     font-size: 1rem;
   }
   
-  .Username {
+  .Username a{
     font-size: 0.7rem;
   }
 

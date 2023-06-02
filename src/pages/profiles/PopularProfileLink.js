@@ -33,7 +33,7 @@ const PopularProfileLink = (props) => {
                 </Link>
             </div>
             <div className={`mx-2 ${styles.Username}`}>
-                <strong>{owner}</strong>
+                <Link to={`/profiles/${id}`}>{owner}</Link>
             </div>
             <div
                 className={`text-right ${styles.FollowBtn} ${
