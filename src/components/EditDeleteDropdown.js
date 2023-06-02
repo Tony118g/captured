@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import styles from "../styles/EditDeleteDropdown.module.css";
-import btnStyles from "../styles/Button.module.css";
-import { Button, Modal } from "react-bootstrap";
 import { useHistory } from "react-router";
+import ConfirmDeleteModal from "./ConfirmDeleteModal";
 
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (
     <i
@@ -16,17 +15,7 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
     />
 ));
 
-export const EditDeleteDropdown = ({ handleEdit, handleDelete }) => {
-    const [show, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
-    const closeThenDelete = () => {
-        setShow(false);
-        handleDelete();
-    };
-
+export const EditDeleteDropdown = ({ handleEdit, handleDelete, keyWord }) => {
     return (
         <>
             <Dropdown className="ml-auto" drop="left">
@@ -43,42 +32,19 @@ export const EditDeleteDropdown = ({ handleEdit, handleDelete }) => {
                     >
                         <i className="fas fa-edit" />
                     </Dropdown.Item>
-                    <Dropdown.Item
-                        className={styles.DropdownItem}
-                        onClick={handleShow}
-                        aria-label="delete"
-                    >
-                        <i className="fas fa-trash-alt" />
-                    </Dropdown.Item>
+                    <ConfirmDeleteModal
+                        handleDelete={handleDelete}
+                        keyWord={keyWord}
+                    />
                 </Dropdown.Menu>
             </Dropdown>
-
-            <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Confirm deletion</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    Are you sure you want to delete this? This action cannot be
-                    undone.
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button
-                        className={btnStyles.CancelBtn}
-                        onClick={handleClose}
-                    >
-                        cancel
-                    </Button>
-                    <Button variant="danger" onClick={closeThenDelete}>
-                        delete
-                    </Button>
-                </Modal.Footer>
-            </Modal>
         </>
     );
 };
 
-export function ProfileEditDropdown({ id }) {
+export function ProfileEditDropdown({ id, handleDelete,  keyWord }) {
     const history = useHistory();
+
     return (
         <Dropdown className={`ml-auto px-3 ${styles.PushRight}`}>
             <Dropdown.Toggle as={ThreeDots} />
@@ -107,6 +73,7 @@ export function ProfileEditDropdown({ id }) {
                     <i className="fa-solid fa-key"></i>
                     change password
                 </Dropdown.Item>
+                <ConfirmDeleteModal handleDelete={handleDelete}  keyWord={keyWord} />
             </Dropdown.Menu>
         </Dropdown>
     );

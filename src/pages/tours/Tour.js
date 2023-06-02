@@ -143,6 +143,7 @@ const Tour = (props) => {
                                     <EditDeleteDropdown
                                         handleEdit={handleEdit}
                                         handleDelete={handleDelete}
+                                        keyWord="tour"
                                     />
                                 )}
                             </div>

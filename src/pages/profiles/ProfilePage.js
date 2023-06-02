@@ -68,6 +68,7 @@ function ProfilePage() {
                 <ProfileEditDropdown
                     id={profile?.id}
                     className="justify-content-right"
+                    keyWord="account"
                 />
             )}
             <Row noGutters className="px-3 text-center">

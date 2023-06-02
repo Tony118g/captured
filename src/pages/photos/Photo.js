@@ -112,6 +112,7 @@ const Photo = (props) => {
                                 <EditDeleteDropdown
                                     handleEdit={handleEdit}
                                     handleDelete={handleDelete}
+                                    keyWord="photo"
                                 />
                             )}
                         </div>
