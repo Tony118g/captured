@@ -26,7 +26,7 @@ const PopularProfileLink = (props) => {
                 <Link
                     to={`/profiles/${id}`}
                     className={`"align-items-center" ${
-                        mobile && "flex-column"
+                        mobile ? "flex-column" : undefined
                     }`}
                 >
                     <Avatar src={image} height={mobile ? 30 : imageSize} />
@@ -37,7 +37,7 @@ const PopularProfileLink = (props) => {
             </div>
             <div
                 className={`text-right ${styles.FollowBtn} ${
-                    !mobile && "ml-auto"
+                    !mobile ? "ml-auto" : undefined
                 }`}
             >
                 {!mobile &&
