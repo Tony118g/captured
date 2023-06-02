@@ -12,7 +12,7 @@ const PopularProfiles = ({ mobile }) => {
     return (
         <Container
             fluid
-            className={`${appStyles.Content} ${styles.ScrollContainer} ${styles.LargePopProfContainer} mt-2 ${
+            className={`${appStyles.Content} ${styles.ScrollContainer} mt-2 ${
                 mobile && `${styles.SmallPopProfContainer} text-center`
             }`}
         >
