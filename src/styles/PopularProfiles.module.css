@@ -1,5 +1,6 @@
 .ScrollContainer {
   height:fit-content;
+  min-height: 104px;
   max-height: calc(100vh - 400px);
   overflow-y: scroll;
 }
@@ -18,4 +19,16 @@
 
 }
 
+/* Styles for screens of height smaller than 570px */
+  
+@media screen and (height < 570px) {
+  
+  .SmallPopProfContainer {
+    display: block !important;
+  }
 
+  .LargePopProfContainer {
+    display: none !important;
+  }
+
+}

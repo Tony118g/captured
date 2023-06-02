@@ -92,3 +92,13 @@ input[type="file"] {
   }
 
 }
+
+/* Styles for screens of height smaller than 360px */
+  
+@media screen and (height < 360px) {
+  
+  .FixedContainer {
+    top: 50px;
+  }
+
+}
