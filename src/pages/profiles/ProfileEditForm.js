@@ -76,7 +76,13 @@ const ProfileEditForm = () => {
                 ...currentUser,
                 profile_image: data.image,
             }));
-            history.goBack();
+            history.push({
+                pathname: `/profiles/${currentUser?.profile_id}`,
+                state: {
+                    showFeedback: true,
+                    message: "Your profile has been successfully updated.",
+                },
+            });
         } catch (err) {
             console.log(err);
             setErrors(err.response?.data);

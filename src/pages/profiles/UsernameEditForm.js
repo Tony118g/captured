@@ -20,10 +20,8 @@ import appStyles from "../../App.module.css";
 const UsernameEditForm = () => {
     const [username, setUsername] = useState("");
     const [errors, setErrors] = useState({});
-
     const history = useHistory();
     const { id } = useParams();
-
     const currentUser = useCurrentUser();
     const setCurrentUser = useSetCurrentUser();
 
@@ -45,7 +43,10 @@ const UsernameEditForm = () => {
                 ...prevUser,
                 username,
             }));
-            history.goBack();
+            history.push({
+                pathname: `/profiles/${currentUser?.profile_id}`,
+                state: {showFeedback: true, message: "Username edited successfully."}
+            });
         } catch (err) {
             console.log(err);
             setErrors(err.response?.data);

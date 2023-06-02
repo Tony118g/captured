@@ -44,7 +44,10 @@ const PasswordEditForm = () => {
         event.preventDefault();
         try {
             await axiosRes.post("/dj-rest-auth/password/change/", userData);
-            history.goBack();
+            history.push({
+                pathname: `/profiles/${currentUser?.profile_id}`,
+                state: {showFeedback: true, message: "Your password has been successfully updated."}
+            });
         } catch (err) {
             console.log(err);
             setErrors(err.response?.data);

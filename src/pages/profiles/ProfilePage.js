@@ -8,7 +8,7 @@ import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import PopularProfiles from "./PopularProfiles";
 import SecondaryNav from "../../components/SecondaryNav";
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { useLocation, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import {
     useProfileData,
     useSetProfileData,
@@ -20,6 +20,7 @@ import Photo from "../photos/Photo";
 import { fetchMoreData } from "../../utils/utils";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { ProfileEditDropdown } from "../../components/EditDeleteDropdown";
+import FeedbackAlert from "../../components/FeedbackAlert";
 
 function ProfilePage() {
     const [hasLoaded, setHasLoaded] = useState(false);
@@ -31,6 +32,7 @@ function ProfilePage() {
     const [profile] = pageProfile.results;
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === profile?.owner;
+    const location = useLocation();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -56,6 +58,12 @@ function ProfilePage() {
 
     const mainProfile = (
         <>
+            {location.state?.showFeedback && (
+                <FeedbackAlert
+                    variant="info"
+                    message={location.state?.message}
+                />
+            )}
             {profile?.is_owner && (
                 <ProfileEditDropdown
                     id={profile?.id}
