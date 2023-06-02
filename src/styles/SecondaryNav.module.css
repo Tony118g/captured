@@ -1,13 +1,10 @@
-.MobileNav {
+.SmallSecondaryNav {
+  display: none !important;
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
   z-index: 100;
-}
-
-.SmallSecondaryNav {
-  display: none !important;
 }
 
 /* Styles for screens smaller than or equal to 768px */

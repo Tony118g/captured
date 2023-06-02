@@ -7,7 +7,6 @@ import { axiosReq } from "../../api/axiosDefaults";
 import Photo from "./Photo";
 import Asset from "../../components/Asset";
 import appStyles from "../../App.module.css";
-import secNavStyles from "../../styles/SecondaryNav.module.css";
 import { Container, Form } from "react-bootstrap";
 import SecondaryNav from "../../components/SecondaryNav";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -54,9 +53,7 @@ function PhotosPage({ message, filter = "" }) {
                 </div>
             </Col>
             <Col md={8} className={`${appStyles.ContentColumn} p-2`}>
-                <div className={secNavStyles.SmallSecondaryNav}>
-                    <SecondaryNav mobile />
-                </div>
+                <SecondaryNav mobile />
                 <PopularProfiles mobile />
                 <i className={`fas fa-search ${styles.SearchIcon}`} />
                 <Form

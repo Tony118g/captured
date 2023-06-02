@@ -4,7 +4,6 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import appStyles from "../../App.module.css";
-import secNavStyles from "../../styles/SecondaryNav.module.css";
 import CommentCreateForm from "../comments/CommentCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import {
@@ -59,9 +58,7 @@ function PhotoPage() {
                     </div>
                 </Col>
                 <Col md={8} className={`${appStyles.ContentColumn} p-2 `}>
-                    <div className={secNavStyles.SmallSecondaryNav}>
-                        <SecondaryNav mobile />
-                    </div>
+                    <SecondaryNav mobile />
                     <PopularProfiles mobile />
                     {location.state?.showFeedback && (
                         <FeedbackAlert

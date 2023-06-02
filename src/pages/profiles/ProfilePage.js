@@ -5,7 +5,6 @@ import Container from "react-bootstrap/Container";
 import Asset from "../../components/Asset";
 import styles from "../../styles/ProfilePage.module.css";
 import appStyles from "../../App.module.css";
-import secNavStyles from "../../styles/SecondaryNav.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import PopularProfiles from "./PopularProfiles";
 import SecondaryNav from "../../components/SecondaryNav";
@@ -150,9 +149,7 @@ function ProfilePage() {
                 </div>
             </Col>
             <Col md={8} className={`${appStyles.ContentColumn} p-2`}>
-                <div className={secNavStyles.SmallSecondaryNav}>
-                    <SecondaryNav mobile />
-                </div>
+                <SecondaryNav mobile />
                 <PopularProfiles mobile />
                 <Container fluid className={`${appStyles.Content} mt-2`}>
                     {hasLoaded ? (

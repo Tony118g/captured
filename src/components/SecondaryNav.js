@@ -9,7 +9,7 @@ const SecondaryNav = ({ mobile }) => {
     const currentUser = useCurrentUser();
 
     return (
-        <Nav className={`p-0 ${mobile && styles.MobileNav}`}>
+        <Nav className={`p-0 ${mobile &&  styles.SmallSecondaryNav}`}>
             <Container
                 fluid
                 className={`${appStyles.Content} mt-2 ${
@@ -25,7 +25,7 @@ const SecondaryNav = ({ mobile }) => {
                             >
                                 <i className="fa-regular fa-plus"></i>
                                 <p className={!mobile && "d-inline"}>
-                                    Add a tour
+                                    Add tour
                                 </p>
                             </Link>
                         )}

@@ -6,7 +6,6 @@ import { axiosReq } from "../../api/axiosDefaults";
 import Tour from "./Tour";
 import Asset from "../../components/Asset";
 import appStyles from "../../App.module.css";
-import secNavStyles from "../../styles/SecondaryNav.module.css";
 import styles from "../../styles/PhotosToursPage.module.css";
 import { Container, Form } from "react-bootstrap";
 import SecondaryNav from "../../components/SecondaryNav";
@@ -55,9 +54,7 @@ function ToursPage({ message, filter = "" }) {
                 </div>
             </Col>
             <Col md={8} className={`${appStyles.ContentColumn} p-2`}>
-                <div className={secNavStyles.SmallSecondaryNav}>
-                    <SecondaryNav mobile />
-                </div>
+                <SecondaryNav mobile />
                 <PopularProfiles mobile />
                 <i className={`fas fa-search ${styles.SearchIcon}`} />
                 <Form
