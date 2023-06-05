@@ -9,6 +9,7 @@ This repository is for the frontend section of the project and is associated wit
 * [User Experience](#user-experience)
     * [Epics](#epics)
     * [User Stories](#user-stories)
+    * [Site Structure](#site-structure)
 * [Technologies Used](#technologies-used)
 * [Deployment and Development](#deployment-and-development)
     * [Deploying the Site](#deployment)
@@ -119,6 +120,42 @@ Below is a summary of the user stories for this version of the project's release
     * As a site owner I want to restrict certain features to registered users so that it encourages people to register to the site and ensures correct functionality.
     * As a site owner I want to restrict certain features to the site admin so that I can ensure unauthorized users cannot tamper with features that are not relevant to them.
     * As a user I can see various feedback messages so that I know the status of the action I am trying to perform.
+
+### Site Structure
+I created basic wireframes of how I wanted the structure and layout of the site to look using [Balsamiq](https://balsamiq.com/). The majority of the pages on the site adopt the same layout for simplicity and uniformity. I did not create wireframes for every single feature such as the profile edit form and the deletion confirmation modal as their layouts were adopted from wireframes for other similar features and I deemed it unnecessary to create almost duplicate wireframes.
+
+This helped majorly when developing the site as it enabled me to create each page faster and with purpose since I had created these wireframes as a guide.
+
+A few differences can be seen between the final result and the wireframes but overall most of the conceptual layout and design is the same. Any changes were a result of decisions made to improve user experience. The most noticeable change is the presence of the navigation bar at the bottom of mobile screens. This was done in order to improve accessibility to all site features by having navigation options readily available at the bottom of the screen.
+
+#### Wireframes
+
+##### Sign Up Wireframes
+![sign up wireframes](documentation/readme-images/sign-up-wireframe.png)
+
+##### Log In Wireframes
+![login in wireframes](documentation/readme-images/log-in-wireframe.png)
+
+##### About Us Wireframes
+![login in wireframes](documentation/readme-images/about-us-wireframe.png)
+
+##### Photos Page Wireframes
+![logged out photos page wireframes](documentation/readme-images/logged-out-photos-wireframe.png)
+
+More nav options are present for logged in users.
+![logged in photos page wireframes](documentation/readme-images/logged-in-photos-wireframe.png)
+
+##### Tours Page Wireframes
+![tours page wireframes](documentation/readme-images/tours-page-wireframe.png)
+
+##### Profile Page Wireframes
+![profile page wireframes](documentation/readme-images/profile-page-wireframe.png)
+
+##### Photo Creation Form Wireframes
+![photo creation form wireframes](documentation/readme-images/photo-creation-form-wireframe.png)
+
+##### Tour Creation Form Wireframes
+![tour creation form wireframes](documentation/readme-images/tour-creation-form-wireframe.png)
 
 ## Technologies Used
 
