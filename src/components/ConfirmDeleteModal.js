@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Dropdown, Modal } from "react-bootstrap";
+import appStyles from "../App.module.css"
 import btnStyles from "../styles/Button.module.css";
 
 const ConfirmDeleteModal = ({keyWord, handleDelete }) => {
@@ -20,7 +21,7 @@ const ConfirmDeleteModal = ({keyWord, handleDelete }) => {
                 {keyWord !== "account" ? ("") : ("Delete account")}
             </Dropdown.Item>
             <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
+                <Modal.Header closeButton className={appStyles.CardTop}>
                     <Modal.Title>Confirm deletion</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>

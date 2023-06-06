@@ -129,7 +129,7 @@ const Tour = (props) => {
                 />
             ) : (
                 <Card className="mt-2">
-                    <Card.Body className={`${appStyles.CardTop}`}>
+                    <Card.Body className={appStyles.CardTop}>
                         <Media className="align-items-center justify-content-between">
                             {title && (
                                 <Card.Title className="text-center">
@@ -286,7 +286,7 @@ const Tour = (props) => {
                         </div>
 
                         <Modal scrollable show={show} onHide={handleClose}>
-                            <Modal.Header closeButton>
+                            <Modal.Header closeButton className={appStyles.CardTop}>
                                 <Modal.Title>{title}</Modal.Title>
                             </Modal.Header>
                             <Modal.Body>
@@ -300,6 +300,7 @@ const Tour = (props) => {
                                     ))
                                 ) : (
                                     <span>
+                                        <hr />
                                         No users have marked attendance for this
                                         event.
                                     </span>
