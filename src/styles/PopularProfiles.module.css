@@ -1,3 +1,7 @@
+.Heading{
+  font-family: Lato, "sans-serif";
+}
+
 .ScrollContainer {
   height:fit-content;
   min-height: 104px;
