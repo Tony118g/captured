@@ -13,6 +13,7 @@ import Asset from "../../components/Asset";
 import { Image, Alert } from "react-bootstrap";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
+import SecondaryNav from "../../components/SecondaryNav";
 
 function PhotoCreateForm() {
     const [errors, setErrors] = useState({});
@@ -160,67 +161,70 @@ function PhotoCreateForm() {
     );
 
     return (
-        <Form onSubmit={handleSubmit}>
-            <Row>
-                <Col
-                    md={5}
-                    lg={6}
-                    className="d-none d-md-block p-0 p-md-2 mt-4"
-                >
-                    <Container className={appStyles.Content}>
-                        {textFields}
-                    </Container>
-                </Col>
-                <Col className="py-2 p-0 p-md-2 my-4" md={7} lg={6}>
-                    <Container
-                        className={` ${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
+        <>
+            <Form onSubmit={handleSubmit}>
+                <Row>
+                    <Col
+                        md={5}
+                        lg={6}
+                        className="d-none d-md-block p-0 p-md-2 mt-4"
                     >
-                        <Form.Group className="text-center">
-                            {image ? (
-                                <>
-                                    <figure>
-                                        <Image
-                                            className={appStyles.Image}
-                                            src={image}
-                                            rounded
-                                        />
-                                    </figure>
-                                    <div>
-                                        <Form.Label
-                                            className={`${btnStyles.Button} btn`}
-                                            htmlFor="photo-upload"
-                                        >
-                                            Change the photo
-                                        </Form.Label>
-                                    </div>
-                                </>
-                            ) : (
-                                <Form.Label
-                                    className="d-block justify-content-center"
-                                    htmlFor="photo-upload"
-                                >
-                                    <i className="fa-solid fa-cloud-arrow-up"></i>
-                                    <Asset message="Click or tap to upload a photo" />
-                                </Form.Label>
-                            )}
+                        <Container className={appStyles.Content}>
+                            {textFields}
+                        </Container>
+                    </Col>
+                    <Col className="p-0 p-md-2 my-4" md={7} lg={6}>
+                        <Container
+                            className={` ${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
+                        >
+                            <Form.Group className="text-center">
+                                {image ? (
+                                    <>
+                                        <figure>
+                                            <Image
+                                                className={appStyles.Image}
+                                                src={image}
+                                                rounded
+                                            />
+                                        </figure>
+                                        <div>
+                                            <Form.Label
+                                                className={`${btnStyles.Button} btn`}
+                                                htmlFor="photo-upload"
+                                            >
+                                                Change the photo
+                                            </Form.Label>
+                                        </div>
+                                    </>
+                                ) : (
+                                    <Form.Label
+                                        className="d-block justify-content-center"
+                                        htmlFor="photo-upload"
+                                    >
+                                        <i className="fa-solid fa-cloud-arrow-up"></i>
+                                        <Asset message="Click or tap to upload a photo" />
+                                    </Form.Label>
+                                )}
 
-                            <Form.File
-                                id="photo-upload"
-                                accept="image/*"
-                                onChange={handleChangeImage}
-                                ref={imageInput}
-                            />
-                        </Form.Group>
-                        {errors?.image?.map((message, idx) => (
-                            <Alert variant="warning" key={idx}>
-                                {message}
-                            </Alert>
-                        ))}
-                        <div className="d-md-none">{textFields}</div>
-                    </Container>
-                </Col>
-            </Row>
-        </Form>
+                                <Form.File
+                                    id="photo-upload"
+                                    accept="image/*"
+                                    onChange={handleChangeImage}
+                                    ref={imageInput}
+                                />
+                            </Form.Group>
+                            {errors?.image?.map((message, idx) => (
+                                <Alert variant="warning" key={idx}>
+                                    {message}
+                                </Alert>
+                            ))}
+                            <div className="d-md-none">{textFields}</div>
+                        </Container>
+                    </Col>
+                </Row>
+            </Form>
+            <SecondaryNav mobile />
+        </>
     );
 }
 

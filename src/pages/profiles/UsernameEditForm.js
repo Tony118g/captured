@@ -16,6 +16,7 @@ import {
 
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
+import SecondaryNav from "../../components/SecondaryNav";
 
 const UsernameEditForm = () => {
     const [username, setUsername] = useState("");
@@ -45,7 +46,10 @@ const UsernameEditForm = () => {
             }));
             history.push({
                 pathname: `/profiles/${currentUser?.profile_id}`,
-                state: {showFeedback: true, message: "Username edited successfully."}
+                state: {
+                    showFeedback: true,
+                    message: "Username edited successfully.",
+                },
             });
         } catch (err) {
             console.log(err);
@@ -54,39 +58,45 @@ const UsernameEditForm = () => {
     };
 
     return (
-        <Row>
-            <Col className="py-2 mx-auto text-center mt-4" md={6}>
-                <Container className={appStyles.Content}>
-                    <Form onSubmit={handleSubmit} className="my-2">
-                        <Form.Group>
-                            <Form.Label>Change username</Form.Label>
-                            <Form.Control
-                                placeholder="username"
-                                type="text"
-                                value={username}
-                                onChange={(event) =>
-                                    setUsername(event.target.value)
-                                }
-                            />
-                        </Form.Group>
-                        {errors?.username?.map((message, idx) => (
-                            <Alert key={idx} variant="warning">
-                                {message}
-                            </Alert>
-                        ))}
-                        <Button
-                            className={`${btnStyles.CancelBtn} mr-3`}
-                            onClick={() => history.goBack()}
-                        >
-                            cancel
-                        </Button>
-                        <Button className={`${btnStyles.Button}`} type="submit">
-                            save
-                        </Button>
-                    </Form>
-                </Container>
-            </Col>
-        </Row>
+        <>
+            <Row>
+                <Col className="py-2 mx-auto text-center mt-4" md={6}>
+                    <Container className={appStyles.Content}>
+                        <Form onSubmit={handleSubmit} className="my-2">
+                            <Form.Group>
+                                <Form.Label>Change username</Form.Label>
+                                <Form.Control
+                                    placeholder="username"
+                                    type="text"
+                                    value={username}
+                                    onChange={(event) =>
+                                        setUsername(event.target.value)
+                                    }
+                                />
+                            </Form.Group>
+                            {errors?.username?.map((message, idx) => (
+                                <Alert key={idx} variant="warning">
+                                    {message}
+                                </Alert>
+                            ))}
+                            <Button
+                                className={`${btnStyles.CancelBtn} mr-3`}
+                                onClick={() => history.goBack()}
+                            >
+                                cancel
+                            </Button>
+                            <Button
+                                className={`${btnStyles.Button}`}
+                                type="submit"
+                            >
+                                save
+                            </Button>
+                        </Form>
+                    </Container>
+                </Col>
+            </Row>
+            <SecondaryNav mobile />
+        </>
     );
 };
 

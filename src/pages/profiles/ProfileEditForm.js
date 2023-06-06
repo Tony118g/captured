@@ -17,6 +17,7 @@ import {
 
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
+import SecondaryNav from "../../components/SecondaryNav";
 
 const ProfileEditForm = () => {
     const currentUser = useCurrentUser();
@@ -120,59 +121,66 @@ const ProfileEditForm = () => {
     );
 
     return (
-        <Form onSubmit={handleSubmit}>
-            <Row>
-                <Col
-                    md={5}
-                    lg={6}
-                    className="d-none d-md-block p-0 p-md-2 mt-4 text-center"
-                >
-                    <Container className={appStyles.Content}>
-                        {textFields}
-                    </Container>
-                </Col>
-                <Col className="py-2 p-0 p-md-2 my-4 text-center" md={7} lg={6}>
-                    <Container className={appStyles.Content}>
-                        <Form.Group>
-                            {image && (
-                                <figure>
-                                    <Image src={image} fluid />
-                                </figure>
-                            )}
-                            {errors?.image?.map((message, idx) => (
-                                <Alert variant="warning" key={idx}>
-                                    {message}
-                                </Alert>
-                            ))}
-                            <div>
-                                <Form.Label
-                                    className={`${btnStyles.Button}`}
-                                    htmlFor="photo-upload"
-                                >
-                                    Change the image
-                                </Form.Label>
-                            </div>
-                            <Form.File
-                                id="photo-upload"
-                                ref={imageFile}
-                                accept="image/*"
-                                onChange={(e) => {
-                                    if (e.target.files.length) {
-                                        setProfileData({
-                                            ...profileData,
-                                            image: URL.createObjectURL(
-                                                e.target.files[0]
-                                            ),
-                                        });
-                                    }
-                                }}
-                            />
-                        </Form.Group>
-                        <div className="d-md-none">{textFields}</div>
-                    </Container>
-                </Col>
-            </Row>
-        </Form>
+        <>
+            <Form onSubmit={handleSubmit}>
+                <Row>
+                    <Col
+                        md={5}
+                        lg={6}
+                        className="d-none d-md-block p-0 p-md-2 mt-4 text-center"
+                    >
+                        <Container className={appStyles.Content}>
+                            {textFields}
+                        </Container>
+                    </Col>
+                    <Col
+                        className="py-2 p-0 p-md-2 my-4 text-center"
+                        md={7}
+                        lg={6}
+                    >
+                        <Container className={appStyles.Content}>
+                            <Form.Group>
+                                {image && (
+                                    <figure>
+                                        <Image src={image} fluid />
+                                    </figure>
+                                )}
+                                {errors?.image?.map((message, idx) => (
+                                    <Alert variant="warning" key={idx}>
+                                        {message}
+                                    </Alert>
+                                ))}
+                                <div>
+                                    <Form.Label
+                                        className={`${btnStyles.Button}`}
+                                        htmlFor="photo-upload"
+                                    >
+                                        Change the image
+                                    </Form.Label>
+                                </div>
+                                <Form.File
+                                    id="photo-upload"
+                                    ref={imageFile}
+                                    accept="image/*"
+                                    onChange={(e) => {
+                                        if (e.target.files.length) {
+                                            setProfileData({
+                                                ...profileData,
+                                                image: URL.createObjectURL(
+                                                    e.target.files[0]
+                                                ),
+                                            });
+                                        }
+                                    }}
+                                />
+                            </Form.Group>
+                            <div className="d-md-none">{textFields}</div>
+                        </Container>
+                    </Col>
+                </Row>
+            </Form>
+            <SecondaryNav mobile />
+        </>
     );
 };
 

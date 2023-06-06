@@ -14,6 +14,7 @@ import { useHistory } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import SecondaryNav from "../../components/SecondaryNav";
 
 function TourEditForm() {
     const [errors, setErrors] = useState({});
@@ -131,7 +132,10 @@ function TourEditForm() {
             await axiosReq.put(`/tours/${id}/`, formData);
             history.push({
                 pathname: "/tours",
-                state: {showFeedback: true, message: "The edit was successful."}
+                state: {
+                    showFeedback: true,
+                    message: "The edit was successful.",
+                },
             });
         } catch (err) {
             if (err.response?.status !== 401) {
@@ -307,66 +311,70 @@ function TourEditForm() {
     );
 
     return (
-        <Form onSubmit={handleSubmit} noValidate>
-            <Row>
-                <Col
-                    md={5}
-                    lg={6}
-                    className="d-none d-md-block p-0 p-md-2 mt-4"
-                >
-                    <Container className={appStyles.Content}>
-                        {textFields}
-                    </Container>
-                </Col>
-                <Col className="py-2 p-0 p-md-2 my-4" md={7} lg={6}>
-                    <Container
-                        className={` ${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
+        <>
+            {" "}
+            <Form onSubmit={handleSubmit} noValidate>
+                <Row>
+                    <Col
+                        md={5}
+                        lg={6}
+                        className="d-none d-md-block p-0 p-md-2 mt-4"
                     >
-                        <Form.Group className="text-center">
-                            {image ? (
-                                <>
-                                    <figure>
-                                        <Image
-                                            className={appStyles.Image}
-                                            src={image}
-                                            rounded
-                                        />
-                                    </figure>
-                                    <div>
-                                        <Form.Label
-                                            className={`${btnStyles.Button} btn`}
-                                            htmlFor="image-upload"
-                                        >
-                                            Change the image
-                                        </Form.Label>
-                                    </div>
-                                </>
-                            ) : (
-                                <Form.Label
-                                    className="d-block justify-content-center"
-                                    htmlFor="image-upload"
-                                >
-                                    <i className="fa-solid fa-cloud-arrow-up"></i>
-                                </Form.Label>
-                            )}
+                        <Container className={appStyles.Content}>
+                            {textFields}
+                        </Container>
+                    </Col>
+                    <Col className="py-2 p-0 p-md-2 my-4" md={7} lg={6}>
+                        <Container
+                            className={` ${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
+                        >
+                            <Form.Group className="text-center">
+                                {image ? (
+                                    <>
+                                        <figure>
+                                            <Image
+                                                className={appStyles.Image}
+                                                src={image}
+                                                rounded
+                                            />
+                                        </figure>
+                                        <div>
+                                            <Form.Label
+                                                className={`${btnStyles.Button} btn`}
+                                                htmlFor="image-upload"
+                                            >
+                                                Change the image
+                                            </Form.Label>
+                                        </div>
+                                    </>
+                                ) : (
+                                    <Form.Label
+                                        className="d-block justify-content-center"
+                                        htmlFor="image-upload"
+                                    >
+                                        <i className="fa-solid fa-cloud-arrow-up"></i>
+                                    </Form.Label>
+                                )}
 
-                            <Form.File
-                                id="image-upload"
-                                accept="image/*"
-                                onChange={handleChangeImage}
-                                ref={imageInput}
-                            />
-                        </Form.Group>
-                        {errors?.image?.map((message, idx) => (
-                            <Alert variant="warning" key={idx}>
-                                {message}
-                            </Alert>
-                        ))}
-                        <div className="d-md-none">{textFields}</div>
-                    </Container>
-                </Col>
-            </Row>
-        </Form>
+                                <Form.File
+                                    id="image-upload"
+                                    accept="image/*"
+                                    onChange={handleChangeImage}
+                                    ref={imageInput}
+                                />
+                            </Form.Group>
+                            {errors?.image?.map((message, idx) => (
+                                <Alert variant="warning" key={idx}>
+                                    {message}
+                                </Alert>
+                            ))}
+                            <div className="d-md-none">{textFields}</div>
+                        </Container>
+                    </Col>
+                </Row>
+            </Form>
+            <SecondaryNav mobile />
+        </>
     );
 }
 
