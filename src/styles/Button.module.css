@@ -1,17 +1,17 @@
-.Button {
-    background-color: #B94700;
+.Button{
+    background-color: #B94700!important;
+    border-color: transparent !important;
     color: #fff;
     font-size: 0.9rem;
     align-self: center;
     border-radius: 100px;
-    border-color: transparent;
     padding: 5px 10px;
     min-width: 75px;
   }
 
 .CancelBtn, .UnfollowBtn, .UnattendBtn {
-    background-color: #5A5A5A;
-    color: #fff;
+    background-color: #5A5A5A !important;
+    color: #fff !important;
     font-size: 0.9rem;
     align-self: center;
     border-radius: 100px;
@@ -22,7 +22,7 @@
 
 .Button:hover, .CancelBtn:hover, .UnfollowBtn:hover, .UnattendBtn:hover {
     background-color: #DCBBB6 !important;
-    border-color: transparent;
+    border-color: transparent !important;
     color: black;
     cursor: pointer;
   }
