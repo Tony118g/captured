@@ -17,6 +17,7 @@ import PasswordEditForm from "./pages/profiles/PasswordEditForm";
 import TourCreateForm from "./pages/tours/TourCreateForm";
 import ToursPage from "./pages/tours/ToursPage";
 import TourEditForm from "./pages/tours/TourEditForm";
+import About from "./pages/about/About";
 
 function App() {
     const currentUser = useCurrentUser();
@@ -57,7 +58,7 @@ function App() {
                     <Route
                         exact
                         path="/about"
-                        render={() => <h1>About page</h1>}
+                        render={() => <About />}
                     />
                     <Route exact path="/signup" render={() => <SignUpForm />} />
                     <Route exact path="/login" render={() => <LogInForm />} />
