@@ -78,6 +78,10 @@ function PhotoEditForm() {
                 ...photoData,
                 image: URL.createObjectURL(event.target.files[0]),
             });
+            setErrors((prevState) => ({
+                ...prevState,
+                image: [],
+            }));
         }
     };
 

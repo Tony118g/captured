@@ -64,6 +64,10 @@ function TourCreateForm() {
                 ...tourData,
                 image: URL.createObjectURL(event.target.files[0]),
             });
+            setErrors((prevState) => ({
+                ...prevState,
+                image: [],
+            }));
         }
     };
 
