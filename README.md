@@ -14,6 +14,7 @@ This repository is for the frontend section of the project and is associated wit
     * [Design Choices](#design-choices)
         * [Typography](#typography)
         * [Colour Palette](#colour-palette)
+* [Project Management](#project-management)
 * [Technologies Used](#technologies-used)
 * [Deployment and Development](#deployment-and-development)
     * [Deploying the Site](#deployment)
@@ -179,6 +180,12 @@ More nav options are present for logged in users.
     * The mahogany (B94700) is used as a colour for action buttons such as the follow or create button. The brighter colour helps to draw attention to it and makes it stand out but still compliment the rest of the colours on the site.
     * The davy's gray (5A5A5A) is used as a colour for buttons that are for undoing actions such as the unfollow or cancel buttons. This is to contrast the mahogany colour on other buttons.
     * The pale dogwood (DCBBB6) is used mainly as a background colour for buttons when hovered over as well as the navbar active links.
+
+### Project Management
+I utilized agile methodology during the development of this project using GitHub projects and issues. 
+I used issues to create epics and user stories which I labelled and categorized. I then created a [project kanban board](https://github.com/users/Tony118g/projects/10) where I could house these issues and easily manage the development process. This method of development is extremely beneficial in ensuring efficiency and quality of work. It also greatly improves maintainability of the project.
+
+Although this site was developed by myself individually as an educational project, the agile principles enabled me to track my workflow and ensure the project has a good foundation for future development. The agile approach would be even more beneficial if a team were to collaborate on this project in future.
 
 ## Technologies Used
 
