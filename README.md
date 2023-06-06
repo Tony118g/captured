@@ -7,9 +7,13 @@ This repository is for the frontend section of the project and is associated wit
 
 * [Project Goals](#project-goals)
 * [User Experience](#user-experience)
+    * [Target Audience](#target-audience)
     * [Epics](#epics)
     * [User Stories](#user-stories)
     * [Site Structure](#site-structure)
+    * [Design Choices](#design-choices)
+        * [Typography](#typography)
+        * [Colour Palette](#colour-palette)
 * [Technologies Used](#technologies-used)
 * [Deployment and Development](#deployment-and-development)
     * [Deploying the Site](#deployment)
@@ -39,6 +43,9 @@ Captured is designed and intended to be a social, educational and promotive plat
     * Provide functionality for users to be able to specify whether they intend to attend an advertised tour.
 
 ## User Experience
+
+### Target Audience
+The site is primarily targeted towards photography enthusiasts regardless of age, gender, ethnicity or skill level. Intended users are anyone with an interest in photography. The sharing platform provides a way for photographers to interact and learn from one another as well as simply view content that interests them. The tours section of the site is aimed mainly towards but not limited to amateur and aspiring photographers as it advertises photography tours that they may join in order to learn and gain experience.
 
 ### Epics
 During the planning process, I created 9 epics which were then broken down further into a total of 39 user stories. These can be found in the [project kanban board](https://github.com/users/Tony118g/projects/10) or they can be viewed individually via the links below.
@@ -156,6 +163,22 @@ More nav options are present for logged in users.
 
 ##### Tour Creation Form Wireframes
 ![tour creation form wireframes](documentation/readme-images/tour-creation-form-wireframe.png)
+
+### Design Choices
+
+#### Typography
+* The text fonts used in the site are "PT Sans" and "Lato" with "sans-serif" as a secondary font.
+    * These were chosen due to the fact that they are well defined and easy to read. This helps the user to easily read through content whilst maintaining a stylish presentation.
+
+#### Colour Palette
+![Colour pallete](documentation/readme-images/color-palette.png)
+* The colour palette shown above was chosen using [coolers](https://coolors.co/).
+* These colours were chosen because they provide an elegant and calming display with good contrast.
+    * The dun (DCC9B6) is used as a background colour for the body of the site.
+    * The bone (DDDCCC) is used as a background colour for the navigation bar as well as the top of cards for tours and photo posts.
+    * The mahogany (B94700) is used as a colour for action buttons such as the follow or create button. The brighter colour helps to draw attention to it and makes it stand out but still compliment the rest of the colours on the site.
+    * The davy's gray (5A5A5A) is used as a colour for buttons that are for undoing actions such as the unfollow or cancel buttons. This is to contrast the mahogany colour on other buttons.
+    * The pale dogwood (DCBBB6) is used mainly as a background colour for buttons when hovered over as well as the navbar active links.
 
 ## Technologies Used
 
