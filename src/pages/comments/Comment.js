@@ -76,6 +76,7 @@ const Comment = (props) => {
                             <EditDeleteDropdown
                                 handleEdit={() => setShowEditForm(true)}
                                 handleDelete={handleDelete}
+                                keyWord={"comment"}
                             />
                         )}
                     </Media>
