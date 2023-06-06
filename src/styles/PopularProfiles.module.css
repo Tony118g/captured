@@ -26,6 +26,9 @@
   .SmallPopProfContainer {
     display: block !important;
   }
-  
+
+  .ScrollContainer {
+    display: none !important;
+  }
 
 }
