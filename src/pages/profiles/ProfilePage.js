@@ -122,7 +122,7 @@ function ProfilePage() {
                         ))}
                 </Col>
                 {profile?.description && (
-                    <Col className="p-3">{profile.description}</Col>
+                    <div className="pt-3 pb-1 mx-auto w-100">{profile.description}</div>
                 )}
             </Row>
         </>
