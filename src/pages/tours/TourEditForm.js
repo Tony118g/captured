@@ -124,6 +124,7 @@ function TourEditForm() {
         formData.append("start_date", start_date);
         formData.append("end_date", end_date);
         formData.append("booking_means", booking_means);
+        formData.append("description", description);
         if (imageInput?.current?.files[0]) {
             formData.append("image", imageInput.current.files[0]);
         }
