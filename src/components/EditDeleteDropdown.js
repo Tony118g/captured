@@ -26,7 +26,6 @@ export const EditDeleteDropdown = ({ handleEdit, handleDelete, keyWord }) => {
                     popperConfig={{ strategy: "fixed" }}
                 >
                     <Dropdown.Item
-                        className={styles.DropdownItem}
                         onClick={handleEdit}
                         aria-label="edit"
                     >
