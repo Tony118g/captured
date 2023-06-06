@@ -71,7 +71,7 @@ function PhotoPage() {
                         setPhotos={setPhoto}
                         photoPage
                     />
-                    <Container className={`${appStyles.Content} my-2`}>
+                    <Container fluid className={`${appStyles.Content} my-2`}>
                         {currentUser ? (
                             <CommentCreateForm
                                 profile_id={currentUser.profile_id}
