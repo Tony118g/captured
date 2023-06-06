@@ -73,7 +73,6 @@ export function ProfileEditDropdown({ id, handleDelete,  keyWord }) {
                     <i className="fa-solid fa-key"></i>
                     change password
                 </Dropdown.Item>
-                <ConfirmDeleteModal handleDelete={handleDelete}  keyWord={keyWord} />
             </Dropdown.Menu>
         </Dropdown>
     );

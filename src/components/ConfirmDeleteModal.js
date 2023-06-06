@@ -18,7 +18,6 @@ const ConfirmDeleteModal = ({keyWord, handleDelete }) => {
         <>
             <Dropdown.Item onClick={handleShow} aria-label="delete">
                 <i className="fas fa-trash-alt" />
-                {keyWord !== "account" ? ("") : ("Delete account")}
             </Dropdown.Item>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton className={appStyles.CardTop}>
