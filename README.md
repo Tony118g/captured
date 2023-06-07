@@ -16,6 +16,21 @@ This repository is for the frontend section of the project and is associated wit
         * [Colour Palette](#colour-palette)
 * [Project Management](#project-management)
 * [Features](#features)
+    * [Existing Features](#existing-features)
+        * [Navigation](#navigation)
+        * [Login, Signup and Logout](#login-signup-and-logout)
+        * [The About Page](#the-about-page)
+        * [The Popular Profiles Display](#the-popular-profiles-display)
+        * [Likes and Comments](#likes-and-comments)
+        * [Tours](#tours)
+        * [Tour Attendance Options](#tour-attendance-options)
+        * [User Profiles](#user-profiles)
+        * [Edit and Delete dropdown menus](#edit-and-delete-dropdown-menus)
+        * [Deletion Confirmation Prompts](#deletion-confirmation-prompts)
+        * [Search Bars](#search-bars)
+        * [Inifinite Scrolling](#inifinite-scrolling)
+        * [Access Token Refreshing](#access-token-refreshing)
+    * [Future Features](#future-features)
 * [Technologies Used](#technologies-used)
 * [Deployment and Development](#deployment-and-development)
     * [Deploying the Site](#deployment)
@@ -69,7 +84,8 @@ Story points were also assigned to each story using labels. These points were as
 
 Each user story has it's own acceptance criteria and tasks associated with it. This helped ensure all requirements for each story were known as they were developed and helped keep track of development progress.
 
-All user stories for this project can be found in the [project kanban board](https://github.com/users/Tony118g/projects/10)
+All user stories for this project can be found in the [project kanban board](https://github.com/users/Tony118g/projects/10). Some user stories were developed based on an ideal scenario while knowing that it was unlikely that they would be implemented for this first release of the site. These however were not crucial to the project and their absence does not impact the site in any significant way. I may revisit them in a future development along with any other possible features required as the site grows. More details on potential future features can be found [here](#future-features).
+
 
 Below is a summary of the user stories for this version of the project's release listed by epic.
 
@@ -426,6 +442,30 @@ The site incorporates various features that work together to create the desired 
 #### Access Token Refreshing
 * Functionality has been added to refesh access tokens so users can remain logged in for up to 24 hours.
 * This greatly improves user experience as it prevents users from having to repeatedly login to the site within a relatively short time period.
+
+### Future Features
+
+There are some features that I may implement in the future that I think would improve the overall performance and functionality of the site.
+
+Some of the original user stories in the project kanban board have been been assigned to future development opportunities due to a combination of time constraints and the fact that they would have little effect on the outcome of the site. These features include:
+
+* The ability for a user to delete their own profile.
+    * The functionality for this has been completed in the backend API. The front-end functionality needs to be implemented for it to be entirely complete.
+* The ability to search for specific profiles in the popular profile list.
+    * This is partially implemented in the way that a user can search for photo posts owned by a particular profile, however there is no separate search function in the profile list.
+* Functionality for users to view a list of following and followed profiles for a particular user.
+
+Other possible features that could be implemented in the future are:
+
+* The ability for a user to reset their password via email if they have forgotten it.
+* The ability to reply to specific comments and tag specific users in comments.
+* Functionality for users to be able to send messages to each other.
+    * A name field is present in the profiles model so that if this were to be implemented, user's actual names could be shared so that they can be used within messages, comments and more personalised features instead of their usernames which would be used for tagging users and showing specific ownership in posts and more general displays.
+* The ability to directly message the advertiser of a tour.
+    * This could be a possible feature for when the site grows and multiple admin users are added. Admin users could post their own tours and the option to message the respective admin for a specific tour could be present.
+    * An owner field is present in the tour model which could be used to implement this functionality.
+
+[Back to top](#contents)
 
 ## Technologies Used
 
