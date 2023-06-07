@@ -307,7 +307,7 @@ function TourCreateForm() {
                                         htmlFor="image-upload"
                                     >
                                         <i className="fa-solid fa-cloud-arrow-up"></i>
-                                        <Asset message="Click or tap to upload a photo (optional)." />
+                                        <Asset message="Click or tap to upload an image (optional)." />
                                     </Form.Label>
                                 )}
 

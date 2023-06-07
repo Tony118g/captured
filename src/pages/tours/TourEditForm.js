@@ -15,6 +15,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import SecondaryNav from "../../components/SecondaryNav";
+import Asset from "../../components/Asset";
 
 function TourEditForm() {
     const [errors, setErrors] = useState({});
@@ -358,6 +359,7 @@ function TourEditForm() {
                                         htmlFor="image-upload"
                                     >
                                         <i className="fa-solid fa-cloud-arrow-up"></i>
+                                        <Asset message="Click or tap to upload an image (optional)." />
                                     </Form.Label>
                                 )}
 
