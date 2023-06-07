@@ -144,6 +144,7 @@ const Tour = (props) => {
                                         handleEdit={handleEdit}
                                         handleDelete={handleDelete}
                                         keyWord="tour"
+                                        editable={!has_passed}
                                     />
                                 )}
                             </div>
@@ -286,7 +287,10 @@ const Tour = (props) => {
                         </div>
 
                         <Modal scrollable show={show} onHide={handleClose}>
-                            <Modal.Header closeButton className={appStyles.CardTop}>
+                            <Modal.Header
+                                closeButton
+                                className={appStyles.CardTop}
+                            >
                                 <Modal.Title>{title}</Modal.Title>
                             </Modal.Header>
                             <Modal.Body>

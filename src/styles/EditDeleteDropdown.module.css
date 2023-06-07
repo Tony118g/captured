@@ -8,3 +8,11 @@
   right: 0;
   z-index: 100;
 }
+
+.Disabled {
+  pointer-events: none;
+}
+
+.PopoverContent {
+  background-color: #DDDCCC;
+}

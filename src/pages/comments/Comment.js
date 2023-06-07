@@ -77,6 +77,7 @@ const Comment = (props) => {
                                 handleEdit={() => setShowEditForm(true)}
                                 handleDelete={handleDelete}
                                 keyWord={"comment"}
+                                editable
                             />
                         )}
                     </Media>

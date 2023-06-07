@@ -113,6 +113,7 @@ const Photo = (props) => {
                                     handleEdit={handleEdit}
                                     handleDelete={handleDelete}
                                     keyWord="photo"
+                                    editable
                                 />
                             )}
                         </div>
