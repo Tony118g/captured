@@ -29,21 +29,21 @@ test("renders link to the user profile for a logged in user", async () => {
     expect(logoutLink).toBeInTheDocument();
 });
 
-test('renders Sign in and Sign up buttons again on log out', async () => {
+test("renders Sign in and Sign up buttons again on log out", async () => {
     render(
-      <Router>
-        <CurrentUserProvider>
-          <NavBar />
-        </CurrentUserProvider>
-      </Router>,
+        <Router>
+            <CurrentUserProvider>
+                <NavBar />
+            </CurrentUserProvider>
+        </Router>
     );
 
-    const logoutLink = await screen.findByRole('link', { name: 'Log out' });
+    const logoutLink = await screen.findByRole("link", { name: "Log out" });
     fireEvent.click(logoutLink);
-  
-    const loginLink = await screen.findByRole('link', { name: 'Login' });
-    const signUpLink = await screen.findByRole('link', { name: 'Signup' });
-  
+
+    const loginLink = await screen.findByRole("link", { name: "Login" });
+    const signUpLink = await screen.findByRole("link", { name: "Signup" });
+
     expect(loginLink).toBeInTheDocument();
     expect(signUpLink).toBeInTheDocument();
-  });
+});
