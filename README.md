@@ -32,6 +32,7 @@ This repository is for the frontend section of the project and is associated wit
         * [Access Token Refreshing](#access-token-refreshing)
     * [Future Features](#future-features)
 * [Technologies Used](#technologies-used)
+* [Testing](#testing)
 * [Deployment and Development](#deployment-and-development)
     * [Deploying the Site](#deployment)
     * [Forking the Repository](#forking-the-repository)
@@ -510,7 +511,10 @@ Other possible features that could be implemented in the future are:
 * [Font Awesome](https://fontawesome.com/)
     * Used to add icons to the site.
 * [Google Fonts](https://fonts.google.com/)
-    * Used to add custom fonts to the site. 
+    * Used to add custom fonts to the site.
+
+## Testing
+In order to ensure the site meets the required standards, extensive testing has been done including code validation, manual tests, and automated tests. Click [here](TESTING.md) for more information on the testing that has been done.
 
 ## Deployment and Development
 * The project was developed using [Gitpod](https://www.gitpod.io/#get-started) to create the code and overall file structure.
