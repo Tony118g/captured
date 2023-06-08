@@ -2,7 +2,7 @@ import React from 'react';
 import { Spinner } from 'react-bootstrap';
 import styles from '../styles/Asset.module.css';
 
-const Asset = ({ spinner, src, message }) => {
+function Asset({ spinner, src, message }) {
   return (
     <div className={`${styles.Asset}`}>
       {spinner && <Spinner animation="border" />}
@@ -10,6 +10,6 @@ const Asset = ({ spinner, src, message }) => {
       {message && <p className="mt-3">{message}</p>}
     </div>
   );
-};
+}
 
 export default Asset;

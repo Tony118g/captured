@@ -15,7 +15,7 @@ import btnStyles from '../../styles/Button.module.css';
 import appStyles from '../../App.module.css';
 import SecondaryNav from '../../components/SecondaryNav';
 
-const PasswordEditForm = () => {
+function PasswordEditForm() {
   const history = useHistory();
   const { id } = useParams();
   const currentUser = useCurrentUser();
@@ -110,6 +110,6 @@ const PasswordEditForm = () => {
       <SecondaryNav mobile />
     </>
   );
-};
+}
 
 export default PasswordEditForm;

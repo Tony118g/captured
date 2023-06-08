@@ -14,7 +14,7 @@ import { axiosRes } from '../../api/axiosDefaults';
 import { EditDeleteDropdown } from '../../components/EditDeleteDropdown';
 import FeedbackAlert from '../../components/FeedbackAlert';
 
-const Photo = (props) => {
+function Photo(props) {
   const {
     id,
     owner,
@@ -173,6 +173,6 @@ const Photo = (props) => {
       </Card>
     </>
   );
-};
+}
 
 export default Photo;

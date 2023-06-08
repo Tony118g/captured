@@ -17,7 +17,7 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   />
 ));
 
-export const EditDeleteDropdown = (props) => {
+export function EditDeleteDropdown(props) {
   const {
     handleEdit,
     handleDelete,
@@ -73,7 +73,7 @@ export const EditDeleteDropdown = (props) => {
       </Dropdown.Menu>
     </Dropdown>
   );
-};
+}
 
 export function ProfileEditDropdown({ id }) {
   const history = useHistory();

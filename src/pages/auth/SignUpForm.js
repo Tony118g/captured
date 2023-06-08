@@ -10,7 +10,7 @@ import axios from 'axios';
 import styles from '../../styles/LogInSignUpForm.module.css';
 import btnStyles from '../../styles/Button.module.css';
 
-const SignUpForm = () => {
+function SignUpForm() {
   const [signUpData, setSignUpData] = useState({
     username: '',
     password1: '',
@@ -117,6 +117,6 @@ const SignUpForm = () => {
       </Container>
     </div>
   );
-};
+}
 
 export default SignUpForm;

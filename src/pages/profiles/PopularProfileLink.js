@@ -7,7 +7,7 @@ import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import Avatar from '../../components/Avatar';
 import { useSetProfileData } from '../../contexts/ProfileDataContext';
 
-const PopularProfileLink = (props) => {
+function PopularProfileLink(props) {
   const { profile, mobile, imageSize = 50 } = props;
   const {
     id,
@@ -62,6 +62,6 @@ const PopularProfileLink = (props) => {
       </div>
     </div>
   );
-};
+}
 
 export default PopularProfileLink;

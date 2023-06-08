@@ -19,7 +19,7 @@ import btnStyles from '../../styles/Button.module.css';
 import appStyles from '../../App.module.css';
 import SecondaryNav from '../../components/SecondaryNav';
 
-const ProfileEditForm = () => {
+function ProfileEditForm() {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
   const { id } = useParams();
@@ -174,6 +174,6 @@ const ProfileEditForm = () => {
       <SecondaryNav mobile />
     </>
   );
-};
+}
 
 export default ProfileEditForm;

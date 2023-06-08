@@ -12,7 +12,7 @@ import {
 import Avatar from './Avatar';
 import useClickOutsideToggle from '../hooks/useClickOutsideToggle';
 
-const NavBar = () => {
+function NavBar() {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
@@ -110,6 +110,6 @@ const NavBar = () => {
       </Container>
     </Navbar>
   );
-};
+}
 
 export default NavBar;

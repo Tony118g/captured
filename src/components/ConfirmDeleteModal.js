@@ -3,7 +3,7 @@ import { Button, Dropdown, Modal } from 'react-bootstrap';
 import appStyles from '../App.module.css';
 import btnStyles from '../styles/Button.module.css';
 
-const ConfirmDeleteModal = ({ keyWord, handleDelete }) => {
+function ConfirmDeleteModal({ keyWord, handleDelete }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -37,6 +37,6 @@ const ConfirmDeleteModal = ({ keyWord, handleDelete }) => {
       </Modal>
     </>
   );
-};
+}
 
 export default ConfirmDeleteModal;

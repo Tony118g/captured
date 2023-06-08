@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '../styles/Avatar.module.css';
 
-const Avatar = ({ src, height = 45, text }) => {
+function Avatar({ src, height = 45, text }) {
   return (
     <span>
       <img
@@ -14,6 +14,6 @@ const Avatar = ({ src, height = 45, text }) => {
       <span className={styles.ProfileName}>{text}</span>
     </span>
   );
-};
+}
 
 export default Avatar;

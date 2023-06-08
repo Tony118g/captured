@@ -18,7 +18,7 @@ import appStyles from '../../App.module.css';
 import AttendeeProfileLink from '../profiles/AttendeeProfileLink';
 import FeedbackAlert from '../../components/FeedbackAlert';
 
-const Tour = (props) => {
+function Tour(props) {
   const {
     id,
     title,
@@ -278,6 +278,6 @@ const Tour = (props) => {
       )}
     </>
   );
-};
+}
 
 export default Tour;

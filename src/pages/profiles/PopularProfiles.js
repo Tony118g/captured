@@ -6,7 +6,7 @@ import Asset from '../../components/Asset';
 import PopularProfileLink from './PopularProfileLink';
 import { useProfileData } from '../../contexts/ProfileDataContext';
 
-const PopularProfiles = ({ mobile }) => {
+function PopularProfiles({ mobile }) {
   const { popularProfiles } = useProfileData();
 
   return (
@@ -42,6 +42,6 @@ const PopularProfiles = ({ mobile }) => {
       )}
     </Container>
   );
-};
+}
 
 export default PopularProfiles;

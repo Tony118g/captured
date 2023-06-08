@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Alert } from 'react-bootstrap';
 
-const FeedbackAlert = ({ variant, message }) => {
+function FeedbackAlert({ variant, message }) {
   const [show, setShow] = useState(true);
 
   if (show) {
@@ -17,6 +17,6 @@ const FeedbackAlert = ({ variant, message }) => {
     );
   }
   return null;
-};
+}
 
 export default FeedbackAlert;

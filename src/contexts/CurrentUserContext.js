@@ -15,7 +15,7 @@ export const SetCurrentUserContext = createContext();
 export const useCurrentUser = () => useContext(CurrentUserContext);
 export const useSetCurrentUser = () => useContext(SetCurrentUserContext);
 
-export const CurrentUserProvider = ({ children }) => {
+export function CurrentUserProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
   const history = useHistory();
 
@@ -81,4 +81,4 @@ export const CurrentUserProvider = ({ children }) => {
       </SetCurrentUserContext.Provider>
     </CurrentUserContext.Provider>
   );
-};
+}

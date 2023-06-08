@@ -3,7 +3,7 @@ import { Container } from 'react-bootstrap';
 import appStyles from '../../App.module.css';
 import SecondaryNav from '../../components/SecondaryNav';
 
-const About = () => {
+function About() {
   return (
     <>
       <Container className={`${appStyles.Content} mt-5 text-center p-4`}>
@@ -37,6 +37,6 @@ const About = () => {
       <SecondaryNav mobile />
     </>
   );
-};
+}
 
 export default About;

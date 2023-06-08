@@ -9,7 +9,7 @@ import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { axiosRes } from '../../api/axiosDefaults';
 import FeedbackAlert from '../../components/FeedbackAlert';
 
-const Comment = (props) => {
+function Comment(props) {
   const {
     profile_id,
     profile_image,
@@ -84,6 +84,6 @@ const Comment = (props) => {
       )}
     </>
   );
-};
+}
 
 export default Comment;

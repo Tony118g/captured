@@ -5,7 +5,7 @@ import appStyles from '../App.module.css';
 import styles from '../styles/SecondaryNav.module.css';
 import { useCurrentUser } from '../contexts/CurrentUserContext';
 
-const SecondaryNav = ({ mobile }) => {
+function SecondaryNav({ mobile }) {
   const currentUser = useCurrentUser();
 
   return (
@@ -57,6 +57,6 @@ const SecondaryNav = ({ mobile }) => {
       </Container>
     </Nav>
   );
-};
+}
 
 export default SecondaryNav;

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Media } from 'react-bootstrap';
 import Avatar from '../../components/Avatar';
 
-const AttendeeProfileLink = (props) => {
+function AttendeeProfileLink(props) {
   const { profile_id, profile_image, owner } = props;
 
   return (
@@ -22,6 +22,6 @@ const AttendeeProfileLink = (props) => {
       </Media>
     </div>
   );
-};
+}
 
 export default AttendeeProfileLink;

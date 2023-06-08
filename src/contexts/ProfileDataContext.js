@@ -14,9 +14,8 @@ export const SetProfileDataContext = createContext();
 export const useProfileData = () => useContext(ProfileDataContext);
 export const useSetProfileData = () => useContext(SetProfileDataContext);
 
-export const ProfileDataProvider = ({ children }) => {
+export function ProfileDataProvider({ children }) {
   const [profileData, setProfileData] = useState({
-    // use pageprofile later
     pageProfile: { results: [] },
     popularProfiles: { results: [] },
   });
@@ -103,4 +102,4 @@ export const ProfileDataProvider = ({ children }) => {
       </SetProfileDataContext.Provider>
     </ProfileDataContext.Provider>
   );
-};
+}

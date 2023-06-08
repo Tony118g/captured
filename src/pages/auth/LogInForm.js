@@ -11,7 +11,7 @@ import styles from '../../styles/LogInSignUpForm.module.css';
 import btnStyles from '../../styles/Button.module.css';
 import { useSetCurrentUser } from '../../contexts/CurrentUserContext';
 
-const LogInForm = () => {
+function LogInForm() {
   const setCurrentUser = useSetCurrentUser();
 
   const [logInData, setLogInData] = useState({
@@ -103,6 +103,6 @@ const LogInForm = () => {
       </Container>
     </div>
   );
-};
+}
 
 export default LogInForm;
