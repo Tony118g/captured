@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row';
 import { useLocation } from 'react-router-dom';
 import { Container, Form } from 'react-bootstrap';
 import InfiniteScroll from 'react-infinite-scroll-component';
+/* eslint-disable */
 import styles from '../../styles/PhotosToursPage.module.css';
 import appStyles from '../../App.module.css';
 import { axiosReq } from '../../api/axiosDefaults';

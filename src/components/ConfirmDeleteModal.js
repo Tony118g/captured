@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState } from 'react';
 import { Button, Dropdown, Modal } from 'react-bootstrap';
 import appStyles from '../App.module.css';

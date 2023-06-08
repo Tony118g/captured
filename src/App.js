@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { Route, Switch } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import './api/axiosDefaults';

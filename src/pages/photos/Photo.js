@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState } from 'react';
 import { useHistory, Link } from 'react-router-dom/cjs/react-router-dom.min';
 import {

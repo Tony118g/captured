@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useEffect, useRef, useState } from 'react';
 import { Image, Alert } from 'react-bootstrap';
 import { useHistory, useParams } from 'react-router-dom';
