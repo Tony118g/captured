@@ -148,11 +148,11 @@ const Photo = (props) => {
                 <i className="far fa-heart" />
               </OverlayTrigger>
             ) : like_id ? (
-              <span onClick={handleUnlike}>
+              <span onClick={handleUnlike} role="presentation">
                 <i className={`fas fa-heart ${styles.Heart}`} />
               </span>
             ) : currentUser ? (
-              <span onClick={handleLike}>
+              <span onClick={handleLike} role="presentation">
                 <i className={`far fa-heart ${styles.HeartOutline}`} />
               </span>
             ) : (

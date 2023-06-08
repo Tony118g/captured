@@ -344,7 +344,7 @@ function TourEditForm() {
                     className="d-block justify-content-center"
                     htmlFor="image-upload"
                   >
-                    <i className="fa-solid fa-cloud-arrow-up"></i>
+                    <i className="fa-solid fa-cloud-arrow-up" />
                     <Asset message="Click or tap to upload an image (optional)." />
                   </Form.Label>
                 )}

@@ -9,6 +9,7 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   <i
     className="fas fa-ellipsis-v"
     ref={ref}
+    role="presentation"
     onClick={(e) => {
       e.preventDefault();
       onClick(e);
