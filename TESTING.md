@@ -2,6 +2,28 @@
 
 Return to [README.md](README.md)
 
+## Responsiveness Testing
+Tests were carried out throughout the development of the site using [Google Chrome Devtools](https://developer.chrome.com/docs/devtools/) to test responsiveness on different devices and screen sizes.
+
+The testing produced acceptable results across multiple devices and adjustments have been made where needed to cater for changes in screen size. The site has been developed for use on small to large screen sizes (from mobile phones to laptops). I think there are some minor improvements that could be made in the future when it comes to responsive design but I am happy with the results at the present moment.
+
+The main device screen sizes used for testing during development were:
+* iphone 4
+* Moto G4
+* iPhone XR
+* Samsung A53
+* Asus vivobook (14inch)
+* Nest Hub max
+* iPad Pro
+
+## Browser Compatibility
+The site was tested on different browsers and the appearance, functionality and, responsiveness were consistent throughout. Please note that when viewing the site on Safari, the setting for "allow cross-website tracking" has to be turned off for the site to function correctly. This is a known issue and is to do with the project front end and back end being hosted somewhat separately. This is also true for some mobile devices and possibly other cases depending on the settings you have. As this site was developed strictly for educational purposes, no action needs to be taken to resolve this.
+
+The browsers that I tested the site on are:
+* Google Chrome
+* Microsoft Edge
+* Safari
+
 ## Manual User Story Testing
 During development, each user story was thoroughly tested and developed using their respective acceptance criteria and tasks which can be found in the [project kanban board](https://github.com/users/Tony118g/projects/10).
 
