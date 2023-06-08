@@ -13,8 +13,10 @@ import btnStyles from '../../styles/Button.module.css';
 import appStyles from '../../App.module.css';
 import SecondaryNav from '../../components/SecondaryNav';
 import { axiosReq } from '../../api/axiosDefaults';
+import useNonAdminRedirect from '../../hooks/useNonAdminRedirect';
 
 function TourCreateForm() {
+  useNonAdminRedirect("nonAdmin");
   const [errors, setErrors] = useState({});
   const [tourData, setTourData] = useState({
     title: '',
