@@ -188,3 +188,10 @@ To ensure the site functions as intended, I performed various extensive manual t
             * A user hovers over the like button for their own photo post.
             * A logged-out user hovers over the like button (to inform them that they need to log in to like a photo).
             * A logged-out user hovers over the button to mark tour attendance (to inform them that they need to log in to mark attendance).
+
+## Automated Testing
+
+During development, I created automated tests for the NavBar.js and SecondaryNav.js components. The folder containing these tests can be found in the components folder. I found this very beneficial in helping ensure that the site's navigation functionailty works as intended. In future, I would definitely encorporate more automated tests throughout the site as I have seen how useful they can be.
+
+![Screenshot of automated test results](documentation/testing-images/automated-test-results.png)
+
