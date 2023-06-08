@@ -30,7 +30,7 @@ function NavBar() {
   const loggedOutNavLinks = (
     <>
       <NavLink
-        className={styles.NavLink}
+        className={`${styles.NavLink} m-2 m-md-0`}
         activeClassName={styles.Active}
         to="/login"
       >
@@ -38,7 +38,7 @@ function NavBar() {
         Login
       </NavLink>
       <NavLink
-        className={styles.NavLink}
+        className={`${styles.NavLink} m-2 m-md-0`}
         activeClassName={styles.Active}
         to="/signup"
       >
@@ -50,12 +50,16 @@ function NavBar() {
 
   const loggedInNavLinks = (
     <>
-      <NavLink className={styles.NavLink} to="/" onClick={handleLogOut}>
+      <NavLink
+        className={`${styles.NavLink} m-2 m-md-0`}
+        to="/"
+        onClick={handleLogOut}
+      >
         <i className="fas fa-sign-out-alt" />
         Log out
       </NavLink>
       <NavLink
-        className={styles.NavLink}
+        className={`${styles.NavLink} m-2 m-md-0`}
         to={`/profiles/${currentUser?.profile_id}`}
       >
         <Avatar
@@ -88,7 +92,7 @@ function NavBar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
             <NavLink
-              className={styles.NavLink}
+              className={`${styles.NavLink} m-2 m-md-0`}
               activeClassName={styles.Active}
               exact
               to="/"
@@ -97,7 +101,7 @@ function NavBar() {
               Home
             </NavLink>
             <NavLink
-              className={styles.NavLink}
+              className={`${styles.NavLink} m-2 m-md-0`}
               activeClassName={styles.Active}
               to="/about"
             >
