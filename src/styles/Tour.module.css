@@ -1,0 +1,10 @@
+/* Styles for screens of width smaller than 450px */
+  
+@media screen and (width < 450px) {
+  
+    .TourTop{
+      margin-bottom: 5px;
+      font-size: 0.85rem;
+    }
+  
+  }

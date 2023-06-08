@@ -16,6 +16,7 @@ import { EditDeleteDropdown } from '../../components/EditDeleteDropdown';
 import { axiosReq, axiosRes } from '../../api/axiosDefaults';
 import btnStyles from '../../styles/Button.module.css';
 import appStyles from '../../App.module.css';
+import styles from '../../styles/Tour.module.css';
 import AttendeeProfileLink from '../profiles/AttendeeProfileLink';
 import FeedbackAlert from '../../components/FeedbackAlert';
 
@@ -133,11 +134,11 @@ function Tour(props) {
           <Card.Body className={appStyles.CardTop}>
             <Media className="align-items-center justify-content-between">
               {title && (
-                <Card.Title className="text-center">{title}</Card.Title>
+                <Card.Title className={`${styles.TourTop} text-center mr-3`}>{title}</Card.Title>
               )}
 
               <div className="d-flex align-items-center">
-                <span>Added on: {updated_at}</span>
+                <span className={styles.TourTop}>Added on: {updated_at}</span>
                 {currentUser?.is_admin_user && (
                   <EditDeleteDropdown
                     handleEdit={handleEdit}
@@ -150,7 +151,7 @@ function Tour(props) {
             </Media>
             {image && <Card.Img src={image} alt={title} />}
           </Card.Body>
-          <Card.Body>
+          <Card.Body className="p-2 p-md-3">
             <Row className="p-1">
               <Col>
                 {country && (
