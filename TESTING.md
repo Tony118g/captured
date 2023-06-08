@@ -2,6 +2,45 @@
 
 Return to [README.md](README.md)
 
+## Code Validation
+All code written by me for this project has been validated. The final validation results can be seen below.
+
+### W3C CSS Validation
+All custom CSS code has been run through the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) as individual files (direct input) and through the deployed URL.
+
+* No errors were presented.
+
+![Screenshot of css validation result](documentation/testing-images/css-validation-result.png)
+
+### ESLint Validation
+All JavaScript files were validated using the [ESLint](https://eslint.org/) JavaScript validator.
+
+Some issues were raised and ammended. Most of them were in relation to indentation and line spacing.
+
+A few other more specific errors that were amended are:
+* Visible, non-interactive elements with click handlers must have at least one keyboard listener.
+* Avoid non-native interactive elements.
+    * The above two errors were resolved by adding a role attribute to the elements in question.
+* Function component is not a function declaration.
+    * This was resolved by changing the components in question to function declarations.
+
+Some issues were intentionally ignored as they are in relation to code similar to or derived from the Moments WalkThrough project and posed no significant threat to the integrity or quality of the code. I am confident that the functionality of the site is not affected by any of these.
+
+NB - I have used the Airbnb configuration for ESLint because I found it was the most precise and wide spread option. I found that when I did not use this configuration, most of these errors did not show.
+
+The intentionally ignored errors are as follows:
+* Props spreading is forbidden
+* Identifier "foo_bar" is not in camel case
+    * This is in relation to database fields in API.
+* "foo" is already declared in the upper scope
+* Do not use Array index in keys
+* Fragments should contain more than one child
+* Do not nest ternary expressions
+* Expected an assignment or function call and instead saw an expression
+* Do not pass children as props
+* "foo" must be placed on a new line
+    * Some instances when the linter asked for placement of content on new lines were ignored because in doing so, the readability of the code would be compromised.
+
 ## Responsiveness Testing
 Tests were carried out throughout the development of the site using [Google Chrome Devtools](https://developer.chrome.com/docs/devtools/) to test responsiveness on different devices and screen sizes.
 
