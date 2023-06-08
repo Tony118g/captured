@@ -10,8 +10,10 @@ import {
 import axios from 'axios';
 import styles from '../../styles/LogInSignUpForm.module.css';
 import btnStyles from '../../styles/Button.module.css';
+import useRedirect from '../../hooks/useRedirect';
 
 function SignUpForm() {
+  useRedirect("loggedIn");
   const [signUpData, setSignUpData] = useState({
     username: '',
     password1: '',

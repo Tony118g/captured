@@ -13,8 +13,10 @@ import appStyles from '../../App.module.css';
 import Asset from '../../components/Asset';
 import { axiosReq } from '../../api/axiosDefaults';
 import SecondaryNav from '../../components/SecondaryNav';
+import useRedirect from '../../hooks/useRedirect';
 
 function PhotoCreateForm() {
+  useRedirect("loggedOut");
   const [errors, setErrors] = useState({});
 
   const [photoData, setPhotoData] = useState({
