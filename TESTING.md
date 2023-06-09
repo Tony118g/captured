@@ -5,6 +5,13 @@ Return to [README.md](README.md)
 ## Code Validation
 All code written by me for this project has been validated. The final validation results can be seen below.
 
+### W3C HTML Validation Results
+All HTML code from the deployed site source code has been run through the [W3C HTML Validator](https://validator.w3.org/).
+
+* No errors were presented.
+
+![Screenshot of html validation result](documentation/testing-images/html-validation.png)
+
 ### W3C CSS Validation
 All custom CSS code has been run through the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) as individual files (direct input) and through the deployed URL.
 
@@ -40,6 +47,8 @@ The intentionally ignored errors are as follows:
 * Do not pass children as props
 * "foo" must be placed on a new line
     * Some instances when the linter asked for placement of content on new lines were ignored because in doing so, the readability of the code would be compromised.
+
+I added all files affected by the above to .eslintignore, as well as added "/* eslint-disable */" to the top of each individual file, to allow for a successful deployment on Heroku.
 
 ## Responsiveness Testing
 Tests were carried out throughout the development of the site using [Google Chrome Devtools](https://developer.chrome.com/docs/devtools/) to test responsiveness on different devices and screen sizes.
