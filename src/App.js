@@ -19,6 +19,7 @@ import TourCreateForm from './pages/tours/TourCreateForm';
 import ToursPage from './pages/tours/ToursPage';
 import TourEditForm from './pages/tours/TourEditForm';
 import About from './pages/about/About';
+import NotFound from './components/NotFound';
 
 function App() {
   const currentUser = useCurrentUser();
@@ -95,7 +96,7 @@ function App() {
             path="/profiles/:id/edit"
             render={() => <ProfileEditForm />}
           />
-          <Route render={() => <p>Page not found!</p>} />
+          <Route render={() => <NotFound />} />
         </Switch>
       </Container>
     </div>
