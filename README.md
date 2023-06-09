@@ -3,6 +3,12 @@ Captured is a content-sharing platform for photographers. Users can showcase the
 
 This repository is for the frontend section of the project and is associated with the [captured DRF-API](https://github.com/Tony118g/captured-drf-api).
 
+#### [DEPLOYED FRONTEND](https://captured.herokuapp.com/)
+#### [DEPLOYED BACKEND API](https://captured-drf-api.herokuapp.com/)
+#### [BACKEND API REPOSITORY](https://github.com/Tony118g/captured-drf-api)
+
+![Am I responsive screenshot](documentation/readme-images/am-i-responsive.png)
+
 ## Contents
 
 * [Project Goals](#project-goals)
