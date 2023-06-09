@@ -61,6 +61,10 @@ function PhotoEditForm() {
         })
           : history.push('/');
       } catch (err) {
+        // Redirects the user if the photo id does not exist
+        if (err.response?.status === 404) {
+          history.push('/');
+        }
         console.log(err);
       }
     };

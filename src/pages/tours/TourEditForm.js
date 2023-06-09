@@ -86,6 +86,10 @@ function TourEditForm() {
         })
           : history.push('/tours');
       } catch (err) {
+        // Redirects the user if the tour id does not exist
+        if (err.response?.status === 404) {
+          history.push('/');
+        }
         console.log(err);
       }
     };
