@@ -334,6 +334,7 @@ The site incorporates various features that work together to create the desired 
 
     ![Tour creation form](documentation/readme-images/tour-creation-form.png)
 
+    * The tour creation page is only accessible to admin users.
     * Once the user has filled in all required fields with valid data and submits the form, the tour is created and a feedback message is provided.
     * There is also an option to cancel.
 
@@ -341,7 +342,12 @@ The site incorporates various features that work together to create the desired 
 
 * ##### Tour Editing and Deleting
     * If a user is an admin user and views any tour, there is a button option that displays a dropdown menu for editing and deleting the tour when clicked. More details on the dropdown menu can be found [here](#edit-and-delete-dropdown-menus).
-    * If the user selects the option to edit the tour, they are presented with the same form as when creating one but it is populated with the current tour data. The button also changes from "create" to "edit".
+    * If the tour dates have passed, the user is not permitted to edit the tour. When they hover over the edit button they are presented with a message informing them of this and alternative measures they can take to replace it (such as deleting the tour and creating a new one).
+
+    ![Feedback message for non editable past tours](documentation/readme-images/past-tour-no-edit-message.png)
+
+    * If the user selects the option to edit the tour, they are presented with the same form as when creating one but it is populated with the current tour data. The button also changes from "create" to "edit". 
+    * The tour edit page is only accessible to admin users.
     * When the user submits the form with valid data, the relevant tour is updated and a feedback message is provided.
 
     ![Tour edited feedback message](documentation/readme-images/tour-edited-message.png)
