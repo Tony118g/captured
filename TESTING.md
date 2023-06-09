@@ -56,7 +56,7 @@ The main device screen sizes used for testing during development were:
 * iPad Pro
 
 ## Browser Compatibility
-The site was tested on different browsers and the appearance, functionality and, responsiveness were consistent throughout. Please note that when viewing the site on Safari, the setting for "allow cross-website tracking" has to be turned off for the site to function correctly. This is a known issue and is to do with the project front end and back end being hosted somewhat separately. This is also true for some mobile devices and possibly other cases depending on the settings you have. As this site was developed strictly for educational purposes, no action needs to be taken to resolve this.
+The site was tested on different browsers and the appearance, functionality and, responsiveness were consistent throughout. Please note that when viewing the site on Safari (and possibly other browsers and devices), the setting for "allow cross-website tracking" has to be turned off for the site to function correctly. This is a known issue and no action is needed for this version of the site as it is intended purely for educational purposes. More details on this can be found [here](#unresolved).
 
 The browsers that I tested the site on are:
 * Google Chrome
@@ -234,3 +234,22 @@ During development, I created automated tests for the NavBar.js and SecondaryNav
 
 ![Screenshot of automated test results](documentation/testing-images/automated-test-results.png)
 
+## Known Bugs
+
+### Resolved
+
+* When creating tours, users were unable to create one without inputing an image.
+    * This was resolved by only appending image data in the form if one has been input so that by not appending any data, the default value in the API would be used.
+    * NB -  For photo creation, an image input is intentionally required.
+* Non admin users could access the tour creation page.
+    * This was resolved by creating a custom hook to redirect non admin users when trying to access the tour creation page.
+* All users could access tour and photo edit pages using a non existant id.
+    * Although this would not allow any editing of actual objects, I wanted to resolve it since it is a bad user experience.
+    * This was resolved by checking the error returned and if the error is "404 not found" (since no object exists for a non existant id) then redirect the user to the home page.
+* Various code validation errors were resolved and details about this can be seen in the [ESLint Validation](#eslint-validation) section.
+
+### Unresolved
+
+Due to the project front end and back end being hosted somewhat separately Some browsers and devices will not render full site functionality unless the setting for "cross-website-tracking" has been turned off. As this site was developed strictly for educational purposes, no action needs to be taken to resolve this.
+
+Other than this, due to extensive testing, I am confident that there are no other unresolved bugs to the best of my knowledge.
