@@ -44,6 +44,8 @@ This repository is for the frontend section of the project and is associated wit
     * [Forking the Repository](#forking-the-repository)
     * [Cloning the Repository](#cloning-the-repository)
     * [Connecting the API](#connecting-the-api)
+* [Credits](#credits)
+* [Acknoledgements](#acknowledgements)
 
 ## Project Goals
 Captured is designed and intended to be a social, educational, and promotive platform for photography enthusiasts to share and interact with content related to photography. The primary goals to achieve this are as follows:
@@ -66,6 +68,8 @@ Captured is designed and intended to be a social, educational, and promotive pla
     * Provide the ability for users to view available tours on the site.
     * Provide functionality for users to be able to specify whether they intend to attend an advertised tour.
 
+[Back to top](#contents)
+
 ## User Experience
 
 ### Target Audience
@@ -83,6 +87,8 @@ During the planning process, I created 9 epics which were then broken down furth
 7. [Tour Post Management](https://github.com/Tony118g/captured/issues/7)
 8. [Tour Post Interaction](https://github.com/Tony118g/captured/issues/8)
 9. [General Site Interaction](https://github.com/Tony118g/captured/issues/9)
+
+[Back to top](#contents)
 
 ### User Stories
 The project epics were further broken down into user stories. These stories were created using MoSCoW (must have, should have, could have, and won't have) prioritization with each story being assigned a label in accordance with its level of priority.
@@ -149,12 +155,16 @@ Below is a summary of the user stories for this version of the project's release
     * As a site owner I want to restrict certain features to the site admin so that I can ensure unauthorized users cannot tamper with features that are not relevant to them.
     * As a user I can see various feedback messages so that I know the status of the action I am trying to perform.
 
+[Back to top](#contents)
+
 ### Site Structure
 I created basic wireframes of how I wanted the structure and layout of the site to look using [Balsamiq](https://balsamiq.com/). The majority of the pages on the site adopt the same layout for simplicity and uniformity. I did not create wireframes for every single feature such as the profile edit form and the deletion confirmation modal as their layouts were adopted from wireframes for other similar features and I deemed it unnecessary to create almost duplicate wireframes.
 
 This helped majorly when developing the site as it enabled me to create each page faster and with purpose since I had created these wireframes as a guide.
 
 A few differences can be seen between the final result and the wireframes but overall most of the conceptual layout and design are the same. Any changes were a result of decisions made to improve user experience. The most noticeable change is the presence of the navigation bar at the bottom of mobile screens. This was done in order to improve accessibility to all site features by having navigation options readily available at the bottom of the screen.
+
+[Back to top](#contents)
 
 #### Wireframes
 
@@ -186,6 +196,8 @@ More nav options are present for logged-in users.
 ##### Tour Creation Form Wireframes
 ![tour creation form wireframes](documentation/readme-images/tour-creation-form-wireframe.png)
 
+[Back to top](#contents)
+
 ### Design Choices
 
 #### Typography
@@ -207,6 +219,8 @@ I utilized agile methodology during the development of this project using GitHub
 I used issues to create epics and user stories which I labeled and categorized. I then created a [project kanban board](https://github.com/users/Tony118g/projects/10) where I could house these issues and easily manage the development process. This method of development is extremely beneficial in ensuring efficiency and quality of work. It also greatly improves the maintainability of the project.
 
 Although this site was developed by myself individually as an educational project, the agile principles enabled me to track my workflow and ensure the project has a good foundation for future development. The agile approach would be even more beneficial if a team were to collaborate on this project in the future.
+
+[Back to top](#contents)
 
 ## Features
 
@@ -237,6 +251,8 @@ The site incorporates various features that work together to create the desired 
 
     ![Mobile secondary Navigation bar](documentation/readme-images/small-secondary-nav.png)
 
+[Back to top](#contents)
+
 #### Login, Signup, and Logout
 * If a user is not logged in, the navbar presents links for logging in and signing up.
 * If the user clicks on the option to signup, they are presented with a form to fill in their user details. Once they have filled in valid details and have submitted the form, a new account and profile are created for them and they are directed to the login page.
@@ -249,11 +265,15 @@ The site incorporates various features that work together to create the desired 
 
 * If a user is logged into the site, an option is available in the navbar to log out. If the user clicks on this option, they are logged out and no are longer authenticated on the site.
 
+[Back to top](#contents)
+
 #### The About Page
 * The main navigation bar contains a link to the About page.
 * When users navigate to this page, they are presented with informational content regarding the captured site. This helps users find out more about what captured is about and how to use it.
 
 ![The about page](documentation/readme-images/about-page.png)
+
+[Back to top](#contents)
 
 #### The Popular Profiles Display
 
@@ -266,6 +286,8 @@ The site incorporates various features that work together to create the desired 
 * On smaller screens, only 4 profiles are displayed and they are positioned at the top of the page.
 
 ![Small popular profiles display](documentation/readme-images/small-popular-profiles.png)
+
+[Back to top](#contents)
 
 #### Photos
 
@@ -296,6 +318,8 @@ The site incorporates various features that work together to create the desired 
 
     ![Photo deleted feedback message](documentation/readme-images/photo-deleted-message.png)
 
+[Back to top](#contents)
+
 #### Likes and Comments
 * At the bottom of each photo post are options to like and comment. The number of likes and comments is displayed next to each relevant button.
 * If a user has liked a photo, the like button will be red and if they click it again, the like is removed from the photo.
@@ -323,6 +347,8 @@ The site incorporates various features that work together to create the desired 
     * If the user clicks on the option to delete the comment, they are presented with a confirmation prompt. More details on the confirmation prompt can be found [here](#deletion-confirmation-prompts). If they confirm the deletion, the comment is deleted and a feedback message is provided to indicate that the comment has been deleted and no longer exists.
 
     ![Comment deleted feedback message](documentation/readme-images/comment-deleted-message.png)
+
+[Back to top](#contents)
 
 #### Tours
 * Users can navigate to the tours section through the link in the secondary navigation bar.
@@ -375,6 +401,8 @@ The site incorporates various features that work together to create the desired 
 
     NB - The content for the attendance buttons changes according to whether or not the tour has passed (from "attending" to "attended"). This is because I wanted users to be able to mark or unmark whether they have attended a past tour or not as well as whether they intend to attend a future one.
 
+[Back to top](#contents)
+
 #### User Profiles
 * Each user has a profile that can be viewed by clicking on a relevant profile link.
 * The profile page displays the user's username and avatar as well as a description (if present).
@@ -409,6 +437,8 @@ The site incorporates various features that work together to create the desired 
     ![Password edit form](documentation/readme-images/password-edit-form.png)
     ![Password edited feedback message](documentation/readme-images/password-edited-message.png)
 
+[Back to top](#contents)
+
 #### Edit and Delete dropdown menus
 * Tours, photos, and comments have dropdown menus available for presenting edit and delete options.
 * For photos and comments, this is only available to the owner of a photo or comment and for tours, it is only available to admin users.
@@ -420,12 +450,16 @@ The site incorporates various features that work together to create the desired 
 
 ![Profile edit dropdown menu](documentation/readme-images/profile-edit-dropdown.png)
 
+[Back to top](#contents)
+
 #### Deletion Confirmation Prompts
 * When a user chooses the option to delete an item such as a tour, comment, or photo, a modal is displayed as a deletion confirmation prompt.
 * This asks the user if they are sure about the deletion before going through with it. The user is able to cancel or confirm the deletion.
 * An example of the deletion confirmation prompt for a tour is shown below.
 
 ![Deletion confirmation prompt](documentation/readme-images/deletion-confirmation-prompt.png)
+
+[Back to top](#contents)
 
 #### Search Bars
 * ##### Tour Search Bar
@@ -451,6 +485,8 @@ The site incorporates various features that work together to create the desired 
 #### Access Token Refreshing
 * Functionality has been added to refresh access tokens so users can remain logged in for up to 24 hours.
 * This greatly improves user experience as it prevents users from having to repeatedly log in to the site within a relatively short time period.
+
+[Back to top](#contents)
 
 ### Future Features
 
@@ -479,7 +515,7 @@ Other possible features that could be implemented in the future are:
 ## Technologies Used
 
 ### Languages
-* [HTML5](https://html.spec.whatwg.org/)
+* [JSX](https://legacy.reactjs.org/docs/introducing-jsx.html)
     * Used to create structure and content for the site.
 * [CSS](https://www.w3.org/Style/CSS/Overview.en.html)
     * Used to add custom styles to the HTML.
@@ -489,8 +525,8 @@ Other possible features that could be implemented in the future are:
 ### Frameworks, Libraries, and Dependencies
 * [Axios](https://axios-http.com/docs/intro)
     * Used to make HTTP requests to the REST API.
-* [JWT](https://jwt.io/)
-    * Used to decode JSON Web tokens.
+* [jwt-decode](https://www.npmjs.com/package/jwt-decode)
+    * Used to decode encoded JSON web tokens.
 * [Popper](https://popper.js.org/)
     * used to ensure the edit/delete dropdown menus position remains fixed on all browsers.
 * [React JS](https://legacy.reactjs.org/docs/getting-started.html)
@@ -524,6 +560,8 @@ Other possible features that could be implemented in the future are:
 ## Testing
 In order to ensure the site meets the required standards, extensive testing has been done including code validation, manual tests, and automated tests. Click [here](TESTING.md) for more information on the testing that has been done.
 
+[Back to top](#contents)
+
 ## Deployment and Development
 * The project was developed using [Gitpod](https://www.gitpod.io/#get-started) to create the code and overall file structure.
 * The repository for this section of the project is hosted on [GitHub](https://github.com/).
@@ -531,7 +569,7 @@ In order to ensure the site meets the required standards, extensive testing has 
 ### Deployment
 The project was deployed using [Heroku](https://id.heroku.com/login).
 
-NB - to ensure a successful deployment of the project in Heroku, you need to ensure that you create a Procfile and a requirements.txt file.
+NB - to ensure a successful deployment of the project in Heroku, you need to ensure that you create a Procfile.
 
 Once you are certain that everything is ready to deploy the repo, you can do so through the following steps.
 
@@ -577,3 +615,28 @@ In order for the project to function as intended, it needs to be connected to th
     NB - Make sure there is no trailing slash at the end of the URLs.
 4. In your coding environment, install Axios and create an axiosDefaults.js file.
 5. In the axiosDefaults.js file add the relevant code as shown in the Code Institute [Moments Walkthrough](https://github.com/Code-Institute-Solutions/moments/blob/cf955d2f2e6f70f61c92d1f9de85558d8e49f3a8/src/api/axiosDefaults.js) but make sure to use the correct URL for your project.
+
+[Back to top](#contents)
+
+## Credits
+
+* Code
+    * I used the [Moments Walkthrough](https://github.com/Code-Institute-Solutions/moments) as base foundation for this project. I then added and edited features and functionality to suit my own ideas and create the final unique result.
+
+* Content
+    * I used [Cloudinary](https://cloudinary.com/) for image storage.
+    * I used the [Favicon Generator](https://www.favicongenerator.com/) to generate the favicon.
+    * I used [Pexels](https://www.pexels.com/) for all images used in the site.
+    * The font used was taken from [Google Fonts](https://fonts.google.com/).
+    * The color palette was generated using [coolers](https://coolors.co/).
+    * The idea to implement a seperate side navigation bar was derived from the [snapfood](https://github.com/aleksandracodes/ci_pp5_snapfood) project owned by [aleksandracodes](https://github.com/aleksandracodes).
+
+## Acknowledgements
+
+This site was developed as a fifth portfolio project for the [Code Institute](https://codeinstitute.net/global/) course in Full Stack Software Development. I would like to thank the following for all of the support throughout the development phase.
+
+* The Code Institute community, including fellow students and staff.
+* My family, friends, and peers who have helped and supported me with suggestions and feedback during development.
+* My mentor, Lauren-Nicole for providing me with advice and guidance throughout the development process.
+
+Antony Guimaraes 2023
