@@ -104,7 +104,6 @@ Below is a summary of the user stories for this version of the project's release
     * As a user I can edit my profile details so that I can keep my profile information up to date.
     * As a user I can change my password so that I can keep my account secure.
     * As a user I can add an avatar to my profile so that my profile can be more personalized.
-    * As a user I can delete my profile so that I can control whether or not I am a member of the site.
 
 * Epic - profile interaction
     * As a user I can view user profiles so that I can find out more information about the relevant user.
@@ -112,9 +111,6 @@ Below is a summary of the user stories for this version of the project's release
     * As a user I can view a list of the most popular profiles so that I can see which profiles have the most intriguing content.
     * As a user I can follow and unfollow other users so that I can control which user's posted photos I see in my feed.
     * As a user I can see all photos posted by a certain profile in one place so that I can easily view all photos relevant to them.
-    * As a user I can search for specific profiles so that I can easily find a profile I am looking for.
-    * As a user I can view all of a certain user's followers so that I find out who follows them.
-    * As a user I can view all profiles that a certain user follows so that I can find out who they follow.
 
 * Epic - photo post management
     * As a user I can post a photo with details so that I can share my photographs on the site.
@@ -538,14 +534,12 @@ Once you are certain that everything is ready to deploy the repo, you can do so 
 3. Enter a unique name for the application and select the region you are in.
     * For this project, the unique name is "captured" and the region selected is Europe.
 4. Click on "create app".
-5. Navigate to the settings tab and click "Reveal config vars".
-6. Add the config vars necessary for the project.
-7. Navigate to the "Deploy" section by clicking the "Deploy" tab in the navbar.
-8. Select "GitHub" as the deployment method and click "Connect to GitHub".
-9. Search for the GitHub repository that you wish to deploy.
-10. Click on "connect" to link the repository to Heroku.
-11. Scroll down and click on "Deploy Branch" to manually deploy.
-12. Once the app has deployed successfully, Heroku will notify you and provide a button to view the app.
+5. Navigate to the "Deploy" section by clicking the "Deploy" tab in the navbar.
+6. Select "GitHub" as the deployment method and click "Connect to GitHub".
+7. Search for the GitHub repository that you wish to deploy.
+8. Click on "connect" to link the repository to Heroku.
+9. Scroll down and click on "Deploy Branch" to manually deploy.
+10. Once the app has deployed successfully, Heroku will notify you and provide a button to view the app.
 
 NB - If you wish to rebuild the deployed app automatically every time you push to GitHub, you may click on "Enable Automatic Deploys" in Heroku.
 
