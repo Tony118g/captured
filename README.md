@@ -1,5 +1,5 @@
 # Captured
-Captured is a content sharing platform for photographers. Users can showcase their own photographs along with details concerning them and interact with other users via likes, comments and follows. The site is also used as an advertising platform for the site admin to share photographic tour opportunities that users can choose to attend.
+Captured is a content-sharing platform for photographers. Users can showcase their own photographs along with details concerning them and interact with other users via likes, comments, and follows. The site is also used as an advertising platform for the site admin to share photographic tour opportunities that users can choose to attend.
 
 This repository is for the frontend section of the project and is associated with the [captured DRF-API](https://github.com/Tony118g/captured-drf-api).
 
@@ -18,7 +18,7 @@ This repository is for the frontend section of the project and is associated wit
 * [Features](#features)
     * [Existing Features](#existing-features)
         * [Navigation](#navigation)
-        * [Login, Signup and Logout](#login-signup-and-logout)
+        * [Login, Signup, and Logout](#login-signup-and-logout)
         * [The About Page](#the-about-page)
         * [The Popular Profiles Display](#the-popular-profiles-display)
         * [Likes and Comments](#likes-and-comments)
@@ -40,7 +40,7 @@ This repository is for the frontend section of the project and is associated wit
     * [Connecting the API](#connecting-the-api)
 
 ## Project Goals
-Captured is designed and intended to be a social, educational and promotive platform for photography enthusiasts to share and interact with content related to photography. The primary goals to achieve this are as follows:
+Captured is designed and intended to be a social, educational, and promotive platform for photography enthusiasts to share and interact with content related to photography. The primary goals to achieve this are as follows:
 
 * General aspects:
     * Deliver a simple and intuitive user experience.
@@ -48,7 +48,7 @@ Captured is designed and intended to be a social, educational and promotive plat
 
 * Social aspect:
     * Provide the ability for users to share content related to photography.
-    * Provide the ability for users to interact with each other via likes, comments and followers.
+    * Provide the ability for users to interact with each other via likes, comments, and followers.
 
 * Educational aspect:
     * Add the ability for users to share informational details about their photographs.
@@ -63,7 +63,7 @@ Captured is designed and intended to be a social, educational and promotive plat
 ## User Experience
 
 ### Target Audience
-The site is primarily targeted towards photography enthusiasts regardless of age, gender, ethnicity or skill level. Intended users are anyone with an interest in photography. The sharing platform provides a way for photographers to interact and learn from one another as well as simply view content that interests them. The tours section of the site is aimed mainly towards but not limited to amateur and aspiring photographers as it advertises photography tours that they may join in order to learn and gain experience.
+The site is primarily targeted toward photography enthusiasts regardless of age, gender, ethnicity, or skill level. Intended users are anyone with an interest in photography. The sharing platform provides a way for photographers to interact and learn from one another as well as simply view content that interests them. The tours section of the site is aimed mainly towards but not limited to amateur and aspiring photographers as it advertises photography tours that they may join in order to learn and gain experience.
 
 ### Epics
 During the planning process, I created 9 epics which were then broken down further into a total of 39 user stories. These can be found in the [project kanban board](https://github.com/users/Tony118g/projects/10) or they can be viewed individually via the links below.
@@ -83,18 +83,18 @@ The project epics were further broken down into user stories. These stories were
 
 Story points were also assigned to each story using labels. These points were assigned using my best estimation of the time and difficulty of completing each user story based on my experience and ability.
 
-Each user story has it's own acceptance criteria and tasks associated with it. This helped ensure all requirements for each story were known as they were developed and helped keep track of development progress.
+Each user story has its own acceptance criteria and tasks associated with it. This helped ensure all requirements for each story were known as they were developed and helped keep track of development progress.
 
 All user stories for this project can be found in the [project kanban board](https://github.com/users/Tony118g/projects/10). Some user stories were developed based on an ideal scenario while knowing that it was unlikely that they would be implemented for this first release of the site. These however were not crucial to the project and their absence does not impact the site in any significant way. I may revisit them in a future development along with any other possible features required as the site grows. More details on potential future features can be found [here](#future-features).
 
 
-Below is a summary of the user stories for this version of the project's release listed by epic.
+Below is a summary of the user stories for this version of the project's release listed by Epic.
 
 * Epic - authentication
     * As a user I can register an account so that I can access all features of the site.
-    * As a user I can login and logout of my account so that I can use the site and keep my account secure.
-    * As a user I can easily find out my logged in/out status so that I can decide what to do next.
-    * As a site owner I want to refresh access tokens so that users do not have to repeatedly login during a single session.
+    * As a user I can login and log out of my account so that I can use the site and keep my account secure.
+    * As a user I can easily find out my logged-in/out status so that I can decide what to do next.
+    * As a site owner I want to refresh access tokens so that users do not have to repeatedly log in during a single session.
 
 * Epic - navigation
     * As a user I can access the navigation bar on all pages so that I can easily navigate through the site.
@@ -121,7 +121,7 @@ Below is a summary of the user stories for this version of the project's release
     * As a user I can view all photos that have been posted on the site so that I can browse through various, non-specific content.
     * As a user I can view photos posted by users that I follow so that I can view content specific to my taste and follow their activity.
     * As a user I can like and unlike other user's posted photos so that I can easily show/remove appreciative feedback.
-    * As a user I can search for specific photos that have been posted so that I can easily find content I am looking for.
+    * As a user I can search for specific photos that have been posted so that I can easily find the content I am looking for.
     * As a user I can comment on a posted photo so that I can provide my feedback.
     * As a user I can edit my own comments so that I can ensure the correct content is being shared.
     * As a user I can delete my own comment so that I can remove it from the site if I no longer want to share it.
@@ -148,7 +148,7 @@ I created basic wireframes of how I wanted the structure and layout of the site 
 
 This helped majorly when developing the site as it enabled me to create each page faster and with purpose since I had created these wireframes as a guide.
 
-A few differences can be seen between the final result and the wireframes but overall most of the conceptual layout and design is the same. Any changes were a result of decisions made to improve user experience. The most noticeable change is the presence of the navigation bar at the bottom of mobile screens. This was done in order to improve accessibility to all site features by having navigation options readily available at the bottom of the screen.
+A few differences can be seen between the final result and the wireframes but overall most of the conceptual layout and design are the same. Any changes were a result of decisions made to improve user experience. The most noticeable change is the presence of the navigation bar at the bottom of mobile screens. This was done in order to improve accessibility to all site features by having navigation options readily available at the bottom of the screen.
 
 #### Wireframes
 
@@ -164,7 +164,7 @@ A few differences can be seen between the final result and the wireframes but ov
 ##### Photos Page Wireframes
 ![logged out photos page wireframes](documentation/readme-images/logged-out-photos-wireframe.png)
 
-More nav options are present for logged in users.
+More nav options are present for logged-in users.
 
 ![logged in photos page wireframes](documentation/readme-images/logged-in-photos-wireframe.png)
 
@@ -184,7 +184,7 @@ More nav options are present for logged in users.
 
 #### Typography
 * The text fonts used in the site are "PT Sans" and "Lato" with "sans-serif" as a secondary font.
-    * These were chosen due to the fact that they are well defined and easy to read. This helps the user to easily read through content whilst maintaining a stylish presentation.
+    * These were chosen due to the fact that they are well-defined and easy to read. This helps the user to easily read through content whilst maintaining a stylish presentation.
 
 #### Colour Palette
 ![Colour pallete](documentation/readme-images/color-palette.png)
@@ -192,15 +192,15 @@ More nav options are present for logged in users.
 * These colours were chosen because they provide an elegant and calming display with good contrast.
     * The dun (DCC9B6) is used as a background colour for the body of the site.
     * The bone (DDDCCC) is used as a background colour for the navigation bar as well as the top of cards for tours and photo posts.
-    * The mahogany (B94700) is used as a colour for action buttons such as the follow or create button. The brighter colour helps to draw attention to it and makes it stand out but still compliment the rest of the colours on the site.
+    * The mahogany (B94700) is used as a colour for action buttons such as the follow or create button. The brighter colour helps to draw attention to it and makes it stand out but still complements the rest of the colours on the site.
     * The davy's gray (5A5A5A) is used as a colour for buttons that are for undoing actions such as the unfollow or cancel buttons. This is to contrast the mahogany colour on other buttons.
     * The pale dogwood (DCBBB6) is used mainly as a background colour for buttons when hovered over as well as the navbar active links.
 
 ### Project Management
 I utilized agile methodology during the development of this project using GitHub projects and issues. 
-I used issues to create epics and user stories which I labelled and categorized. I then created a [project kanban board](https://github.com/users/Tony118g/projects/10) where I could house these issues and easily manage the development process. This method of development is extremely beneficial in ensuring efficiency and quality of work. It also greatly improves maintainability of the project.
+I used issues to create epics and user stories which I labeled and categorized. I then created a [project kanban board](https://github.com/users/Tony118g/projects/10) where I could house these issues and easily manage the development process. This method of development is extremely beneficial in ensuring efficiency and quality of work. It also greatly improves the maintainability of the project.
 
-Although this site was developed by myself individually as an educational project, the agile principles enabled me to track my workflow and ensure the project has a good foundation for future development. The agile approach would be even more beneficial if a team were to collaborate on this project in future.
+Although this site was developed by myself individually as an educational project, the agile principles enabled me to track my workflow and ensure the project has a good foundation for future development. The agile approach would be even more beneficial if a team were to collaborate on this project in the future.
 
 ## Features
 
@@ -210,7 +210,7 @@ The site incorporates various features that work together to create the desired 
 #### Navigation
 * ##### The Main Navigation Bar
     * The main navigation bar is fully responsive and adaptive.
-    * Links for the user's profile and to log out are displayed in the navbar for logged in users and the links to sign up and log in are removed.
+    * Links for the user's profile and to log out are displayed in the navbar for logged-in users and the links to sign up and log in are removed.
 
     ![Logged out main navigation bar](documentation/readme-images/logged-out-main-nav.png)
 
@@ -222,7 +222,7 @@ The site incorporates various features that work together to create the desired 
 
 * ##### The Secondary Navigation Bar
     * A secondary navigation bar is made available to create a better user experience by not overcrowding the main navigation bar whilst still providing easy access to site features.
-    * On large screens, it is displayed to the side and is fixed to enure it is available while scrolling through content.
+    * On large screens, it is displayed to the side and is fixed to ensure it is available while scrolling through content.
     * The contents of this feature are also adaptive according to user status and only shows links relevant to the user.
 
     ![Large secondary Navigation bar](documentation/readme-images/large-secondary-nav.png)
@@ -231,27 +231,27 @@ The site incorporates various features that work together to create the desired 
 
     ![Mobile secondary Navigation bar](documentation/readme-images/small-secondary-nav.png)
 
-#### Login, Signup and Logout
+#### Login, Signup, and Logout
 * If a user is not logged in, the navbar presents links for logging in and signing up.
-* If the user clicks on the option to signup, they are presented with a form to fill in their user details. Once they have filled in valid details and have submitted the form, a new account and profile is created for them and they are directed to the login page.
+* If the user clicks on the option to signup, they are presented with a form to fill in their user details. Once they have filled in valid details and have submitted the form, a new account and profile are created for them and they are directed to the login page.
 
 ![The signup form](documentation/readme-images/signup-form.png)
 
-* If a user clicks on the option to login or has signed up, they are directed to the login page. If they fill in their relevant details and submit the form, the user is logged in and can use the site as an authenticated user.
+* If a user clicks on the option to log in or has signed up, they are directed to the login page. If they fill in their relevant details and submit the form, the user is logged in and can use the site as an authenticated user.
 
 ![The login form](documentation/readme-images/login-form.png)
 
-* If a user is logged into the site, an option is available in the navbar to logout. If the user clicks on this option, they are logged out and no are longer authenticated on the site.
+* If a user is logged into the site, an option is available in the navbar to log out. If the user clicks on this option, they are logged out and no are longer authenticated on the site.
 
 #### The About Page
-* The main navigation bar contains a link to the about page.
+* The main navigation bar contains a link to the About page.
 * When users navigate to this page, they are presented with informational content regarding the captured site. This helps users find out more about what captured is about and how to use it.
 
 ![The about page](documentation/readme-images/about-page.png)
 
 #### The Popular Profiles Display
 
-* On large screens, the top 10 most followed profiles are displayed for users to view. Each profile is a clickable link which leads to the relevant profile page.
+* On large screens, the top 10 most followed profiles are displayed for users to view. Each profile is a clickable link that leads to the relevant profile page.
 * On very large screens, a follow/unfollow button is displayed to allow a user to easily follow/unfollow the relevant profiles but as the screen gets smaller, the buttons are no longer displayed.
 * The height of the container adjusts according to the screen and any overflowing profiles can be scrolled through.
 
@@ -264,7 +264,7 @@ The site incorporates various features that work together to create the desired 
 #### Photos
 
 * When a user posts a photo, it is displayed on the home page to be viewed by other users. It is also displayed when a user clicks on the individual photo.
-* This display shows details relevant to the photo such as the owner, title, camer used, and lense used.
+* This display shows details relevant to the photo such as the owner, title, camera used, and lense used.
 * At the bottom of each posted photo are like and comment buttons to allow users to like or comment on the photo.
 
 ![Posted photo display](documentation/readme-images/photo-post.png)
@@ -286,31 +286,31 @@ The site incorporates various features that work together to create the desired 
 
     ![Photo edited feedback message](documentation/readme-images/photo-edited-message.png)
 
-    * If the user clicks on the option to delete the photo post, they are presented with a confirmation prompt. More details on the confirmation prompt can be found [here](#deletion-confirmation-prompts). If they confirm the deletion, the photo post is deleted and a feedback message is provided.
+    * If the user clicks on the option to delete the photo post, they are presented with a confirmation prompt. More details on the confirmation prompt can be found [here](#deletion-confirmation-prompts). If they confirm the deletion, the photo post is deleted, and a feedback message is provided.
 
     ![Photo deleted feedback message](documentation/readme-images/photo-deleted-message.png)
 
 #### Likes and Comments
 * At the bottom of each photo post are options to like and comment. The number of likes and comments is displayed next to each relevant button.
 * If a user has liked a photo, the like button will be red and if they click it again, the like is removed from the photo.
-* Users are unable to like their own photo and logged out users are also unable to like a photo. When they try to do so, a tooltip appears to inform them of this.
+* Users are unable to like their own photos and logged-out users are also unable to like a photo. When they try to do so, a tooltip appears to inform them of this.
 
 ![Likes and comments buttons](documentation/readme-images/like-and-comment-buttons.png)
 
 * When a user navigates to a specific photo page by clicking on the photo or on the comments button, a comments section is displayed underneath the photo.
 * Each comment shows who the owner is and how long ago they commented as well as the comment content.
 * If the user is logged in, a form is available to create a comment.
-* If a user owns a comment, a three dot menu option is present for them to use to edit or delete it.
+* If a user owns a comment, a three-dot menu option is present for them to use to edit or delete it.
 * If there are no comments, a message is shown to inform the user.
 
 ![Comments section display](documentation/readme-images/comments-section.png)
 
 * ##### Comment Creation
     * If a user is logged in and fills in the form to create a comment, when the form is submitted, the comment is created.
-    * I did not think a feedback message was necessary to indicate comment creation since it could be repetitive if the user is commenting often and the comments are noticably added to the comment list.
+    * I did not think a feedback message was necessary to indicate comment creation since it could be repetitive if the user is commenting often and the comments are noticeably added to the comment list.
 
 * ##### Comment Editing and Deleting
-    * If a user is logged in and owns a comment, there is a button option with a dropdown menu to edit or delete the comment. More details on this dropdwon can be found [here](#edit-and-delete-dropdown-menus).
+    * If a user is logged in and owns a comment, there is a button option with a dropdown menu to edit or delete the comment. More details on this dropdown can be found [here](#edit-and-delete-dropdown-menus).
     * If the user clicks on the option to edit the comment, a prepopulated form is presented with the current data.
     * Once the edit form is submitted, the comment is updated.
     * No feedback message is provided for edited comments for the same reason stated above for comment creation.
@@ -326,7 +326,7 @@ The site incorporates various features that work together to create the desired 
 ![Posted tour display](documentation/readme-images/tour-post.png)
 
 * ##### Tour Creation
-    * Admin users can navigate to the tour creation form by clicking on the link in the secondary nav bar (this is not available to non admin users).
+    * Admin users can navigate to the tour creation form by clicking on the link in the secondary nav bar (this is not available to non-admin users).
 
     ![Tour creation form](documentation/readme-images/tour-creation-form.png)
 
@@ -371,21 +371,21 @@ The site incorporates various features that work together to create the desired 
 
 #### User Profiles
 * Each user has a profile that can be viewed by clicking on a relevant profile link.
-* The profile page displays the users username and avatar as well as description (if present).
-* Profile statistics are also displayed (number of posts, followers and following).
+* The profile page displays the user's username and avatar as well as a description (if present).
+* Profile statistics are also displayed (number of posts, followers, and following).
 * A follow/unfollow button is also present for users to follow or unfollow the profile if they so wish.
-    * If the user owns the profile being viewed, a three dot menu is displayed for them to use to edit the profile and the follow/unfollow button is not present.
+    * If the user owns the profile being viewed, a three-dot menu is displayed for them to use to edit the profile and the follow/unfollow button is not present.
 * Underneath the section displaying profile details, all photos posted by the relevant user are displayed.
 
 ![Profile details display](documentation/readme-images/user-profile.png)
 
 * ##### Profile Creation
-    * When a user signs up  and creates a user account, a corresponding profile is automatically created for them.
+    * When a user signs up and creates a user account, a corresponding profile is automatically created for them.
 
 * ##### Profile Editing
     * If a user is viewing their own profile, there is a button option that displays a dropdown menu for editing the profile data when clicked. More details on the dropdown menu can be found [here](#edit-and-delete-dropdown-menus).
-    * There are options to edit the profiles username, password or profile data (avatar and bio).
-    * When the user chooses any of these, a relevant form is presented and is populated with current data if there is any.
+    * There are options to edit the profile's username, password, or profile data (avatar and bio).
+    * When the user chooses any of these, a relevant form is presented and populated with current data if there is any.
     * When the form is submitted, the relevant details are updated and a feedback message is provided.
 
     * Profile details edit form and message.
@@ -425,7 +425,7 @@ The site incorporates various features that work together to create the desired 
 * ##### Tour Search Bar
     * On the tours page, a search bar is displayed at the top.
     * Users are able to use this to search for tours by title and location.
-    * Once a user has input a query into the search bar, the relevant results are presented underneath.
+    * Once a user has inputted a query into the search bar, the relevant results are presented underneath.
     * If no results are found, a message is presented to inform the user.
 
     ![The tour search bar](documentation/readme-images/tour-search-bar.png)
@@ -433,29 +433,29 @@ The site incorporates various features that work together to create the desired 
 * ##### Photo Search Bar
     * On the photos page, a search bar is displayed at the top.
     * Users are able to use this to search for photos by title and owner.
-    * Once a user has input a query into the search bar, the relevant results are presented underneath.
+    * Once a user has inputted a query into the search bar, the relevant results are presented underneath.
     * If no results are found, a message is presented to inform the user.
 
     ![The photo search bar](documentation/readme-images/photo-search-bar.png)
 
-#### Inifinite Scrolling
-* In order to create a better user experience, infinite scroll functionality has been added to site content such as photo lists, tour lists and comments so that users may scroll through content without having to reload the page or navigate to a new one.
+#### Infinite Scrolling
+* In order to create a better user experience, infinite scroll functionality has been added to site content such as photo lists, tour lists, and comments so that users may scroll through content without having to reload the page or navigate to a new one.
 * New content is automatically loaded as the user scrolls.
 
 #### Access Token Refreshing
-* Functionality has been added to refesh access tokens so users can remain logged in for up to 24 hours.
-* This greatly improves user experience as it prevents users from having to repeatedly login to the site within a relatively short time period.
+* Functionality has been added to refresh access tokens so users can remain logged in for up to 24 hours.
+* This greatly improves user experience as it prevents users from having to repeatedly log in to the site within a relatively short time period.
 
 ### Future Features
 
 There are some features that I may implement in the future that I think would improve the overall performance and functionality of the site.
 
-Some of the original user stories in the project kanban board have been been assigned to future development opportunities due to a combination of time constraints and the fact that they would have little effect on the outcome of the site. These features include:
+Some of the original user stories in the project Kanban board have been assigned to future development opportunities due to a combination of time constraints and the fact that they would have little effect on the outcome of the site. These features include:
 
 * The ability for a user to delete their own profile.
     * The functionality for this has been completed in the backend API. The front-end functionality needs to be implemented for it to be entirely complete.
 * The ability to search for specific profiles in the popular profile list.
-    * This is partially implemented in the way that a user can search for photo posts owned by a particular profile, however there is no separate search function in the profile list.
+    * This is partially implemented in the way that a user can search for photo posts owned by a particular profile, however, there is no separate search function in the profile list.
 * Functionality for users to view a list of following and followed profiles for a particular user.
 
 Other possible features that could be implemented in the future are:
@@ -463,7 +463,7 @@ Other possible features that could be implemented in the future are:
 * The ability for a user to reset their password via email if they have forgotten it.
 * The ability to reply to specific comments and tag specific users in comments.
 * Functionality for users to be able to send messages to each other.
-    * A name field is present in the profiles model so that if this were to be implemented, user's actual names could be shared so that they can be used within messages, comments and more personalised features instead of their usernames which would be used for tagging users and showing specific ownership in posts and more general displays.
+    * A name field is present in the profiles model so that if this were to be implemented, user's actual names could be shared so that they can be used within messages, comments, and more personalized features instead of their usernames which would be used for tagging users and showing specific ownership in posts and more general displays.
 * The ability to directly message the advertiser of a tour.
     * This could be a possible feature for when the site grows and multiple admin users are added. Admin users could post their own tours and the option to message the respective admin for a specific tour could be present.
     * An owner field is present in the tour model which could be used to implement this functionality.
@@ -480,7 +480,7 @@ Other possible features that could be implemented in the future are:
 * [JavaScript](https://www.javascript.com/)
     * Used to enhance functionality and interactivity.
 
-### Frameworks, Libraries and Dependencies
+### Frameworks, Libraries, and Dependencies
 * [Axios](https://axios-http.com/docs/intro)
     * Used to make HTTP requests to the REST API.
 * [JWT](https://jwt.io/)
@@ -494,12 +494,12 @@ Other possible features that could be implemented in the future are:
 * [React Infinite Scroll](https://www.npmjs.com/package/react-infinite-scroll-component)
     * used to load content automatically as the user scrolls without having to navigate to another page.
 * [React-router-dom](https://www.npmjs.com/package/react-router-dom)
-    * Used for 'client side routing' to be implemented in the site.
+    * Used for 'client-side routing' to be implemented in the site.
 
 ### Tools and Programmes
 
 * [Gitpod](https://www.gitpod.io/#get-started)
-    * Used to create code/content and file structure for the respository.
+    * Used to create code/content and file structure for the repository.
 * [GitHub](https://github.com/)
     * Used to store the repository.
 * [Balsamiq](https://balsamiq.com/wireframes/)
@@ -533,7 +533,7 @@ Once you are certain that everything is ready to deploy the repo, you can do so 
 2. Click on the button labeled "New" from the dashboard in the top right corner and select the "Create new app" option in the drop-down menu.
 3. Enter a unique name for the application and select the region you are in.
     * For this project, the unique name is "captured" and the region selected is Europe.
-4. Click on "create app".
+4. Click on "Create app".
 5. Navigate to the "Deploy" section by clicking the "Deploy" tab in the navbar.
 6. Select "GitHub" as the deployment method and click "Connect to GitHub".
 7. Search for the GitHub repository that you wish to deploy.
@@ -563,11 +563,11 @@ To clone the repository through GitHub, follow these steps:
 ### Connecting the API
 In order for the project to function as intended, it needs to be connected to the API. To view the repository for the API, click [here](https://github.com/Tony118g/captured-drf-api). To connect to the API, follow these steps:
 
-1. Login in to Heroku and navigate to the relevant app for the project DRF-API.
+1. Login into Heroku and navigate to the relevant app for the project DRF-API.
 2. Navigate to settings within the app and click on "reveal config vars".
 3. Add the following config vars:
-    * Key: CLIENT_ORIGIN | Value: (your deployed frontend url)
-    * Key: CLIENT_ORIGIN_DEV | Value: (the gitpod url)
-    NB - Make sure there is no trailing slash at the end of the urls.
-4. In your coding environment, install axios and create an axiosDefaults.js file.
-5. In the axiosDefaults.js file add the relevant code as shown in the Code Institute [Moments Walkthrough](https://github.com/Code-Institute-Solutions/moments/blob/cf955d2f2e6f70f61c92d1f9de85558d8e49f3a8/src/api/axiosDefaults.js) but make sure to use the correct url for your project.
+    * Key: CLIENT_ORIGIN | Value: (your deployed frontend URL)
+    * Key: CLIENT_ORIGIN_DEV | Value: (the gitpod URL)
+    NB - Make sure there is no trailing slash at the end of the URLs.
+4. In your coding environment, install Axios and create an axiosDefaults.js file.
+5. In the axiosDefaults.js file add the relevant code as shown in the Code Institute [Moments Walkthrough](https://github.com/Code-Institute-Solutions/moments/blob/cf955d2f2e6f70f61c92d1f9de85558d8e49f3a8/src/api/axiosDefaults.js) but make sure to use the correct URL for your project.

@@ -12,6 +12,8 @@ All HTML code from the deployed site source code has been run through the [W3C H
 
 ![Screenshot of html validation result](documentation/testing-images/html-validation.png)
 
+NB - It was brought to my attention by my peers that the like and comment buttons do not have text. I do not think that this has any bad effect on my site and although they do not contain text, they do contain very well known font awesome icons which are easily identifiable.
+
 ### W3C CSS Validation
 All custom CSS code has been run through the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) as individual files (direct input) and through the deployed URL.
 
@@ -22,7 +24,7 @@ All custom CSS code has been run through the [W3C CSS Validator](https://jigsaw.
 ### ESLint Validation
 All JavaScript files were validated using the [ESLint](https://eslint.org/) JavaScript validator.
 
-Some issues were raised and ammended. Most of them were in relation to indentation and line spacing.
+Some issues were raised and amended. Most of them were in relation to indentation and line spacing.
 
 A few other more specific errors that were amended are:
 * Visible, non-interactive elements with click handlers must have at least one keyboard listener.
@@ -33,7 +35,7 @@ A few other more specific errors that were amended are:
 
 Some issues were intentionally ignored as they are in relation to code similar to or derived from the Moments WalkThrough project and posed no significant threat to the integrity or quality of the code. I am confident that the functionality of the site is not affected by any of these.
 
-NB - I have used the Airbnb configuration for ESLint because I found it was the most precise and wide spread option. I found that when I did not use this configuration, most of these errors did not show.
+NB - I have used the Airbnb configuration for ESLint because I found it was the most precise and widespread option. I found that when I did not use this configuration, most of these errors did not show.
 
 The intentionally ignored errors are as follows:
 * Props spreading is forbidden
@@ -48,7 +50,7 @@ The intentionally ignored errors are as follows:
 * "foo" must be placed on a new line
     * Some instances when the linter asked for placement of content on new lines were ignored because in doing so, the readability of the code would be compromised.
 
-I added all files affected by the above to .eslintignore, as well as added "/* eslint-disable */" to the top of each individual file, to allow for a successful deployment on Heroku.
+I added all files affected by the above to .eslintignore, as well as added "/* eslint-disable */" to the top of each individual file, to allow for successful deployment on Heroku.
 
 ## Responsiveness Testing
 Tests were carried out throughout the development of the site using [Google Chrome Devtools](https://developer.chrome.com/docs/devtools/) to test responsiveness on different devices and screen sizes.
@@ -56,7 +58,7 @@ Tests were carried out throughout the development of the site using [Google Chro
 The testing produced acceptable results across multiple devices and adjustments have been made where needed to cater for changes in screen size. The site has been developed for use on small to large screen sizes (from mobile phones to laptops). I think there are some minor improvements that could be made in the future when it comes to responsive design but I am happy with the results at the present moment.
 
 The main device screen sizes used for testing during development were:
-* iphone 4
+* iPhone 4
 * Moto G4
 * iPhone XR
 * Samsung A53
@@ -65,7 +67,7 @@ The main device screen sizes used for testing during development were:
 * iPad Pro
 
 ## Browser Compatibility
-The site was tested on different browsers and the appearance, functionality and, responsiveness were consistent throughout. Please note that when viewing the site on Safari (and possibly other browsers and devices), the setting for "allow cross-website tracking" has to be turned off for the site to function correctly. This is a known issue and no action is needed for this version of the site as it is intended purely for educational purposes. More details on this can be found [here](#unresolved).
+The site was tested on different browsers and the appearance, functionality, and, responsiveness were consistent throughout. Please note that when viewing the site on Safari (and possibly other browsers and devices), the setting for "allow cross-website tracking" has to be turned off for the site to function correctly. This is a known issue and no action is needed for this version of the site as it is intended purely for educational purposes. More details on this can be found [here](#unresolved).
 
 The browsers that I tested the site on are:
 * Google Chrome
@@ -239,7 +241,7 @@ To ensure the site functions as intended, I performed various extensive manual t
 
 ## Automated Testing
 
-During development, I created automated tests for the NavBar.js and SecondaryNav.js components. The folder containing these tests can be found in the components folder. I found this very beneficial in helping ensure that the site's navigation functionailty works as intended. In future, I would definitely encorporate more automated tests throughout the site as I have seen how useful they can be.
+During development, I created automated tests for the NavBar.js and SecondaryNav.js components. The folder containing these tests can be found in the components folder. I found this very beneficial in helping ensure that the site's navigation functionality works as intended. In the future, I would definitely incorporate more automated tests throughout the site as I have seen how useful they can be.
 
 ![Screenshot of automated test results](documentation/testing-images/automated-test-results.png)
 
@@ -247,19 +249,19 @@ During development, I created automated tests for the NavBar.js and SecondaryNav
 
 ### Resolved
 
-* When creating tours, users were unable to create one without inputing an image.
+* When creating tours, users were unable to create one without inputting an image.
     * This was resolved by only appending image data in the form if one has been input so that by not appending any data, the default value in the API would be used.
     * NB -  For photo creation, an image input is intentionally required.
-* Non admin users could access the tour creation page.
-    * This was resolved by creating a custom hook to redirect non admin users when trying to access the tour creation page.
-* All users could access tour and photo edit pages using a non existant id.
+* Non-admin users could access the tour creation page.
+    * This was resolved by creating a custom hook to redirect non-admin users when trying to access the tour creation page.
+* All users could access tour and photo edit pages using a non-existent id.
     * Although this would not allow any editing of actual objects, I wanted to resolve it since it is a bad user experience.
-    * This was resolved by checking the error returned and if the error is "404 not found" (since no object exists for a non existant id) then redirect the user to the home page.
+    * This was resolved by checking the error returned and if the error is "404 not found" (since no object exists for a non-existent id) then redirect the user to the home page.
 * Various code validation errors were resolved and details about this can be seen in the [ESLint Validation](#eslint-validation) section.
 
 ### Unresolved
 
-Due to the project front end and back end being hosted somewhat separately Some browsers and devices will not render full site functionality unless the setting for "cross-website-tracking" has been turned off. As this site was developed strictly for educational purposes, no action needs to be taken to resolve this.
+Due to the project's front end and back end being hosted somewhat separately Some browsers and devices will not render full site functionality unless the setting for "cross-website-tracking" has been turned off. As this site was developed strictly for educational purposes, no action needs to be taken to resolve this.
 
 Other than this, due to extensive testing, I am confident that there are no other unresolved bugs to the best of my knowledge.
 
