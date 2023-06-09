@@ -14,6 +14,9 @@ import { useSetCurrentUser } from '../../contexts/CurrentUserContext';
 import useRedirect from '../../hooks/useRedirect';
 import { setTokenTimestamp } from '../../utils/utils';
 
+/**
+ * Renders the login form.
+ */
 function LogInForm() {
   const setCurrentUser = useSetCurrentUser();
   useRedirect('loggedIn');
@@ -29,6 +32,9 @@ function LogInForm() {
 
   const history = useHistory();
 
+  /**
+   * Converts inputed data into Key: Value pairs.
+   */
   const handleChange = (event) => {
     setLogInData({
       ...logInData,
@@ -36,6 +42,11 @@ function LogInForm() {
     });
   };
 
+  /**
+   * Pushes data to the API and redirects logged in
+   * user to previous page or displays error messages
+   * for invalid data.
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {

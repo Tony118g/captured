@@ -15,6 +15,10 @@ import { axiosReq } from '../../api/axiosDefaults';
 import SecondaryNav from '../../components/SecondaryNav';
 import useRedirect from '../../hooks/useRedirect';
 
+/**
+ * Renders the photo creation form and supplies
+ * the user with input fields to create a photo post.
+ */
 function PhotoCreateForm() {
   useRedirect("loggedOut");
   const [errors, setErrors] = useState({});
@@ -38,6 +42,9 @@ function PhotoCreateForm() {
   const imageInput = useRef(null);
   const history = useHistory();
 
+  /**
+   * Converts inputed data into Key: Value pairs.
+   */
   const handleChange = (event) => {
     setPhotoData({
       ...photoData,
@@ -45,6 +52,10 @@ function PhotoCreateForm() {
     });
   };
 
+  /**
+   * Handles changing of uploaded image and
+   * clears any previously uploaded image.
+   */
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
       URL.revokeObjectURL(image);
@@ -59,6 +70,12 @@ function PhotoCreateForm() {
     }
   };
 
+  /**
+   * Pushes data to the API, displays error messages
+   * for invalid data if any and sets
+   * a feedback message to be shown to the user
+   * for successful creation.
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -91,6 +108,7 @@ function PhotoCreateForm() {
     }
   };
 
+  // The text input fields for the form.
   const textFields = (
     <div className="text-center">
       <Form.Group>

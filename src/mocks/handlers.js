@@ -1,6 +1,9 @@
 import { rest } from 'msw';
 const baseURL = 'https://captured-drf-api.herokuapp.com/';
 
+/**
+ * A mock user to intercept API request used for testing.
+ */
 export const handlers = [
   rest.get(`${baseURL}dj-rest-auth/user/`, (req, res, ctx) => {
     return res(

@@ -13,6 +13,9 @@ import btnStyles from '../../styles/Button.module.css';
 import appStyles from '../../App.module.css';
 import SecondaryNav from '../../components/SecondaryNav';
 
+/**
+ * Renders the password editing form.
+ */
 function PasswordEditForm() {
   const history = useHistory();
   const { id } = useParams();
@@ -26,6 +29,9 @@ function PasswordEditForm() {
 
   const [errors, setErrors] = useState({});
 
+  /**
+   * Converts inputed data into Key: Value pairs.
+   */
   const handleChange = (event) => {
     setUserData({
       ...userData,
@@ -33,12 +39,22 @@ function PasswordEditForm() {
     });
   };
 
+  /**
+   * Reroutes the user if they are not
+   * the correct user according to id.
+   */
   useEffect(() => {
     if (currentUser?.profile_id?.toString() !== id) {
       history.push('/');
     }
   }, [currentUser, history, id]);
 
+  /**
+   * Pushes data to the API, displays error messages
+   * for invalid data if any and sets
+   * a feedback message to be shown to the user
+   * for successful update.
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {

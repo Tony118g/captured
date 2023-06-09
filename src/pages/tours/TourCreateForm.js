@@ -15,7 +15,12 @@ import SecondaryNav from '../../components/SecondaryNav';
 import { axiosReq } from '../../api/axiosDefaults';
 import useNonAdminRedirect from '../../hooks/useNonAdminRedirect';
 
+/**
+ * Renders the tour creation form and supplies
+ * the user with input fields to create a tour post.
+ */
 function TourCreateForm() {
+  // Redirects no admin users.
   useNonAdminRedirect("nonAdmin");
   const [errors, setErrors] = useState({});
   const [tourData, setTourData] = useState({
@@ -46,12 +51,16 @@ function TourCreateForm() {
 
   const imageInput = useRef(null);
   const history = useHistory();
+  // Gets the date for tommorow to be used in form date input
   const tomorrow = () => {
     const today = new Date();
     today.setDate(today.getDate() + 1);
     return today.toISOString().split('T')[0];
   };
 
+  /**
+   * Converts inputed data into Key: Value pairs.
+   */
   const handleChange = (event) => {
     setTourData({
       ...tourData,
@@ -59,6 +68,10 @@ function TourCreateForm() {
     });
   };
 
+  /**
+   * Handles changing of uploaded image and
+   * clears any previously uploaded image.
+   */
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
       URL.revokeObjectURL(image);
@@ -73,6 +86,12 @@ function TourCreateForm() {
     }
   };
 
+  /**
+   * Pushes data to the API, displays error messages
+   * for invalid data if any and sets
+   * a feedback message to be shown to the user
+   * for successful creation.
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -106,6 +125,7 @@ function TourCreateForm() {
     }
   };
 
+  // The text input fields for the form.
   const textFields = (
     <div className="text-center">
       <Form.Group>

@@ -4,12 +4,17 @@ import { Button, Dropdown, Modal } from 'react-bootstrap';
 import appStyles from '../App.module.css';
 import btnStyles from '../styles/Button.module.css';
 
+
+/**
+ * A modal for handling deletion confirmation.
+ */
 function ConfirmDeleteModal({ keyWord, handleDelete }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  // Closes the modal before executing delete function.
   const closeThenDelete = () => {
     setShow(false);
     handleDelete();

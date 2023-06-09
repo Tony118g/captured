@@ -5,6 +5,9 @@ import appStyles from '../App.module.css';
 import styles from '../styles/SecondaryNav.module.css';
 import { useCurrentUser } from '../contexts/CurrentUserContext';
 
+/**
+ * The secondary navigation bar.
+ */
 function SecondaryNav({ mobile }) {
   const currentUser = useCurrentUser();
 

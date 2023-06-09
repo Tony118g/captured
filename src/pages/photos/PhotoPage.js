@@ -17,6 +17,9 @@ import PopularProfiles from '../profiles/PopularProfiles';
 import SecondaryNav from '../../components/SecondaryNav';
 import FeedbackAlert from '../../components/FeedbackAlert';
 
+/**
+ * The display for a single photo's details and comments.
+ */
 function PhotoPage() {
   const location = useLocation();
   const { id } = useParams();
@@ -26,6 +29,10 @@ function PhotoPage() {
   const profile_image = currentUser?.profile_image;
   const [comments, setComments] = useState({ results: [] });
 
+  /**
+   * Retrieves data for a photo with specific id
+   * as well as associated comments.
+   */
   useEffect(() => {
     const handleMount = async () => {
       try {

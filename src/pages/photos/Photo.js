@@ -15,6 +15,9 @@ import { axiosRes } from '../../api/axiosDefaults';
 import { EditDeleteDropdown } from '../../components/EditDeleteDropdown';
 import FeedbackAlert from '../../components/FeedbackAlert';
 
+/**
+ * The display for a photo.
+ */
 function Photo(props) {
   const {
     id,
@@ -39,10 +42,17 @@ function Photo(props) {
   const history = useHistory();
   const [showFeedback, setShowFeedback] = useState(false);
 
+  /**
+   * Directs user to the relevant photo edit page .
+   */
   const handleEdit = () => {
     history.push(`/photos/${id}/edit`);
   };
 
+  /**
+   * Deletes the photo from the API and sets
+   * a feedback message to be shown to the user.
+   */
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/photos/${id}/`);
@@ -55,6 +65,12 @@ function Photo(props) {
     }
   };
 
+  /**
+   * Handles liking of a photo by
+   * sending a request to the API for
+   * a photo with a specific id and
+   * incrementing the likes count by 1.
+   */
   const handleLike = async () => {
     try {
       const { data } = await axiosRes.post('/likes/', { photo: id });
@@ -71,6 +87,12 @@ function Photo(props) {
     }
   };
 
+  /**
+   * Handles unliking of a photo by
+   * sending a request to the API for
+   * a photo with a specific id and
+   * decreasing the likes count by 1.
+   */
   const handleUnlike = async () => {
     try {
       await axiosRes.delete(`/likes/${like_id}/`);

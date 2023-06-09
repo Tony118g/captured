@@ -8,6 +8,10 @@ import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import Avatar from '../../components/Avatar';
 import { useSetProfileData } from '../../contexts/ProfileDataContext';
 
+/**
+ * The display for popular profile links with
+ * avatar, username and conditional follow buttons.
+ */
 function PopularProfileLink(props) {
   const { profile, mobile, imageSize = 50 } = props;
   const {

@@ -10,6 +10,9 @@ import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { axiosRes } from '../../api/axiosDefaults';
 import FeedbackAlert from '../../components/FeedbackAlert';
 
+/**
+ * The display for a comment.
+ */
 function Comment(props) {
   const {
     profile_id,
@@ -28,6 +31,10 @@ function Comment(props) {
   const is_owner = currentUser?.username === owner;
   const [showFeedback, setShowFeedback] = useState(false);
 
+  /**
+   * Deletes the comment from the API and sets
+   * a feedback message to be shown to the user.
+   */
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/comments/${id}/`);

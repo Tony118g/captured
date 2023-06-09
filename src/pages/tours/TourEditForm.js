@@ -15,6 +15,9 @@ import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import SecondaryNav from '../../components/SecondaryNav';
 import Asset from '../../components/Asset';
 
+/**
+ * Renders the tour editing form.
+ */
 function TourEditForm() {
   const [errors, setErrors] = useState({});
 
@@ -55,6 +58,9 @@ function TourEditForm() {
     today.setDate(today.getDate() + 1);
   };
 
+  /**
+   * Populates form fields with current tour data.
+   */
   useEffect(() => {
     const handleMount = async () => {
       try {
@@ -72,6 +78,7 @@ function TourEditForm() {
           image,
         } = data;
 
+        // Checks if the user is an admin user before setting data.
         currentUser?.is_admin_user ? setTourData({
           title,
           country,
@@ -86,7 +93,7 @@ function TourEditForm() {
         })
           : history.push('/tours');
       } catch (err) {
-        // Redirects the user if the tour id does not exist
+        // Redirects the user if the tour id does not exist.
         if (err.response?.status === 404) {
           history.push('/');
         }
@@ -97,6 +104,9 @@ function TourEditForm() {
     handleMount();
   }, [history, id, currentUser]);
 
+  /**
+   * Converts inputed data into Key: Value pairs.
+   */
   const handleChange = (event) => {
     setTourData({
       ...tourData,
@@ -104,6 +114,10 @@ function TourEditForm() {
     });
   };
 
+  /**
+   * Handles changing of uploaded image and
+   * clears any previously uploaded image.
+   */
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
       URL.revokeObjectURL(image);
@@ -118,6 +132,12 @@ function TourEditForm() {
     }
   };
 
+  /**
+   * Pushes data to the API, displays error messages
+   * for invalid data if any and sets
+   * a feedback message to be shown to the user
+   * for successful edit.
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -151,6 +171,7 @@ function TourEditForm() {
     }
   };
 
+  // The text input fields for the form.
   const textFields = (
     <div className="text-center">
       <Form.Group>
@@ -319,7 +340,6 @@ function TourEditForm() {
 
   return (
     <>
-      {' '}
       <Form onSubmit={handleSubmit} noValidate>
         <Row>
           <Col md={5} lg={6} className="d-none d-md-block p-0 p-md-2 mt-4">

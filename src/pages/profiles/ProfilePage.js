@@ -23,6 +23,9 @@ import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { ProfileEditDropdown } from '../../components/EditDeleteDropdown';
 import FeedbackAlert from '../../components/FeedbackAlert';
 
+/**
+ * The display for a single user's profile details and photo posts.
+ */
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
   const [profilePhotos, setProfilePhotos] = useState({ results: [] });
@@ -34,6 +37,10 @@ function ProfilePage() {
   const is_owner = currentUser?.username === profile?.owner;
   const location = useLocation();
 
+  /**
+   * Retrieves data for a profile with specific id
+   * as well as associated photo posts.
+   */
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -55,6 +62,7 @@ function ProfilePage() {
     fetchData();
   }, [id, setProfileData]);
 
+  // The main profile details.
   const mainProfile = (
     <>
       {location.state?.showFeedback && (
@@ -121,6 +129,7 @@ function ProfilePage() {
     </>
   );
 
+  // The profile's posted photos
   const mainProfilePostedPhotos = (
     <>
       <hr />

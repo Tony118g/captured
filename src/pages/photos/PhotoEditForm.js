@@ -16,6 +16,9 @@ import appStyles from '../../App.module.css';
 import { axiosReq } from '../../api/axiosDefaults';
 import SecondaryNav from '../../components/SecondaryNav';
 
+/**
+ * Renders the photo editing form.
+ */
 function PhotoEditForm() {
   const [errors, setErrors] = useState({});
 
@@ -39,6 +42,9 @@ function PhotoEditForm() {
   const history = useHistory();
   const { id } = useParams();
 
+  /**
+   * Populates form fields with current photo data.
+   */
   useEffect(() => {
     const handleMount = async () => {
       try {
@@ -61,7 +67,7 @@ function PhotoEditForm() {
         })
           : history.push('/');
       } catch (err) {
-        // Redirects the user if the photo id does not exist
+        // Redirects the user if the photo id does not exist.
         if (err.response?.status === 404) {
           history.push('/');
         }
@@ -72,6 +78,9 @@ function PhotoEditForm() {
     handleMount();
   }, [history, id]);
 
+  /**
+   * Converts inputed data into Key: Value pairs.
+   */
   const handleChange = (event) => {
     setPhotoData({
       ...photoData,
@@ -79,6 +88,10 @@ function PhotoEditForm() {
     });
   };
 
+  /**
+   * Handles changing of uploaded image and
+   * clears any previously uploaded image.
+   */
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
       URL.revokeObjectURL(image);
@@ -93,6 +106,12 @@ function PhotoEditForm() {
     }
   };
 
+  /**
+   * Pushes data to the API, displays error messages
+   * for invalid data if any and sets
+   * a feedback message to be shown to the user
+   * for successful edit.
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -123,6 +142,7 @@ function PhotoEditForm() {
     }
   };
 
+  // The text input fields for the form.
   const textFields = (
     <div className="text-center">
       <Form.Group>

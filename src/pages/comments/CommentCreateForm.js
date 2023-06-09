@@ -7,6 +7,9 @@ import styles from '../../styles/CommentCreateEditForm.module.css';
 import btnStyles from '../../styles/Button.module.css';
 import Avatar from '../../components/Avatar';
 
+/**
+ * Renders the comment creation form.
+ */
 function CreateCommentForm(props) {
   const {
     photo,
@@ -17,10 +20,16 @@ function CreateCommentForm(props) {
   } = props;
   const [content, setContent] = useState('');
 
+  /**
+   * Converts inputed data into Key: Value pairs.
+   */
   const handleChange = (event) => {
     setContent(event.target.value);
   };
 
+  /**
+   * Pushes data to the API.
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {

@@ -17,6 +17,9 @@ import btnStyles from '../../styles/Button.module.css';
 import appStyles from '../../App.module.css';
 import SecondaryNav from '../../components/SecondaryNav';
 
+/**
+ * Renders the profile details editing form.
+ */
 function ProfileEditForm() {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
@@ -33,6 +36,9 @@ function ProfileEditForm() {
 
   const [errors, setErrors] = useState({});
 
+  /**
+   * Populates form fields with any current data.
+   */
   useEffect(() => {
     const handleMount = async () => {
       if (currentUser?.profile_id?.toString() === id) {
@@ -52,6 +58,9 @@ function ProfileEditForm() {
     handleMount();
   }, [currentUser, history, id]);
 
+  /**
+   * Converts inputed data into Key: Value pairs.
+   */
   const handleChange = (event) => {
     setProfileData({
       ...profileData,
@@ -59,6 +68,12 @@ function ProfileEditForm() {
     });
   };
 
+  /**
+   * Pushes data to the API, displays error messages
+   * for invalid data if any and sets
+   * a feedback message to be shown to the user
+   * for successful edit.
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -88,6 +103,7 @@ function ProfileEditForm() {
     }
   };
 
+  // The text input fields for the form.
   const textFields = (
     <>
       <Form.Group>

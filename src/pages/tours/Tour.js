@@ -20,6 +20,9 @@ import styles from '../../styles/Tour.module.css';
 import AttendeeProfileLink from '../profiles/AttendeeProfileLink';
 import FeedbackAlert from '../../components/FeedbackAlert';
 
+/**
+ * The display for a photo.
+ */
 function Tour(props) {
   const {
     id,
@@ -44,6 +47,7 @@ function Tour(props) {
   const [attendances, setAttendances] = useState({ results: [] });
   const history = useHistory();
   const [showFeedback, setShowFeedback] = useState(false);
+  // Sets the format for date fields.
   const dateFields = {
     day: '2-digit',
     month: 'short',
@@ -54,6 +58,10 @@ function Tour(props) {
   const handleShow = () => setShow(true);
   const attendanceWordTense = has_passed ? 'attended' : 'attending';
 
+  /**
+   * Retrieves data for a tour with specific id
+   * as well as associated attendances.
+   */
   useEffect(() => {
     const handleMount = async () => {
       try {
@@ -69,10 +77,17 @@ function Tour(props) {
     handleMount();
   }, [id, attendance_count]);
 
+  /**
+   * Routes the user to the relevant tour edit page.
+   */
   const handleEdit = () => {
     history.push(`/tours/${id}/edit`);
   };
 
+  /**
+   * Deletes the tour from the API and sets
+   * a feedback message to be shown to the user.
+   */
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/tours/${id}/`);
@@ -82,6 +97,12 @@ function Tour(props) {
     }
   };
 
+  /**
+   * Handles marking attendance on a tour by
+   * sending a request to the API for
+   * a tour with a specific id and
+   * incrementing the attendance count by 1.
+   */
   const handleAttend = async () => {
     try {
       const { data } = await axiosRes.post('/attendances/', { tour: id });
@@ -102,6 +123,12 @@ function Tour(props) {
     }
   };
 
+  /**
+   * Handles unmarking attendance on a tour by
+   * sending a request to the API for
+   * a tour with a specific id and
+   * decreasing the attendance count by 1.
+   */
   const handleUnattend = async () => {
     try {
       await axiosRes.delete(`/attendances/${attendance_id}/`);

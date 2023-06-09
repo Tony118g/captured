@@ -1,5 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 
+/**
+ * Handles collapsing of burger menu when the user
+ * clicks out of menu.
+ */
 const useClickOutsideToggle = () => {
   const [expanded, setExpanded] = useState(false);
   const ref = useRef(null);

@@ -6,6 +6,9 @@ import { axiosRes } from '../../api/axiosDefaults';
 import styles from '../../styles/CommentCreateEditForm.module.css';
 import btnStyles from '../../styles/Button.module.css';
 
+/**
+ * Renders the comment edit form.
+ */
 function CommentEditForm(props) {
   const {
     id,
@@ -16,10 +19,16 @@ function CommentEditForm(props) {
 
   const [formContent, setFormContent] = useState(content);
 
+  /**
+   * Converts inputed data into Key: Value pairs.
+   */
   const handleChange = (event) => {
     setFormContent(event.target.value);
   };
 
+  /**
+   * Pushes data to the API and updates the relevant comment.
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {

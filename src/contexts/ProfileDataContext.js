@@ -15,6 +15,9 @@ export const SetProfileDataContext = createContext();
 export const useProfileData = () => useContext(ProfileDataContext);
 export const useSetProfileData = () => useContext(SetProfileDataContext);
 
+/**
+ * A provider to give context to children
+ */
 export function ProfileDataProvider({ children }) {
   const [profileData, setProfileData] = useState({
     pageProfile: { results: [] },
@@ -23,6 +26,10 @@ export function ProfileDataProvider({ children }) {
 
   const currentUser = useCurrentUser();
 
+  /**
+   * Maps user follow count in the API and
+   * updates the follow count.
+   */
   const handleFollow = async (clickedProfile) => {
     try {
       const { data } = await axiosRes.post('/followers/', {
@@ -52,6 +59,10 @@ export function ProfileDataProvider({ children }) {
     }
   };
 
+  /**
+   * Deletes follow from the API and
+   * updates the follow count.
+   */
   const handleUnfollow = async (clickedProfile) => {
     try {
       await axiosRes.delete(`/followers/${clickedProfile.following_id}/`);
@@ -76,6 +87,10 @@ export function ProfileDataProvider({ children }) {
     }
   };
 
+  /**
+   * Retrieves profile data from the API and
+   * orders profiles by highest follower count.
+   */
   useEffect(() => {
     const handleMount = async () => {
       try {

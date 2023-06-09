@@ -14,7 +14,7 @@ test('renders NavBar', () => {
   expect(logInLink).toBeInTheDocument();
 });
 
-test('renders link to the user profile for a logged in user', async () => {
+test('renders link to the user profile and logout link for a logged in user', async () => {
   render(
     <Router>
       <CurrentUserProvider>
@@ -29,7 +29,7 @@ test('renders link to the user profile for a logged in user', async () => {
   expect(logoutLink).toBeInTheDocument();
 });
 
-test('renders Sign in and Sign up buttons again on log out', async () => {
+test('renders Login and Sign up buttons again on log out', async () => {
   render(
     <Router>
       <CurrentUserProvider>

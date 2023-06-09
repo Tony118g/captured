@@ -6,6 +6,11 @@ import Asset from '../../components/Asset';
 import PopularProfileLink from './PopularProfileLink';
 import { useProfileData } from '../../contexts/ProfileDataContext';
 
+/**
+ * Retrieves Profiles from API and displays
+ * the most followed
+ * (10 for large screens and 4 for small screens).
+ */
 function PopularProfiles({ mobile }) {
   const { popularProfiles } = useProfileData();
 

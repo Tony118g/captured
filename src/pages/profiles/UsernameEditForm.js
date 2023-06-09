@@ -16,6 +16,9 @@ import btnStyles from '../../styles/Button.module.css';
 import appStyles from '../../App.module.css';
 import SecondaryNav from '../../components/SecondaryNav';
 
+/**
+ * Renders the username editing form.
+ */
 function UsernameEditForm() {
   const [username, setUsername] = useState('');
   const [errors, setErrors] = useState({});
@@ -24,6 +27,11 @@ function UsernameEditForm() {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
+  /**
+   * Populates form with current username or
+   * reroutes the user if they are not
+   * the correct user according to id.
+   */
   useEffect(() => {
     if (currentUser?.profile_id?.toString() === id) {
       setUsername(currentUser.username);
@@ -32,6 +40,12 @@ function UsernameEditForm() {
     }
   }, [currentUser, history, id]);
 
+  /**
+   * Pushes data to the API, displays error messages
+   * for invalid data if any and sets
+   * a feedback message to be shown to the user
+   * for successful update.
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {

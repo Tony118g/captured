@@ -16,6 +16,10 @@ import { fetchMoreData } from '../../utils/utils';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import FeedbackAlert from '../../components/FeedbackAlert';
 
+/**
+ * The display for all posted tours
+ * related to the filter prop.
+ */
 function ToursPage({ message, filter = '' }) {
   const [tours, setTours] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -24,6 +28,9 @@ function ToursPage({ message, filter = '' }) {
   const currentUser = useCurrentUser();
   const location = useLocation();
 
+  /**
+   * Fetches tours from the API relevant to the filter.
+   */
   useEffect(() => {
     const fetchTours = async () => {
       try {
@@ -35,6 +42,7 @@ function ToursPage({ message, filter = '' }) {
       }
     };
     setHasLoaded(false);
+    // Delays API requests by 1 second when search query is input.
     const timer = setTimeout(() => {
       fetchTours();
     }, 1000);

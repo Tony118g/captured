@@ -17,6 +17,10 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   />
 ));
 
+/**
+ * A reusable dropdown menu to display edit and delete options
+ * that call relevant functions based on props passed.
+ */
 export function EditDeleteDropdown(props) {
   const {
     handleEdit,
@@ -75,6 +79,9 @@ export function EditDeleteDropdown(props) {
   );
 }
 
+/**
+ *  Dropdown menu used to display profile edit options.
+ */
 export function ProfileEditDropdown({ id }) {
   const history = useHistory();
 

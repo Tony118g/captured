@@ -17,6 +17,9 @@ export const SetCurrentUserContext = createContext();
 export const useCurrentUser = () => useContext(CurrentUserContext);
 export const useSetCurrentUser = () => useContext(SetCurrentUserContext);
 
+/**
+ * A provider to give context to children
+ */
 export function CurrentUserProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
   const history = useHistory();
@@ -34,6 +37,10 @@ export function CurrentUserProvider({ children }) {
     handleMount();
   }, []);
 
+  /**
+   * Axios interceptor to refresh token if 401 error and
+   * redirect user to login if refresh fails
+   */
   useMemo(() => {
     axiosReq.interceptors.request.use(
       async (config) => {

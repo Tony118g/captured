@@ -12,6 +12,9 @@ import styles from '../../styles/LogInSignUpForm.module.css';
 import btnStyles from '../../styles/Button.module.css';
 import useRedirect from '../../hooks/useRedirect';
 
+/**
+ * Renders the signup form.
+ */
 function SignUpForm() {
   useRedirect("loggedIn");
   const [signUpData, setSignUpData] = useState({
@@ -25,6 +28,9 @@ function SignUpForm() {
 
   const history = useHistory();
 
+  /**
+   * Converts inputed data into Key: Value pairs.
+   */
   const handleChange = (event) => {
     setSignUpData({
       ...signUpData,
@@ -32,6 +38,10 @@ function SignUpForm() {
     });
   };
 
+  /**
+   * Pushes data to the API and redirects to login page
+   * or displays error messages for invalid data.
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {

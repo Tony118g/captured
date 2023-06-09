@@ -3,6 +3,9 @@ import { Container } from 'react-bootstrap';
 import appStyles from '../../App.module.css';
 import SecondaryNav from '../../components/SecondaryNav';
 
+/**
+ * Renders the about page content.
+ */
 function About() {
   return (
     <>

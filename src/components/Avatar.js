@@ -1,6 +1,10 @@
 import React from 'react';
 import styles from '../styles/Avatar.module.css';
 
+/**
+ * An avatar component with a default height prop
+ * to be used for profile avatars.
+ */
 function Avatar({ src, height = 45, text }) {
   return (
     <span>

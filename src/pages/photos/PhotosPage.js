@@ -1,10 +1,10 @@
+/* eslint-disable */
 import React, { useEffect, useState } from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { useLocation } from 'react-router-dom';
 import { Container, Form } from 'react-bootstrap';
 import InfiniteScroll from 'react-infinite-scroll-component';
-/* eslint-disable */
 import styles from '../../styles/PhotosToursPage.module.css';
 import appStyles from '../../App.module.css';
 import { axiosReq } from '../../api/axiosDefaults';
@@ -15,6 +15,10 @@ import { fetchMoreData } from '../../utils/utils';
 import PopularProfiles from '../profiles/PopularProfiles';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 
+/**
+ * The display for all posted photos
+ * related to the filter prop.
+ */
 function PhotosPage({ message, filter = '' }) {
   const [photos, setPhotos] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -22,6 +26,9 @@ function PhotosPage({ message, filter = '' }) {
   const [query, setQuery] = useState('');
   const currentUser = useCurrentUser();
 
+  /**
+   * Fetches photos from the API relevant to the filter.
+   */
   useEffect(() => {
     const fetchPhotos = async () => {
       try {
@@ -36,6 +43,7 @@ function PhotosPage({ message, filter = '' }) {
     };
 
     setHasLoaded(false);
+    // Delays API requests by 1 second when search query is input.
     const timer = setTimeout(() => {
       fetchPhotos();
     }, 1000);
