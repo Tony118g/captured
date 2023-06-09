@@ -253,3 +253,24 @@ During development, I created automated tests for the NavBar.js and SecondaryNav
 Due to the project front end and back end being hosted somewhat separately Some browsers and devices will not render full site functionality unless the setting for "cross-website-tracking" has been turned off. As this site was developed strictly for educational purposes, no action needs to be taken to resolve this.
 
 Other than this, due to extensive testing, I am confident that there are no other unresolved bugs to the best of my knowledge.
+
+## Additional testing
+
+### Lighthouse
+I used the [Google lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) test in Chrome Developer Tools to test pages on the site. This was used to test the following:
+
+* Performance
+* Accessibility
+* Best Practices
+* SEO
+
+The results were acceptable for my expectations of this project. As I was mainly focused on the functionality aspect of the site, I allowed less time for ensuring high-quality performance, however, I am still pleased with the resulting outcome.
+
+Below is an example of the lighthouse results for the home page. Other page's results differed slightly but the differences were not significant.
+
+![Screenshot of the lighthouse report](documentation/testing-images/lighthouse-results.jpg)
+
+### Peer Review
+In addition to the above testing procedures, the site was reviewed by my mentor and my wife. This helped me get other people's opinions and receive real-world feedback. All feedback was positive and led me to believe that all expected standards of quality and functionality have been met.
+
+Return to [README.md](README.md)
