@@ -11,6 +11,7 @@ import {
 } from '../contexts/CurrentUserContext';
 import Avatar from './Avatar';
 import useClickOutsideToggle from '../hooks/useClickOutsideToggle';
+import { removeTokenTimestamp } from '../utils/utils';
 
 function NavBar() {
   const currentUser = useCurrentUser();
@@ -22,6 +23,7 @@ function NavBar() {
     try {
       await axios.post('/dj-rest-auth/logout/');
       setCurrentUser(null);
+      removeTokenTimestamp();
     } catch (err) {
       console.log(err);
     }
