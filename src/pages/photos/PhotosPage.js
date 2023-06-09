@@ -31,7 +31,7 @@ function PhotosPage({ message, filter = '' }) {
         setPhotos(data);
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 

@@ -90,7 +90,7 @@ function TourEditForm() {
         if (err.response?.status === 404) {
           history.push('/');
         }
-        console.log(err);
+        // console.log(err);
       }
     };
 

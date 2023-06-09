@@ -62,7 +62,7 @@ function Tour(props) {
         ]);
         setAttendances(attendances);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 
@@ -78,7 +78,7 @@ function Tour(props) {
       await axiosRes.delete(`/tours/${id}/`);
       setShowFeedback(true);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -98,7 +98,7 @@ function Tour(props) {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -118,7 +118,7 @@ function Tour(props) {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 

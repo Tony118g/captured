@@ -41,7 +41,7 @@ function Comment(props) {
       }));
       setShowFeedback(true);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 

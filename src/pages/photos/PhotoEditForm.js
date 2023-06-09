@@ -65,7 +65,7 @@ function PhotoEditForm() {
         if (err.response?.status === 404) {
           history.push('/');
         }
-        console.log(err);
+        // console.log(err);
       }
     };
 
@@ -116,7 +116,7 @@ function PhotoEditForm() {
         },
       });
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }

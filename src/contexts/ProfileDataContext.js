@@ -48,7 +48,7 @@ export function ProfileDataProvider({ children }) {
         },
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -72,7 +72,7 @@ export function ProfileDataProvider({ children }) {
         },
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -87,7 +87,7 @@ export function ProfileDataProvider({ children }) {
           popularProfiles: data,
         }));
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 

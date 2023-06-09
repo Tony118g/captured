@@ -51,7 +51,7 @@ function Photo(props) {
         history.push('/');
       }, 3000);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -67,7 +67,7 @@ function Photo(props) {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -83,7 +83,7 @@ function Photo(props) {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
